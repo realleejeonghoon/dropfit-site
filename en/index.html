@@ -803,7 +803,7 @@
       SRC = FROM || saved || siteTag(document.referrer);
       if (SRC && SRC !== saved) sessionStorage.setItem(KEY, SRC);
     } catch (e) { SRC = FROM || siteTag(document.referrer); }
-    var VERSION = '0.6.11 en-' + (SRC || 'dropfit-kr');
+    var VERSION = 'en ' + (SRC || 'dropfit-kr');   // 집계 서버가 20자로 자르므로 짧게
     var COUNT_URL = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';
     var tz = document.getElementById('tz'), po = document.getElementById('poForm');
     var email = po.querySelector('input[type=email]'), note = po.querySelector('.fb-note'), btn = po.querySelector('button[type=submit]');
