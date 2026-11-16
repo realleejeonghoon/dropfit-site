@@ -99,5 +99,14 @@
     document.dispatchEvent(new CustomEvent('dropfit:checkout'));
   }
 
+  // 구매 버튼([data-buy])에 마우스·손가락·키보드가 닿으면 바로 불러 둡니다. 누르는 순간 창이 뜨도록.
+  function warm(e) {
+    var t = e.target;
+    if (t && t.closest && t.closest('[data-buy]')) load();
+  }
+  if (C.stage === 'open') {
+    ['pointerover', 'touchstart', 'focusin'].forEach(function (n) { document.addEventListener(n, warm, { passive: true }); });
+  }
+
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watch); else watch();
 })();
