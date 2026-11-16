@@ -27,12 +27,30 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"맥에서 PDF 여러 개를 하나로 합치려면?","acceptedAnswer":{"@type":"Answer","text":"PDF 파일들을 한꺼번에 골라 Dropfit으로 드래그해 PDF 칸에 놓으면 고른 순서대로 한 권이 됩니다. 사진이 섞여 있어도 함께 묶입니다. 원본은 그대로 두고, 같은 폴더에 새 PDF가 생깁니다."}},
-{"@type":"Question","name":"맥북 사진(HEIC)을 JPG로 한 번에 바꾸려면?","acceptedAnswer":{"@type":"Answer","text":"사진을 여러 장 고르거나 폴더째 Dropfit으로 드래그해 JPG 칸에 놓으면 됩니다. 원본 HEIC는 그대로 남습니다."}},
-{"@type":"Question","name":"맥북 사진 여러 장을 PDF 하나로 만들려면?","acceptedAnswer":{"@type":"Answer","text":"사진을 골라 PDF 칸으로 드래그하면 합치기 · 나누기가 나옵니다. 합치기에 놓으면 PDF 한 권, 나누기에 놓으면 장마다 PDF 한 개씩 만듭니다."}},
-{"@type":"Question","name":"파일이 인터넷에 올라가나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 변환은 모두 Mac 안에서 하고, 파일은 어디로도 보내지 않습니다."}}
-]}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://dropfit.kr/#website",
+      "url": "https://dropfit.kr/",
+      "name": "Dropfit",
+      "alternateName": "드롭핏",
+      "inLanguage": "ko-KR"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://dropfit.kr/#app",
+      "name": "Dropfit",
+      "alternateName": "드롭핏",
+      "url": "https://dropfit.kr/",
+      "description": "Mac용 이미지·PDF 변환 앱, 드롭핏",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "macOS 14 이상",
+      "inLanguage": "ko-KR"
+    }
+  ]
+}
 </script>
 <style>
   :root {
