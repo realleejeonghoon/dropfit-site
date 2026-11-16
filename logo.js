@@ -90,8 +90,13 @@
     core: pick('.lg-core'), letters: [].slice.call(host.querySelectorAll('.lg-wm span')) };
   var lastU = -1;
 
+  /* 'Dropfit' 글자가 떠오르기 시작하면 소개 한 줄과 신청 칸을 이어서 띄운다(index.html .lg-in) */
+  var shown = false;
+  function reveal() { if (!shown) { shown = true; document.documentElement.classList.add('lg-in'); } }
+
   function render(T) {
     T = T / K;
+    if (T >= 2.15) reveal();
     /* 1. 선 그리기: 천천히 출발해 길게 감속 */
     var du = DRAW(seg(T, 0.15, 1.0));
     if (du !== lastU) {

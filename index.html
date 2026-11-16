@@ -755,8 +755,16 @@
   .tz.signed .po { display: none; }
   .tz.signed .po-signed { display: block; }
   .tz footer { background: transparent; }
+  /* 소개 한 줄과 신청 칸은 로고 모션의 'Dropfit' 글자에 이어 나타난다. 자리는 처음부터 잡혀 있고, 글은 HTML에 그대로 있다 (11/16 정훈) */
+  .lg-wait .tz-lede, .lg-wait .tz .po, .lg-wait .tz .po-signed { opacity: 0; transform: translateY(10px); }
+  .lg-in .tz-lede, .lg-in .tz .po, .lg-in .tz .po-signed { opacity: 1; transform: none; transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  .lg-in .tz .po, .lg-in .tz .po-signed { transition-delay: .12s; }
+  @media (prefers-reduced-motion: reduce) { .lg-wait .tz-lede, .lg-wait .tz .po, .lg-wait .tz .po-signed { opacity: 1; transform: none; } }
   .tz footer .wrap { border-top: 0; justify-content: center; gap: 16px; }
 </style>
+<script>
+  (function (d) { d.classList.add('lg-wait'); setTimeout(function () { d.classList.add('lg-in'); }, 5000); })(document.documentElement);
+</script>
 </head>
 <body>
 <div class="tz" id="tz">
@@ -826,6 +834,6 @@
     if (signed()) tz.classList.add('signed');
   })();
 </script>
-<script src="logo.js?v=1" defer></script>
+<script src="logo.js?v=2" defer></script>
 </body>
 </html>
