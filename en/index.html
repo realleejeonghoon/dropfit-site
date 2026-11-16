@@ -747,6 +747,12 @@
   .tz.signed .po { display: none; }
   .tz.signed .po-signed { display: block; }
   .tz footer { background: transparent; }
+  /* 구매 버튼: 11/24 10:00 KST부터, 공용 결제(window.DropfitCheckout)가 있을 때만 보인다 (11/16 정훈 결정 A) */
+  .en-buy { margin: 28px 0 0; text-align: center; }
+  .en-buy small { display: block; margin-top: 10px; font-size: 13px; color: var(--ink-3); }
+  .lg-wait .en-buy { opacity: 0; transform: translateY(10px); }
+  .lg-in .en-buy { opacity: 1; transform: none; transition: opacity .8s var(--ease) .24s, transform .8s var(--ease) .24s; }
+  @media (prefers-reduced-motion: reduce) { .lg-wait .en-buy { opacity: 1; transform: none; } }
   /* 소개 한 줄과 신청 칸은 로고 모션의 'Dropfit' 글자에 이어 나타난다. 자리는 처음부터 잡혀 있고, 글은 HTML에 그대로 있다 (11/16 정훈) */
   .lg-wait .tz-lede, .lg-wait .tz .po, .lg-wait .tz .po-signed { opacity: 0; transform: translateY(10px); }
   .lg-in .tz-lede, .lg-in .tz .po, .lg-in .tz .po-signed { opacity: 1; transform: none; transition: opacity .8s var(--ease), transform .8s var(--ease); }
@@ -774,6 +780,7 @@
       <div class="fb-done" role="status"><b>Thank you.</b><p>We’ll email you when the English version is out on December 1.</p></div>
     </form>
     <p class="po-signed">You’re already on the list.</p>
+    <p class="en-buy" id="enBuy" hidden><button class="pill lg" type="button">Buy Dropfit for Mac</button><small>The app is in Korean until December 1. The English version comes as a free update.</small></p>
   </main>
 </div>
 <script>
@@ -824,6 +831,11 @@
     });
     po.addEventListener('input', function () { if (note.className.indexOf('err') >= 0) { note.innerHTML = noteBase; note.className = 'fb-note'; } });
     if (signed()) tz.classList.add('signed');
+    // 구매: 판매 시작(11/24 10:00 KST) 뒤, 결제 스크립트가 공용 창구 window.DropfitCheckout.open을 내놓았을 때만 보인다
+    var buy = document.getElementById('enBuy'), OPEN_AT = Date.UTC(2026, 10, 24, 1, 0, 0);
+    function showBuy() { if (Date.now() >= OPEN_AT && window.DropfitCheckout && window.DropfitCheckout.open) buy.hidden = false; }
+    buy.querySelector('button').addEventListener('click', function () { window.DropfitCheckout.open({ locale: 'en', from: 'en-' + (SRC || 'dropfit-kr') }); });
+    showBuy(); window.addEventListener('load', showBuy);
   })();
 </script>
 <script src="../logo.js?v=2" defer></script>
