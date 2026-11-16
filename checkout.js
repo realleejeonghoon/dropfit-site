@@ -1,7 +1,7 @@
 // Dropfit 결제창 (Paddle Billing, 오버레이 한 페이지)
 // - Paddle.js는 가격 칸이 화면 가까이 올 때만 불러옵니다. 첫 화면은 지금처럼 가볍게 둡니다.
 // - 금액은 Paddle이 돌려주는 formattedTotals만 그대로 씁니다. 계산·다시 꾸미기를 하지 않습니다.
-// - 판매 중(stage 'open')일 때만 window.DropfitCheckout.open({ locale, from })을 엽니다.
+// - 판매 중(stage 'open')일 때만 window.DropfitCheckout.open({ locale, from })·ready()를 만들고 'dropfit:checkout' 이벤트를 보냅니다.
 // - 결제가 끝나면 document에 'dropfit:paid' 이벤트를 보냅니다. 받는 쪽이 preventDefault()하면 결제창을 닫습니다.
 (function () {
   'use strict';
@@ -92,8 +92,11 @@
           if (discountOn()) o.discountId = C.discountId;
           P.Checkout.open(o);
         });
-      }
+      },
+      // Paddle.js를 불러 결제창을 열 준비가 되면 풀립니다(/pro처럼 들어오자마자 여는 페이지용)
+      ready: function () { return load().then(function () {}); }
     };
+    document.dispatchEvent(new CustomEvent('dropfit:checkout'));
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watch); else watch();
