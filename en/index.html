@@ -71,7 +71,7 @@
   "mainEntity": [{
     "@type": "Question",
     "name": "What is Dropfit for Mac?",
-    "acceptedAnswer": { "@type": "Answer", "text": "Dropfit for Mac is an image and PDF converter for Mac, made by Usul. Drag files onto the circle on your screen to convert them to the format and size you need. Your files never leave your Mac." }
+    "acceptedAnswer": { "@type": "Answer", "text": "Dropfit for Mac is an image and PDF converter for Mac, made by Usul. It is a small circle that stays on your Mac screen. Drag any image or PDF onto it, pick a format, and a new file appears right next to the original, in the size you need. Nothing is uploaded." }
   }]
 }
 </script>
@@ -788,6 +788,9 @@
   .lg-in .tz-lede, .lg-in .tz .po, .lg-in .tz .po-signed, .lg-in .tz-def { opacity: 1; transform: none; transition: opacity .8s var(--ease), transform .8s var(--ease); }
   .lg-in .tz .po, .lg-in .tz .po-signed { transition-delay: .12s; }
   @media (prefers-reduced-motion: reduce) { .lg-wait .tz-lede, .lg-wait .tz .po, .lg-wait .tz .po-signed, .lg-wait .tz-def { opacity: 1; transform: none; } }
+  .tz-head { display: block; font-size: clamp(28px, 3.2vw, 36px); font-weight: 600; color: var(--ink); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 10px; }
+  .tz-lede { max-width: 560px; }
+  .tz-lede .ib { display: inline-block; }
   .tz-def { max-width: 480px; margin: 40px auto 0; font-size: 13px; line-height: 1.6; color: var(--ink-3); text-align: center; }
   .tz footer .wrap { border-top: 0; justify-content: center; gap: 16px; }
 </style>
@@ -799,7 +802,7 @@
 <div class="tz" id="tz">
   <main class="tz-main">
     <section class="logo-top" aria-label="Dropfit"><div class="wrap"><div class="logo-box" id="dfLogo"><div class="lg-lock"><div class="lg-ic"></div><div class="lg-wm" aria-hidden="true"><span>D</span><span>r</span><span>o</span><span>p</span><span>f</span><span>i</span><span>t</span></div></div></div></div></section>
-    <p class="tz-lede">Image and PDF converter for Mac</p>
+    <p class="tz-lede"><b class="tz-head">Drag, drop, done.</b><span class="ib">Images and PDFs in the format and size you&nbsp;need.</span> <span class="ib">One file or a whole&nbsp;folder.</span></p>
     <form class="po" id="poForm" novalidate>
       <label class="po-field">
         <span class="sr">Email for the launch notice</span>
@@ -812,7 +815,7 @@
     </form>
     <p class="po-signed">You’re already on the list.</p>
     <p class="en-buy" id="enBuy" hidden><button class="pill lg" type="button">Buy Dropfit for Mac</button><small>The app is in Korean until December&nbsp;1. The English version comes as a free&nbsp;update.</small></p>
-    <p class="tz-def">Dropfit&nbsp;for&nbsp;Mac is an image and PDF converter for Mac, made by Usul. Drag files onto the circle on your screen to convert them to the format and size you need. Your files never leave your&nbsp;Mac.</p>
+    <p class="tz-def">Dropfit&nbsp;for&nbsp;Mac is a small circle that stays on your Mac screen. Drag any image or PDF onto it, pick a format, and a new file appears right next to the original, in the size you need. Nothing is uploaded. Made by&nbsp;Usul.</p>
   </main>
 </div>
 <script>
