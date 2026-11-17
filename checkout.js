@@ -42,7 +42,9 @@
     return loading;
   }
 
-  function items() { return [{ priceId: C.priceId, quantity: 1 }]; }
+  // plan: 'pro'(기본, 1석) 또는 C.plans에 있는 팀 요금제('team5'·'team10'). 출시 기념 할인은 'pro'에만 붙습니다.
+  function priceOf(plan) { return plan && plan !== 'pro' ? (C.plans || {})[plan] : C.priceId; }
+  function items(plan) { return [{ priceId: priceOf(plan), quantity: 1 }]; }
 
   function showPrice() {
     var req = { items: items() };
@@ -53,7 +55,16 @@
       fill('pro', li.formattedTotals.total);
       if (discountOn()) fill('pro-regular', li.formattedTotals.subtotal);
       document.documentElement.setAttribute('data-price-ready', '');
-    }).catch(function (e) { console.error('[Dropfit] 가격을 불러올 수 없습니다.', e); });
+    }).catch(function (e) { console.error('[Dropfit] 가격을 불러올 수 없습니다.', e); })
+      .then(function () {
+        Object.keys(C.plans || {}).forEach(function (k) {
+          if (!C.plans[k] || !document.querySelector('[data-price="' + k + '"]')) return;
+          window.Paddle.PricePreview({ items: items(k) }).then(function (r) {
+            var li = r && r.data && r.data.details && r.data.details.lineItems && r.data.details.lineItems[0];
+            if (li && li.formattedTotals) fill(k, li.formattedTotals.total);
+          }).catch(function (e) { console.error('[Dropfit] ' + k + ' 가격을 불러올 수 없습니다.', e); });
+        });
+      });
   }
 
   function fill(key, text) {
@@ -83,13 +94,15 @@
     window.DropfitCheckout = {
       open: function (opts) {
         opts = opts || {};
+        var plan = opts.plan || 'pro';
+        if (!priceOf(plan)) return Promise.reject(new Error('[Dropfit] ' + plan + ' 가격 ID가 paddle-config.js에 없습니다.'));
         return load().then(function (P) {
           var o = {
-            items: items(),
+            items: items(plan),
             customData: { from: String(opts.from || '').slice(0, 20) },
             settings: { displayMode: 'overlay', variant: 'one-page', locale: opts.locale || 'ko' }
           };
-          if (discountOn()) o.discountId = C.discountId;
+          if (plan === 'pro' && discountOn()) o.discountId = C.discountId;
           P.Checkout.open(o);
         });
       },
