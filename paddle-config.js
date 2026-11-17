@@ -9,3 +9,7 @@ window.DROPFIT_PADDLE = {
   discountId: 'dsc_01m7hx8hh6x8eychsv6hzz54t3', // 출시 기념가 9,900원 (시험 계정)
   discountEnds: '2026-11-30T14:59:59Z'          // 2026-11-30 23:59:59 KST, Paddle 할인 만료와 같음
 };
+
+// 실계정(production) 값. 승인과 정훈 님 확인 뒤 위 값을 이것으로 바꾸고 environment: 'production', token: live_…, stage: 'open'.
+//   priceId:    'pri_01m7meqdc6y15147vppscdsdfg'  (Dropfit Pro pro_01m7mekqq3k61p7a4yg188re5t, 일회성 ₩14,900)
+//   discountId: 'dsc_01m7metejtxcjfte4pvm96h146'  (출시 기념가 33.56%, 만료 2026-11-30 14:59 UTC)
