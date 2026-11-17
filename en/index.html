@@ -42,7 +42,14 @@
   "description": "Image and PDF converter for Mac",
   "inLanguage": "en",
   "isPartOf": { "@id": "https://dropfit.kr/#website" },
-  "about": { "@id": "https://dropfit.kr/#app" }
+  "about": { "@id": "https://dropfit.kr/#app" },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://dropfit.kr/#org",
+    "name": "Dropfit",
+    "url": "https://dropfit.kr/",
+    "sameAs": ["https://blog.naver.com/miles_cch"]
+  }
 }
 </script>
 <style>
@@ -754,10 +761,11 @@
   .lg-in .en-buy { opacity: 1; transform: none; transition: opacity .8s var(--ease) .24s, transform .8s var(--ease) .24s; }
   @media (prefers-reduced-motion: reduce) { .lg-wait .en-buy { opacity: 1; transform: none; } }
   /* 소개 한 줄과 신청 칸은 로고 모션의 'Dropfit' 글자에 이어 나타난다. 자리는 처음부터 잡혀 있고, 글은 HTML에 그대로 있다 (11/16 정훈) */
-  .lg-wait .tz-lede, .lg-wait .tz .po, .lg-wait .tz .po-signed { opacity: 0; transform: translateY(10px); }
-  .lg-in .tz-lede, .lg-in .tz .po, .lg-in .tz .po-signed { opacity: 1; transform: none; transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  .lg-wait .tz-lede, .lg-wait .tz .po, .lg-wait .tz .po-signed, .lg-wait .tz-def { opacity: 0; transform: translateY(10px); }
+  .lg-in .tz-lede, .lg-in .tz .po, .lg-in .tz .po-signed, .lg-in .tz-def { opacity: 1; transform: none; transition: opacity .8s var(--ease), transform .8s var(--ease); }
   .lg-in .tz .po, .lg-in .tz .po-signed { transition-delay: .12s; }
-  @media (prefers-reduced-motion: reduce) { .lg-wait .tz-lede, .lg-wait .tz .po, .lg-wait .tz .po-signed { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .lg-wait .tz-lede, .lg-wait .tz .po, .lg-wait .tz .po-signed, .lg-wait .tz-def { opacity: 1; transform: none; } }
+  .tz-def { max-width: 480px; margin: 40px auto 0; font-size: 13px; line-height: 1.6; color: var(--ink-3); text-align: center; }
   .tz footer .wrap { border-top: 0; justify-content: center; gap: 16px; }
 </style>
 <script>
@@ -781,6 +789,7 @@
     </form>
     <p class="po-signed">You’re already on the list.</p>
     <p class="en-buy" id="enBuy" hidden><button class="pill lg" type="button">Buy Dropfit for Mac</button><small>The app is in Korean until December&nbsp;1. The English version comes as a free&nbsp;update.</small></p>
+    <p class="tz-def">Dropfit&nbsp;for&nbsp;Mac is an image and PDF converter for Mac, made by Usul. Drop files onto the circle on your screen, and they turn into the format and file size you need. Your files never leave your&nbsp;Mac.</p>
   </main>
 </div>
 <script>
