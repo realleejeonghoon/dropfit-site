@@ -254,6 +254,15 @@
   .copy-only { display: none !important; }
   .not-mac .copy-only { display: inline-flex !important; }
 
+  /* 첫 화면 글은 로고 모션의 'Dropfit' 글자에 이어 나타난다(11/16 정훈 확정, PR #3). 자리는 처음부터 잡혀 있고 글은 HTML에 그대로 있다.
+     logo.js가 'Dropfit' 글자를 띄우기 시작할 때 lg-in을 붙이고, 오지 않아도 5초 뒤에는 보인다. 동작 줄이기에서는 처음부터 보인다 */
+  .lg-wait .intro { animation: none; }
+  .lg-wait .intro .wrap > * { opacity: 0; transform: translateY(10px); }
+  .lg-in .intro .wrap > * { opacity: 1; transform: none; transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  .lg-in .intro .lede { transition-delay: .12s; }
+  .lg-in .intro .cta { transition-delay: .24s; }
+  .lg-in .intro .hero-meta, .lg-in .intro .notice { transition-delay: .32s; }
+  @media (prefers-reduced-motion: reduce) { .lg-wait .intro .wrap > * { opacity: 1; transform: none; } }
   @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 
   /* ---------- Sections ---------- */
@@ -994,6 +1003,9 @@
 
   #uses .av > g > circle:first-child { fill: #f5f5f7; }   /* 회색 구역 위에서는 얼굴 바탕을 흰색으로 */
 </style>
+<script>
+  (function (d) { d.classList.add('lg-wait'); setTimeout(function () { d.classList.add('lg-in'); }, 5000); })(document.documentElement);
+</script>
 </head>
 <body>
 
@@ -1070,13 +1082,13 @@
 <section class="block" aria-labelledby="feat-title">
   <div class="wrap">
     <div class="sec-head">
-      <h2 class="sec-title reveal" id="feat-title">끌어 와서, 고르고, 놓으면 끝.</h2>
+      <h2 class="sec-title reveal" id="feat-title">끌어 와서, 고르고, 끝.</h2>
       <ul class="chips reveal" aria-label="지원 포맷"><li>JPG</li><li>PNG</li><li>HEIC</li><li>WebP</li><li>TIFF</li><li>GIF</li><li>BMP</li><li>PDF</li></ul>
     </div>
     <div class="how reveal">
       <div><b>01</b><h3>Dropfit으로 끌어 오기</h3><p>이미지·PDF나 폴더를 화면에 떠 있는 Dropfit으로 끌어 옵니다.</p></div>
       <div><b>02</b><h3>포맷 고르기</h3><p>펼쳐진 포맷 중 하나 위로 끌어 갑니다.</p></div>
-      <div><b>03</b><h3>놓으면 끝</h3><p>원본 옆에 새 파일이 생기고, 원본은 그대로입니다.</p></div>
+      <div><b>03</b><h3>끌어다 놓으면 끝</h3><p>원본 옆에 새 파일이 생기고, 원본은 그대로입니다.</p></div>
     </div>
   </div>
 </section>
