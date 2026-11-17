@@ -198,7 +198,7 @@
   /* 맨 위 로고 모션(logo.js): 칸 없이 바탕에 바로, 아이콘은 무대 폭의 23%(최대 240px) */
   .logo-top { padding: 56px 0 0; }
   .logo-box { container-type: inline-size; }
-  .lg-lock { --icw: clamp(120px, 23cqw, 240px); display: flex; flex-direction: column; align-items: center; gap: calc(var(--icw) * .096); }
+  .lg-lock { --icw: clamp(104px, 16cqw, 168px); display: flex; flex-direction: column; align-items: center; gap: calc(var(--icw) * .096); }
   .lg-ic { width: var(--icw); aspect-ratio: 1; will-change: transform; }
   .lg-ic svg { display: block; width: 100%; height: 100%; overflow: visible; }
   .lg-wm { font-weight: 600; font-size: calc(var(--icw) * .226); line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); display: flex; white-space: nowrap; }
@@ -860,6 +860,7 @@
   .plan .plan-cta { margin-top: 28px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
   .pill[disabled] { opacity: .55; cursor: default; box-shadow: none; }
   .trust { margin: 40px 0 0; display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: var(--ink-2); max-width: 860px; }
+  section[aria-labelledby="pricing-title"] .sec-head, section[aria-labelledby="pricing-title"] .plans, section[aria-labelledby="pricing-title"] .trust { max-width: 860px; margin-left: auto; margin-right: auto; }
   .trust > span { position: relative; padding-left: 12px; }
   .trust > span::before { content: ""; position: absolute; left: 0; top: .6em; width: 4px; height: 4px; border-radius: 50%; background: var(--sky-soft); }
   .trust a { color: var(--link); }
@@ -987,7 +988,7 @@
     <a class="brand" href="#how"><img src="assets/icon-128.png" alt="">Dropfit</a>
     <div class="nav-links">
       <a href="#how">사용법</a>
-      <a href="#pricing">가격</a><a href="#faq">질문</a>
+      <a href="#pricing">가격</a><a href="#faq">자주 묻는 질문</a>
     </div>
     <a class="pill sm mac-only" href="https://realleejeonghoon.github.io/dropfit-download/Dropfit-macOS.zip" data-dl>다운로드</a>
     <button class="pill sm copy-only" type="button" data-copy-link>링크 복사</button>
