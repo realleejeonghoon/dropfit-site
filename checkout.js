@@ -46,14 +46,24 @@
   function priceOf(plan) { return plan && plan !== 'pro' ? (C.plans || {})[plan] : C.priceId; }
   function items(plan) { return [{ priceId: priceOf(plan), quantity: 1 }]; }
 
+  function totalOf(r) {
+    var li = r && r.data && r.data.details && r.data.details.lineItems && r.data.details.lineItems[0];
+    return li && li.formattedTotals ? li.formattedTotals.total : '';
+  }
+
+  // 정가 줄(pro-regular)은 할인 없이 한 번 더 물어본 total(부가세 포함)입니다. subtotal은 세금을 뺀 값(₩13,545)이라 쓰지 않습니다.
   function showPrice() {
+    var on = discountOn();
     var req = { items: items() };
-    if (discountOn()) req.discountId = C.discountId;
-    return window.Paddle.PricePreview(req).then(function (r) {
-      var li = r && r.data && r.data.details && r.data.details.lineItems && r.data.details.lineItems[0];
-      if (!li || !li.formattedTotals) return;
-      fill('pro', li.formattedTotals.total);
-      if (discountOn()) fill('pro-regular', li.formattedTotals.subtotal);
+    if (on) req.discountId = C.discountId;
+    return Promise.all([
+      window.Paddle.PricePreview(req),
+      on ? window.Paddle.PricePreview({ items: items() }) : null
+    ]).then(function (rs) {
+      var now = totalOf(rs[0]);
+      if (!now) return;
+      fill('pro', now);
+      if (on) fill('pro-regular', totalOf(rs[1]));
       document.documentElement.setAttribute('data-price-ready', '');
     }).catch(function (e) { console.error('[Dropfit] 가격을 불러올 수 없습니다.', e); })
       .then(function () {
