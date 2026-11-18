@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pro 활성화 · Dropfit</title>
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#fbfbfd">
+<link rel="stylesheet" href="../fonts/pretendardvariable-dynamic-subset.css">
+<link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon-48.png?v=3">
+<link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon-96.png?v=3">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon-192.png?v=3">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<style>
+  /* Pro 활성화: 메일의 [Dropfit 열기]가 여는 페이지. 키는 주소의 # 뒤에만 있어 서버로 가지 않는다 */
+  :root {
+    --ink: #1d1d1f;
+    --ink-2: #6e6e73;
+    --link: #3c608a;
+    --line: #d2d2d7;
+    --paper: #fbfbfd;
+    --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: #fff; color: var(--ink); font-family: var(--font); font-size: 17px; line-height: 1.6; letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-wrap: break-word; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { width: min(720px, 100% - 48px); margin: 0 auto; }
+  .nav { position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, .78); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, .08); }
+  .nav .wrap { height: 48px; display: flex; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 8px; color: var(--ink); font-weight: 600; font-size: 15px; }
+  .brand:hover { text-decoration: none; }
+  .brand img { width: 22px; height: 22px; filter: drop-shadow(0 0 .5px rgba(18,28,45,.22)) drop-shadow(0 1px 1.5px rgba(18,28,45,.12)); }
+  main { padding: 64px 0 96px; }
+  h1 { font-size: clamp(30px, 4.2vw, 40px); line-height: 1.2; font-weight: 600; letter-spacing: -0.03em; margin: 0; }
+  .date { margin: 10px 0 0; color: var(--ink-2); font-size: 15px; }
+  h2 { font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: -0.02em; margin: 52px 0 14px; }
+  p { margin: 0 0 12px; }
+  .table { overflow-x: auto; margin: 4px 0 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.5; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 16px 12px 0; border-bottom: 1px solid #e5e5ea; }
+  th { font-size: 13px; font-weight: 600; color: var(--ink-2); border-bottom-color: var(--line); white-space: nowrap; }
+  td:first-child { min-width: 8em; }
+  .wide table { min-width: 680px; }
+  footer { background: var(--paper); color: #86868b; font-size: 12px; padding: 20px 0 32px; }
+  footer .wrap { display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 16px; }
+  footer a { color: var(--ink-2); }
+  footer nav { display: flex; gap: 12px; flex-wrap: wrap; }
+  .todo { background: #fff4d6; padding: 0 4px; border-radius: 4px; }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li, td, figcaption { text-wrap: pretty; }
+  body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+  main { flex: 1 0 auto; padding: 88px 0 112px; text-align: center; }
+  .icon { width: 96px; height: 96px; display: block; margin: 0 auto 28px; filter: drop-shadow(0 1px 2px rgba(18,28,45,.10)) drop-shadow(0 8px 24px rgba(18,28,45,.10)); }
+  .lede { margin: 14px auto 0; color: var(--ink-2); max-width: 30em; }
+  .pill { display: inline-flex; justify-content: center; align-items: center; min-width: 240px; margin-top: 32px; padding: 13px 28px; border: 0; border-radius: 999px; font: inherit; font-size: 17px; font-weight: 500; cursor: pointer;
+    background: linear-gradient(180deg, #cce1f5, #a3c4e6); color: #3c608a; box-shadow: 0 .5px 1.2px rgba(18,28,45,.12), 0 4px 12px rgba(18,28,45,.08); }
+  .pill:hover { text-decoration: none; box-shadow: 0 .5px 1.2px rgba(18,28,45,.14), 0 6px 16px rgba(18,28,45,.11); }
+  .help { margin: 40px auto 0; padding-top: 24px; border-top: 1px solid #e5e5ea; max-width: 30em; font-size: 15px; color: var(--ink-2); }
+  .help p { margin: 0 0 8px; }
+  [hidden] { display: none !important; }
+  .nb { white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="주요 메뉴">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/icon-128.png" alt="">Dropfit</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <img class="icon" src="../assets/icon-256.png" alt="" width="96" height="96">
+
+  <!-- 키가 있고 Mac일 때 -->
+  <section id="s-ready" hidden>
+    <h1>Pro를 활성화합니다</h1>
+    <p class="lede"><span class="nb">누르면 Dropfit이 열리며</span> <span class="nb">Pro가 활성화됩니다.</span></p>
+    <a class="pill" id="open" href="#">Dropfit 열기</a>
+    <div class="help">
+      <p><span class="nb">Dropfit이 열리지 않으면</span> <span class="nb">먼저 설치해 주세요.</span> <span class="nb">설치한 다음</span> <span class="nb">이 페이지에서 다시 눌러 주세요.</span></p>
+      <p><a href="https://realleejeonghoon.github.io/dropfit-download/Dropfit-macOS.zip">무료 다운로드</a> · <a href="../#faq-install">설치 방법</a></p>
+    </div>
+  </section>
+
+  <!-- 키가 있지만 Mac이 아닐 때(휴대폰 등) -->
+  <section id="s-other" hidden>
+    <h1>Mac에서 열어 주세요</h1>
+    <p class="lede"><span class="nb">Pro는 Dropfit이 설치된 Mac에서</span> <span class="nb">활성화됩니다.</span> <span class="nb">Mac에서 같은 메일의</span> <span class="nb">[Dropfit 열기]를 눌러 주세요.</span></p>
+  </section>
+
+  <!-- 키가 없거나 형식이 맞지 않을 때 -->
+  <section id="s-nokey">
+    <h1>키를 확인할 수 없습니다</h1>
+    <p class="lede"><span class="nb">메일의 [Dropfit 열기]를</span> <span class="nb">다시 눌러 주세요.</span> <span class="nb">메일을 찾을 수 없으면</span> <span class="nb">키를 다시 보내 드립니다.</span></p>
+    <a class="pill" href="../#resend">키 다시 받기</a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="../">Dropfit</a>
+    <nav><a href="../terms.html">이용 약관</a> <a href="../refund.html">환불 규정</a> <a href="../privacy.html">개인정보 처리방침</a></nav>
+  </div>
+</footer>
+
+<script>
+  // 키는 주소의 # 뒤에서만 읽는다(서버·통계로 보내지 않음). 읽은 뒤 주소창에서 지운다
+  (function () {
+    var m = /(?:^#|&)key=([A-Za-z0-9_-]{20,4000}\.[A-Za-z0-9_-]{20,4000})(?:&|$)/.exec(location.hash);
+    if (!m) return;
+    try { history.replaceState(null, '', location.pathname); } catch (e) {}
+    var ua = navigator.userAgent, mac = /Macintosh/.test(ua) && !(navigator.maxTouchPoints > 1);
+    document.getElementById('s-nokey').hidden = true;
+    if (!mac) { document.getElementById('s-other').hidden = false; return; }
+    document.getElementById('s-ready').hidden = false;
+    document.getElementById('open').href = 'dropfit://activate?key=' + encodeURIComponent(m[1]);
+  })();
+</script>
+</body>
+</html>
