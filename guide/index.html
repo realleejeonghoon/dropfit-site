@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+  // 외국인 방문자는 영어판으로(11/18 정훈). 브라우저 언어에 한국어가 없고, 한국 시간대도 아니고, 'Korean'을 직접 고른 적이 없을 때만. 검색 로봇은 옮기지 않는다
+  (function () { try { if (localStorage.getItem('dropfit-lang') === 'ko') return; } catch (e) {}
+    var n = navigator, L = ((n.languages && n.languages.length ? n.languages : [n.language || '']).join(',')).toLowerCase();
+    if (!L || /(^|,)ko/.test(L) || /bot|crawl|spider|slurp|preview|lighthouse/i.test(n.userAgent)) return;
+    try { if (Intl.DateTimeFormat().resolvedOptions().timeZone === 'Asia/Seoul') return; } catch (e) {}
+    location.replace('/en/guide/' + location.search + location.hash); })();
+</script>
+<script>
+  // 외국인 방문자는 영어판으로(11/18 정훈). 브라우저 언어에 한국어가 없고, 한국 시간대도 아니고, 'Korean'을 직접 고른 적이 없을 때만. 검색 로봇은 옮기지 않는다
+  (function () { try { if (localStorage.getItem('dropfit-lang') === 'ko') return; } catch (e) {}
+    var n = navigator, L = ((n.languages && n.languages.length ? n.languages : [n.language || '']).join(',')).toLowerCase();
+    if (!L || /(^|,)ko/.test(L) || /bot|crawl|spider|slurp|preview|lighthouse/i.test(n.userAgent)) return;
+    try { if (Intl.DateTimeFormat().resolvedOptions().timeZone === 'Asia/Seoul') return; } catch (e) {}
+    location.replace('/en/guide/mac-pdf-merge/' + location.search + location.hash); })();
+</script>
+<title>드롭핏 가이드</title>
+<meta name="description" content="맥에서 사진 용량 줄이기, PDF 합치기 등 이미지·PDF를 다루는 방법을 정리했습니다.">
+<meta name="theme-color" content="#fbfbfd">
+<link rel="canonical" href="https://dropfit.kr/guide/">
+<link rel="alternate" hreflang="ko" href="https://dropfit.kr/guide/">
+<link rel="alternate" hreflang="en" href="https://dropfit.kr/en/guide/">
+<link rel="alternate" hreflang="x-default" href="https://dropfit.kr/guide/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dropfit">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://dropfit.kr/guide/">
+<meta property="og:title" content="드롭핏 가이드">
+<meta property="og:description" content="맥에서 사진 용량 줄이기, PDF 합치기 등 이미지·PDF를 다루는 방법을 정리했습니다.">
+<link rel="stylesheet" href="../../fonts/pretendardvariable-dynamic-subset.css">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<style>
+  /* 랜딩(index.html)·약관과 같은 글꼴·색·여백. 읽기 전용 한 단 문서 */
+  :root {
+    --ink: #1d1d1f;
+    --ink-2: #6e6e73;
+    --ink-3: #86868b;
+    --link: #3c608a;
+    --line: #d2d2d7;
+    --paper: #fbfbfd;
+    --soft: #f5f5f7;
+    --note: #f2f6fb;
+    --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: #fff; color: var(--ink); font-family: var(--font); font-size: 17px; line-height: 1.65; letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-wrap: break-word; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { width: min(720px, 100% - 48px); margin: 0 auto; }
+  .nav { position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, .78); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, .08); }
+  .nav .wrap { height: 48px; display: flex; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 8px; color: var(--ink); font-weight: 600; font-size: 15px; }
+  .brand:hover { text-decoration: none; }
+  .brand img { width: 22px; height: 22px; filter: drop-shadow(0 0 .5px rgba(18,28,45,.22)) drop-shadow(0 1px 1.5px rgba(18,28,45,.12)); }
+  main { padding: 56px 0 96px; }
+  .crumb { font-size: 14px; color: var(--ink-2); margin: 0 0 10px; }
+  h1 { font-size: clamp(30px, 4.2vw, 40px); line-height: 1.2; font-weight: 600; letter-spacing: -0.03em; margin: 0; }
+  .meta { color: var(--ink-2); font-size: 14px; margin: 10px 0 0; }
+  .answer { background: var(--soft); border-radius: 16px; padding: 20px 22px; margin: 28px 0 8px; }
+  .answer p { margin: 0; }
+  h2 { font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: -0.02em; margin: 52px 0 14px; }
+  p { margin: 0 0 12px; }
+  ol, ul { padding-left: 1.3em; margin: 10px 0 14px; }
+  li { margin: 6px 0; }
+  b { font-weight: 600; }
+  figure { margin: 20px 0; }
+  figure img { display: block; width: 100%; height: auto; border-radius: 12px; background: var(--soft); }
+  figure.portrait img { width: min(100%, 400px); margin: 0 auto; }
+  figcaption { margin-top: 8px; font-size: 13px; color: var(--ink-3); text-align: center; }
+  .table { overflow-x: auto; margin: 16px 0 8px; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 15px; line-height: 1.5; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 16px 12px 0; border-bottom: 1px solid #e5e5ea; }
+  th { font-size: 13px; font-weight: 600; color: var(--ink-2); border-bottom-color: var(--line); white-space: nowrap; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  tr.us td { background: var(--note); }
+  .cta { margin-top: 56px; padding-top: 28px; border-top: 1px solid #e5e5ea; }
+  .cta p { margin: 0 0 4px; }
+  .pill { display: inline-flex; align-items: center; justify-content: center; margin-top: 16px; padding: 11px 24px; border-radius: 980px;
+    background: linear-gradient(180deg, #cce1f5, #a3c4e6); color: #3c608a; font-weight: 500; white-space: nowrap;
+    box-shadow: 0 .5px 1.2px rgba(18, 28, 45, .12), 0 4px 12px rgba(18, 28, 45, .08); transition: box-shadow .25s; }
+  .pill:hover { text-decoration: none; box-shadow: 0 .5px 1.2px rgba(18, 28, 45, .14), 0 6px 16px rgba(18, 28, 45, .11); }
+  .src { font-size: 13px; color: var(--ink-3); margin-top: 40px; }
+  .nb { white-space: nowrap; }
+  footer { background: var(--paper); color: var(--ink-3); font-size: 12px; padding: 20px 0 32px; }
+  footer .wrap { display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 16px; }
+  footer a { color: var(--ink-2); }
+  footer nav { display: flex; gap: 12px; flex-wrap: wrap; }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li, td, figcaption { text-wrap: pretty; }
+  body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; } main { flex: 1 0 auto; width: min(720px, 100% - 48px); }
+  .glist { list-style: none; padding: 0; margin: 32px 0 0; }
+  .glist li { padding: 18px 0; border-bottom: 1px solid #e5e5ea; }
+  .glist a { font-size: 19px; font-weight: 600; letter-spacing: -0.02em; }
+  .glist p { margin: 4px 0 0; color: var(--ink-2); font-size: 15px; }
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="주요 메뉴">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/icon-128.png" alt="">Dropfit</a>
+  </div>
+</nav>
+<main class="wrap">
+  <h1>드롭핏 가이드</h1>
+  <p class="meta">맥에서 이미지와 PDF를 다루는 방법을 정리합니다.</p>
+  <ul class="glist">
+    <li><a href="/guide/mac-photo-size/">맥 사진 용량 줄이기</a><p>한두 장은 미리보기, 여러 장은 Finder나 앱으로. 방법별 가격·여러 장 처리·용량 맞추기 비교.</p></li>
+    <li><a href="/guide/mac-pdf-merge/">PDF 합치기: 맥에서 여러 PDF와 사진을 한 파일로</a><p>Finder, 미리보기, 앱으로 업로드 없이 합치고 순서와 파일 이름까지 정하는 법.</p></li>
+  </ul>
+</main>
+<footer>
+  <div class="wrap">
+    <a href="/">Dropfit</a>
+    <nav><a href="/terms.html">이용 약관</a> <a href="/refund.html">환불 규정</a> <a href="/privacy.html">개인정보 처리방침</a> <a href="/en/guide/" hreflang="en">English</a></nav>
+  </div>
+</footer>
+</body>
+</html>
