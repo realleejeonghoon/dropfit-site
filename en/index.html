@@ -779,6 +779,16 @@
   .tz.signed .po { display: none; }
   .tz.signed .po-signed { display: block; }
   .tz footer { background: transparent; }
+  /* 바닥글(11/18): 판매자 정보와 약관·환불·처리방침·Korean. 한국어 첫 화면 바닥글과 같은 내용, 가운데 정렬 */
+  .tz footer .wrap { flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+  .tz footer .f-biz { line-height: 1.7; }
+  .tz footer .f-links { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .tz footer .nb { white-space: nowrap; }
+  @media (max-width: 600px) { .tz footer .f-mail { display: block; } .tz footer .f-sep { display: none; } }
+  /* 구입 완료 카드(11/18): 한국어 첫 화면 카드와 같은 모양·같은 흐름 */
+  .dl-sale { margin: 14px 0 0; font-size: 15px; color: var(--ink-2); line-height: 1.55; }
+  .dl-sale a { color: var(--link); }
+  .paid-act { margin: 14px 0 6px; } .paid-act .pill[disabled] { opacity: .65; cursor: default; }
   /* 구매 버튼: 11/24 10:00 KST부터, 공용 결제(window.DropfitCheckout)가 있을 때만 보인다 (11/16 정훈 결정 A) */
   .en-buy { margin: 28px 0 0; text-align: center; }
   .en-buy small { display: block; margin-top: 10px; font-size: 13px; color: var(--ink-3); }
@@ -822,7 +832,56 @@
     <p class="en-buy" id="enBuy" hidden><button class="pill lg" type="button" data-buy>Buy Dropfit for Mac</button><small>The app is in Korean until December&nbsp;1. The English version comes as a free&nbsp;update.</small></p>
     <p class="tz-def">No more hunting for a converter site every time you see “File&nbsp;too&nbsp;large.” Drag photos and PDFs onto the circle on your screen, and they change to the format and size you need, right where they&nbsp;are. No account, no upload. Your files stay on your Mac. Dropfit&nbsp;for&nbsp;Mac, an image and PDF converter for macOS made by&nbsp;Usul.</p>
   </main>
+  <footer>
+    <div class="wrap">
+      <span class="f-biz"><span class="nb">Dropfit · Usul · Jeonghoon Lee</span> · <span class="nb">Business registration no. 372-57-00909</span><br><span class="nb">Unit 1509, Building 103,</span> <span class="nb">8 Hangang-daero 43-gil, Yongsan-gu,</span> <span class="nb">Seoul, Republic of Korea</span> <span class="nb f-mail"><span class="f-sep">· </span><a href="tel:+821096179325">+82 10-9617-9325</a> · <a href="mailto:leejeonghoon.official@gmail.com">leejeonghoon.official@gmail.com</a></span></span>
+      <span class="f-links"><a href="terms.html">Terms</a><a href="refund.html">Refund Policy</a><a href="privacy.html">Privacy Policy</a><a href="../" hreflang="ko">Korean</a></span>
+    </div>
+  </footer>
 </div>
+<aside class="dl-card" id="paidCard" aria-label="Purchase complete">
+  <button class="dl-x" type="button" aria-label="Close" data-paid-close><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l8 8M10 2 2 10"/></svg></button>
+  <div class="dl-head">
+    <img src="../assets/icon-128.png" alt="">
+    <div><b>Purchase complete.</b><span>Thanks for your purchase. Pro is ready to&nbsp;use.</span></div>
+  </div>
+  <div class="paid-act">
+    <button class="pill lg" type="button" id="actBtn" disabled>Preparing your license key…</button>
+  </div>
+  <p class="dl-sale">Click to open Dropfit and turn on Pro. We’ve sent the same button to <span id="paidMail">your purchase email</span>. Not installed yet? <a href="https://realleejeonghoon.github.io/dropfit-download/Dropfit-macOS.zip">Download Dropfit</a> first, then click&nbsp;it.</p>
+</aside>
+<script>
+  // 구입 완료(11/18): checkout.js의 'dropfit:paid'를 받아 결제창을 닫고 카드를 띄운다. 키가 준비되면 [Open Dropfit]를 켠다. 한국어 첫 화면과 같은 창구(?license=)
+  (function () {
+    var paid = document.getElementById('paidCard'), act = document.getElementById('actBtn'), poll = null;
+    var COUNT_URL = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';
+    function setWaiting() { act.hidden = false; act.disabled = true; act.textContent = 'Preparing your license key…'; act.onclick = null; }
+    function setReady(url) { act.disabled = false; act.textContent = 'Open Dropfit'; act.onclick = function () { location.href = url; }; }
+    function setMailOnly() { act.hidden = true; }
+    function lookup(txn, tries) {
+      if (!/^txn_[a-z0-9]{10,40}$/.test(txn || '')) { setMailOnly(); return; }
+      fetch(COUNT_URL + '?license=' + encodeURIComponent(txn), { cache: 'no-store' })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (d && d.activate && /^dropfit:\/\/activate\?key=/.test(d.activate)) { setReady(d.activate); return; }
+          if (d && d.pending && tries > 1) { poll = setTimeout(function () { lookup(txn, tries - 1); }, 3000); return; }
+          setMailOnly();
+        })
+        .catch(function () { if (tries > 1) poll = setTimeout(function () { lookup(txn, tries - 1); }, 3000); else setMailOnly(); });
+    }
+    function close() { clearTimeout(poll); paid.classList.remove('show'); }
+    document.addEventListener('dropfit:paid', function (e) {
+      e.preventDefault();
+      var d = e.detail || {};
+      if (d.email) document.getElementById('paidMail').textContent = d.email;
+      clearTimeout(poll); setWaiting();
+      paid.classList.add('show');
+      lookup(d.transactionId, 20);
+    });
+    paid.addEventListener('click', function (e) { if (e.target.closest('[data-paid-close]')) { e.preventDefault(); close(); } });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && paid.classList.contains('show')) close(); });
+  })();
+</script>
 <script>
   (function () {
     var FROM = '', SRC = '';

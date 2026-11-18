@@ -2,7 +2,7 @@
 날짜·숫자가 줄 끝에서 떨어지지 않게 묶였는지 확인한다. 주석·스크립트·스타일 안 글자는 보지 않는다."""
 import re, sys, glob
 bad = []
-for p in sorted(glob.glob('en/*.html')):
+for p in sorted(glob.glob('en/**/*.html', recursive=True)):
     s = open(p, encoding='utf-8').read()
     v = re.sub(r'<!--.*?-->', '', s, flags=re.S)
     v = re.sub(r'<(script|style)\b.*?</\1>', '', v, flags=re.S)
