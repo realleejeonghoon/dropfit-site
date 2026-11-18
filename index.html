@@ -984,6 +984,32 @@
   /* 이런 일에 씁니다: 첫 화면 바로 아래, 여섯 장을 한눈에 (11/17 정훈) */
   .uses { padding: 8px 0 72px; }
   .sec-rule { display: block; width: min(1040px, calc(100% - 32px)); height: 0; margin: 0 auto; border: 0; border-top: 1px solid var(--line); opacity: .55; }
+  /* 첫 화면 흐름(11/18 정훈 진행): 첫 화면은 화면 한 장, 두 번째 칸은 흰 띠 위 문장 하나. 첫 화면이 화면보다 길면 아래 화살표 숨김 */
+  .first { min-height: calc(100svh - 48px); display: flex; flex-direction: column; justify-content: center; position: relative; padding-bottom: 56px; }
+  .first .logo-top { padding-top: 24px; }
+  .scroll-cue { position: absolute; left: 50%; bottom: 20px; width: 40px; height: 40px; margin-left: -20px; display: grid; place-items: center; color: var(--ink-3); border-radius: 50%; transition: opacity .4s; animation: cueBob 2.4s var(--ease) infinite; }
+  .scroll-cue svg { width: 20px; height: 20px; }
+  .scroll-cue:hover { color: var(--sky-text); }
+  body.scrolled .scroll-cue { opacity: 0; pointer-events: none; }
+  @keyframes cueBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+  @media (prefers-reduced-motion: reduce) { .scroll-cue { animation: none; } }
+  .uses { background: #fff; padding: 148px 0 136px !important; box-shadow: 0 -1px 0 rgba(0,0,0,.04), 0 1px 0 rgba(0,0,0,.04); }
+  .uses .tz-voice { max-width: 34em; }
+  .uses .tz-voice .sc-l1 { font-size: clamp(22px, 2.6vw, 30px); }
+  .uses .tz-voice .sc-l2 { margin-top: 12px; font-size: 17px; }
+  .uses .tz-voice figcaption { margin-bottom: 22px; }
+  .uses .vs-dots { margin-top: 32px; }
+  .uses-title.sec-title { margin-bottom: 56px !important; font-size: clamp(30px, 4.2vw, 48px) !important; }
+  .uses + .demo-top { padding-top: 120px; }
+  @media (max-width: 734px) {
+    .first { padding-bottom: 64px; }
+    .uses { padding: 96px 0 88px !important; }
+    .uses .tz-voice .sc-l1 { font-size: 21px; }
+    .uses .tz-voice .sc-l2 { font-size: 15.5px; }
+    .uses-title.sec-title { margin-bottom: 36px !important; }
+    .uses + .demo-top { padding-top: 72px; }
+  }
+  .first.tall .scroll-cue { display: none; }
   .uses { padding-top: 40px; }
   .vc span small { display: block; margin-top: 2px; font-size: 11.5px; color: var(--sky-text); }
   .vc span { text-align: left; }
@@ -1048,6 +1074,7 @@
   </div>
 </nav>
 
+<div class="first">
 <section class="logo-top" aria-label="Dropfit">
   <div class="wrap">
     <div class="logo-box" id="dfLogo"><div class="lg-lock"><div class="lg-ic"></div><div class="lg-wm" aria-hidden="true"><span>D</span><span>r</span><span>o</span><span>p</span><span>f</span><span>i</span><span>t</span></div></div></div>
@@ -1070,16 +1097,17 @@
     <p class="hero-meta"><span class="s-pre">macOS 14 이상 · Apple 공증</span><span class="s-sale">무료로 시작 · 처음 14일 Pro 포함 · macOS 14 이상</span></p>
     <div class="notice" role="note">
       <strong>Dropfit은 Mac 전용 앱입니다.</strong>
-      Mac의 카카오톡에서 이 링크를 다시 열면 바로 다운로드할 수 있습니다.
+      <span class="nb">Mac의 카카오톡에서</span> <span class="nb">이 링크를 다시 열면</span> <span class="nb">바로 다운로드할 수 있습니다.</span>
     </div>
   </div>
 </header>
+<a class="scroll-cue" href="#uses" aria-label="아래로"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></a>
+</div>
 
-<hr class="sec-rule" aria-hidden="true">
 <section class="uses" id="uses" aria-labelledby="uses-title">
   <div class="wrap">
-    <h2 class="sec-title uses-title" id="uses-title"><span class="grad">Dropfit</span>에 끌어다 놓으세요.</h2>
-    <div class="tz-voice" aria-roledescription="carousel">
+    <h2 class="sec-title uses-title reveal" id="uses-title"><span class="grad">Dropfit</span>에 끌어다 놓으세요.</h2>
+    <div class="tz-voice reveal" aria-roledescription="carousel">
       <div class="vs-stage" aria-live="off">
         <figure class="vs on"><figcaption class="vc"><svg class="av" viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="avc10"><circle cx="60" cy="60" r="60"/></clipPath></defs><g clip-path="url(#avc10)" fill="none" stroke="#1d1d1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="60" fill="#f5f5f7" stroke="none"/><path d="M18 124c3-20 18-30 42-30s39 10 42 30" fill="#fff"/><path d="M52 79v15M68 79v15"/><path d="M44 98v26M76 98v26M44 108h32"/><path d="M49 94c3 5 7 7 11 7s8-2 11-7"/><path d="M36 56c-6-2-8 9-1 12M84 56c6-2 8 9 1 12" fill="#fff"/><path d="M36 52c0-17 11-26 24-26s24 9 24 26c0 21-10 33-24 33S36 73 36 52z" fill="#fff"/><path d="M33 56c-5-8-3-20 5-26 3-8 13-12 22-11 9-1 19 3 22 11 8 6 10 18 5 26-3-6-7-9-11-11-1-5-5-8-16-8s-15 3-16 8c-4 2-8 5-11 11z" fill="#1d1d1f"/><path d="M42 30c3 2 6 3 9 2M58 25c3 2 6 2 9 0M72 30c3 1 6 0 8-2" stroke="#fff" stroke-width="1.5"/><path d="M47 50q4-2 8 0M65 50q4-2 8 0"/><circle cx="51" cy="57" r="2" fill="#1d1d1f" stroke="none"/><circle cx="69" cy="57" r="2" fill="#1d1d1f" stroke="none"/><path d="M53 72q7 5 14 0"/><path d="M60 57c-2 4-3 7 1 8"/></g></svg><span>온라인 판매자</span></figcaption><p class="sc-l1">마켓마다 용량 제한이 달라, 사진을 매번 다시 줄입니다.</p><p class="sc-l2">Dropfit에 마켓별 용량을 정해 두면, 끌어다 놓을 때마다 그&nbsp;용량에 맞춰집니다.</p></figure>
         
@@ -1093,7 +1121,6 @@
   </div>
 </section>
 
-<hr class="sec-rule" aria-hidden="true">
 <section class="demo-top" id="how" aria-label="Dropfit 시연">
   <div class="wrap">
     <div class="stage" id="dfTop" role="img" aria-label="이미지를 Dropfit에 끌어와 포맷을 고르면 변환되는 시연: 사진 1장, 여러 장, 폴더, 여러 장을 PDF 하나로, 자르기">
@@ -1493,6 +1520,10 @@
 <script>
   // 팀·회사 구입 칸: 12월 1일 00:00 KST부터 보임(11/17 정훈 확정, 문의형)
   (function () { var t = document.getElementById('team'); if (t && Date.now() >= Date.parse('2026-12-01T00:00:00+09:00')) t.hidden = false; })();
+</script>
+<script>
+  // 첫 화면: 내리면 아래 화살표를 감추고, 첫 화면이 화면보다 길면 처음부터 감춘다
+  (function () { var f = document.querySelector('.first'); function u() { document.body.classList.toggle('scrolled', scrollY > 40); if (f) f.classList.toggle('tall', f.offsetHeight > innerHeight + 1); } addEventListener('scroll', u, { passive: true }); addEventListener('resize', u); u(); })();
 </script>
 </body>
 </html>
