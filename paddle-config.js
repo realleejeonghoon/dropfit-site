@@ -2,7 +2,7 @@
 // token은 Paddle 대시보드 Developer tools > Authentication의 client-side token입니다(시험은 test_, 실계정은 live_로 시작).
 // client-side token은 공개해도 되는 값입니다. API 키(서버용)는 절대 이 저장소에 넣지 않습니다.
 window.DROPFIT_PADDLE = {
-  stage: 'pre',                // 'pre' = 판매 전(결제 버튼 닫힘), 'open' = 판매 중
+  stage: 'open',               // 'pre' = 판매 전(결제 버튼 닫힘), 'open' = 판매 중
   environment: 'production',   // 'sandbox' 또는 'production'
   token: 'live_ff1187f85950dcb6526b98d909d', // 실계정 client-side token 'dropfit.kr'(공개 값)
   priceId: 'pri_01m7meqdc6y15147vppscdsdfg',   // Dropfit Pro 일회성 ₩14,900 (실계정)
