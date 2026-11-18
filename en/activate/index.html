@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Activate Pro · Dropfit</title>
+<title>Activate Dropfit Pro · Dropfit</title>
 <meta name="robots" content="noindex">
 <meta name="referrer" content="no-referrer">
 <meta name="theme-color" content="#fbfbfd">
@@ -79,7 +79,7 @@
 
 <nav class="nav" aria-label="Main">
   <div class="wrap">
-    <a class="brand" href="../"><img src="../../assets/icon-128.png" alt="">Dropfit</a>
+    <a class="brand" href="/en/"><img src="../../assets/icon-128.png" alt="">Dropfit</a>
   </div>
 </nav>
 
@@ -88,11 +88,11 @@
 
   <!-- 키가 있고 Mac일 때 -->
   <section id="s-ready" hidden>
-    <h1>Activate Pro</h1>
+    <h1>Activate Dropfit&nbsp;Pro</h1>
     <p class="lede">Click the button to turn on Dropfit&nbsp;Pro.</p>
     <a class="pill" id="open" href="#">Open Dropfit</a>
     <div class="help">
-      <p>If Dropfit doesn’t open, install the latest version of Dropfit, then click the buttoninstall the latest version, then click the button&nbsp;again.nbsp;again.</p>
+      <p>If Dropfit doesn’t open, install the latest version of Dropfit, then click the button&nbsp;again.</p>
       <p><a href="https://realleejeonghoon.github.io/dropfit-download/Dropfit-macOS.zip">Free download</a></p>
     </div>
   </section>
@@ -117,8 +117,8 @@
 
 <footer>
   <div class="wrap">
-    <a href="../">Dropfit</a>
-    <nav><a href="../terms.html">Terms</a> <a href="../refund.html">Refund Policy</a> <a href="../privacy.html">Privacy Policy</a> <a href="../../activate/" hreflang="ko">Korean</a></nav>
+    <a href="/en/">Dropfit</a>
+    <nav><a href="/en/terms.html">Terms</a> <a href="/en/refund.html">Refund Policy</a> <a href="/en/privacy.html">Privacy Policy</a> <a href="/activate/" hreflang="ko" data-ko>Korean</a></nav>
   </div>
 </footer>
 
@@ -150,5 +150,6 @@
     em.addEventListener('input', function () { if (msg.className.indexOf('err') >= 0) msg.hidden = true; });
   })();
 </script>
+<script>document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-ko]'))try{localStorage.setItem('dropfit-lang','ko')}catch(x){}});</script>
 </body>
 </html>

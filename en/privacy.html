@@ -63,7 +63,7 @@
 
 <nav class="nav" aria-label="Main menu">
   <div class="wrap">
-    <a class="brand" href="./"><img src="../assets/icon-128.png" alt="">Dropfit</a>
+    <a class="brand" href="/en/"><img src="../assets/icon-128.png" alt="">Dropfit</a>
   </div>
 </nav>
 
@@ -120,10 +120,11 @@
 
 <footer>
   <div class="wrap">
-    <a href="./">Dropfit</a>
-    <nav><a href="terms.html">Terms</a> <a href="refund.html">Refund Policy</a> <span>Privacy Policy</span> <a href="../privacy.html" hreflang="ko">Korean</a></nav>
+    <a href="/en/">Dropfit</a>
+    <nav><a href="/en/terms.html">Terms</a> <a href="/en/refund.html">Refund Policy</a> <span>Privacy Policy</span> <a href="/privacy.html" hreflang="ko" data-ko>Korean</a></nav>
   </div>
 </footer>
 
+<script>document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-ko]'))try{localStorage.setItem('dropfit-lang','ko')}catch(x){}});</script>
 </body>
 </html>

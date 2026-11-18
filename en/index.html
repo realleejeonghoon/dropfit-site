@@ -825,7 +825,7 @@
         <button class="pill" type="submit" id="poSend">Notify me</button>
       </label>
       <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-      <p class="fb-note" id="poNote" role="status"><a href="privacy.html">Privacy Policy</a></p>
+      <p class="fb-note" id="poNote" role="status"><a href="/en/privacy.html">Privacy Policy</a></p>
       <div class="fb-done" role="status"><b>Thank you.</b><p>We’ll email you when the English version is out on&nbsp;December&nbsp;1.</p></div>
     </form>
     <p class="po-signed">You’re already on the list.</p>
@@ -835,7 +835,7 @@
   <footer>
     <div class="wrap">
       <span class="f-biz"><span class="nb">Dropfit · Usul · Jeonghoon Lee</span><span class="f-sep"> · </span><span class="nb f-reg">Business registration no. 372-57-00909</span><br class="f-br"><span class="nb">Unit 1509, Building 103,</span> <span class="nb">8 Hangang-daero 43-gil, Yongsan-gu,</span> <span class="nb">Seoul, Republic of Korea</span> <span class="nb f-mail"><span class="f-sep">· </span><a href="tel:+821096179325">+82 10-9617-9325</a> · <a href="mailto:leejeonghoon.official@gmail.com">leejeonghoon.official@gmail.com</a></span></span>
-      <span class="f-links"><a href="terms.html">Terms</a><a href="refund.html">Refund Policy</a><a href="privacy.html">Privacy Policy</a><a href="../" hreflang="ko">Korean</a></span>
+      <span class="f-links"><a href="/en/terms.html">Terms</a><a href="/en/refund.html">Refund Policy</a><a href="/en/privacy.html">Privacy Policy</a><a href="/" hreflang="ko" data-ko>Korean</a></span>
     </div>
   </footer>
 </div>
@@ -843,12 +843,12 @@
   <button class="dl-x" type="button" aria-label="Close" data-paid-close><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l8 8M10 2 2 10"/></svg></button>
   <div class="dl-head">
     <img src="../assets/icon-128.png" alt="">
-    <div><b>Purchase complete.</b><span>Thanks for your purchase. Pro is ready to&nbsp;use.</span></div>
+    <div><b>Purchase complete.</b><span>Thanks for your purchase. Dropfit Pro is ready to&nbsp;use.</span></div>
   </div>
   <div class="paid-act">
     <button class="pill lg" type="button" id="actBtn" disabled>Preparing your license key…</button>
   </div>
-  <p class="dl-sale">Click to open Dropfit and turn on Pro. We’ve sent the same button to <span id="paidMail">your purchase email</span>. Not installed yet? <a href="https://realleejeonghoon.github.io/dropfit-download/Dropfit-macOS.zip">Download Dropfit</a> first, then click&nbsp;it.</p>
+  <p class="dl-sale">Click to open Dropfit and turn on Dropfit&nbsp;Pro. We’ve sent the same button to <span id="paidMail">your purchase email</span>. Not installed yet? <a href="https://realleejeonghoon.github.io/dropfit-download/Dropfit-macOS.zip">Download Dropfit</a> first, then click&nbsp;it.</p>
 </aside>
 <script>
   // 구입 완료(11/18): checkout.js의 'dropfit:paid'를 받아 결제창을 닫고 카드를 띄운다. 키가 준비되면 [Open Dropfit]를 켠다. 한국어 첫 화면과 같은 창구(?license=)
@@ -940,5 +940,6 @@
 <script src="../paddle-config.js"></script>
 <script src="../checkout.js" defer></script>
 <script src="../logo.js?v=2" defer></script>
+<script>document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-ko]'))try{localStorage.setItem('dropfit-lang','ko')}catch(x){}});</script>
 </body>
 </html>
