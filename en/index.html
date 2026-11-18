@@ -871,9 +871,9 @@
     });
     po.addEventListener('input', function () { if (note.className.indexOf('err') >= 0) { note.innerHTML = noteBase; note.className = 'fb-note'; } });
     if (signed()) tz.classList.add('signed');
-    // 구매: 판매 시작(11/24 10:00 KST) 뒤, 결제 스크립트가 공용 창구 window.DropfitCheckout.open을 내놓았을 때만 보인다
-    var buy = document.getElementById('enBuy'), OPEN_AT = Date.UTC(2026, 10, 24, 1, 0, 0);
-    function showBuy() { if (Date.now() >= OPEN_AT && window.DropfitCheckout && window.DropfitCheckout.open) buy.hidden = false; }
+    // 구매: 판매 중(paddle-config stage 'open')일 때, 결제 스크립트가 공용 창구 window.DropfitCheckout.open을 내놓았을 때만 보인다
+    var buy = document.getElementById('enBuy');
+    function showBuy() { if (window.DropfitCheckout && window.DropfitCheckout.open) buy.hidden = false; }
     buy.querySelector('button').addEventListener('click', function () { window.DropfitCheckout.open({ locale: 'en', from: 'en-' + (SRC || 'dropfit-kr') }); });
     showBuy(); window.addEventListener('load', showBuy);
   })();
