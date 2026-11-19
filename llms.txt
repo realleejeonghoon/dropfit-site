@@ -28,7 +28,7 @@
 - Converts many files or whole folders at once, and merges photos and PDFs into one PDF in the order you choose.
 - Free: format conversion, folder conversion, and merging or splitting PDFs, with no account and no limits.
 - Dropfit Pro (one-time purchase, no subscription): presets that save to a size limit, width and folder of your choice, and cropping many photos to the same ratio. 14-day free trial, no card needed.
-- The app interface is in Korean until its English update on December 1, 2026.
+- The app is in English and Korean and follows your Mac's language.
 
 ### Links
 
