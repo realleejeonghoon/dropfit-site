@@ -3,6 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+  // 외국인 방문자는 영어판으로(11/18 정훈). 브라우저 언어 목록에 한국어가 없고, 한국 시간대도 아니고, 'Korean'을 직접 고른 적이 없을 때만. 검색 로봇은 옮기지 않는다
+  (function () { try { if (localStorage.getItem('dropfit-lang') === 'ko') return; } catch (e) {}
+    var n = navigator, L = ((n.languages && n.languages.length ? n.languages : [n.language || '']).join(',')).toLowerCase();
+    if (!L || /(^|,)ko/.test(L) || /bot|crawl|spider|slurp|preview|lighthouse/i.test(n.userAgent)) return;
+    try { if (Intl.DateTimeFormat().resolvedOptions().timeZone === 'Asia/Seoul') return; } catch (e) {}
+    location.replace('/en/privacy.html' + location.search + location.hash); })();
+</script>
+<link rel="alternate" hreflang="ko" href="https://dropfit.kr/privacy.html">
+<link rel="alternate" hreflang="en" href="https://dropfit.kr/en/privacy.html">
 <title>개인정보 처리방침 · Dropfit</title>
 <meta name="description" content="Dropfit이 처리하는 개인정보와 보유 기간, 삭제 요청 방법.">
 <meta name="theme-color" content="#fbfbfd">
@@ -51,6 +61,7 @@
   footer { background: var(--paper); color: #86868b; font-size: 12px; padding: 20px 0 32px; }
   footer .wrap { display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 16px; }
   footer a { color: var(--ink-2); }
+  footer nav { display: flex; gap: 12px; flex-wrap: wrap; }
   h1, h2, h3 { text-wrap: balance; }
   p, li, td, figcaption { text-wrap: pretty; }
 </style>
@@ -126,7 +137,7 @@
 <footer>
   <div class="wrap">
     <a href="./">Dropfit</a>
-    <span>개인정보 처리방침</span>
+    <nav><a href="terms.html">이용 약관</a> <a href="refund.html">환불 규정</a> <span>개인정보 처리방침</span> <a href="en/privacy.html" hreflang="en">English</a></nav>
   </div>
 </footer>
 

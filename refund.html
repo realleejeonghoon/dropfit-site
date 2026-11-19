@@ -3,6 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+  // 외국인 방문자는 영어판으로(11/18 정훈). 브라우저 언어 목록에 한국어가 없고, 한국 시간대도 아니고, 'Korean'을 직접 고른 적이 없을 때만. 검색 로봇은 옮기지 않는다
+  (function () { try { if (localStorage.getItem('dropfit-lang') === 'ko') return; } catch (e) {}
+    var n = navigator, L = ((n.languages && n.languages.length ? n.languages : [n.language || '']).join(',')).toLowerCase();
+    if (!L || /(^|,)ko/.test(L) || /bot|crawl|spider|slurp|preview|lighthouse/i.test(n.userAgent)) return;
+    try { if (Intl.DateTimeFormat().resolvedOptions().timeZone === 'Asia/Seoul') return; } catch (e) {}
+    location.replace('/en/refund.html' + location.search + location.hash); })();
+</script>
+<link rel="alternate" hreflang="ko" href="https://dropfit.kr/refund.html">
+<link rel="alternate" hreflang="en" href="https://dropfit.kr/en/refund.html">
 <title>환불 규정 · Dropfit</title>
 <meta name="description" content="Dropfit Pro는 구입한 날부터 14일 안에 이유를 묻지 않고 전액 환불합니다.">
 <meta name="theme-color" content="#fbfbfd">
@@ -89,7 +99,7 @@
 <footer>
   <div class="wrap">
     <a href="./">Dropfit</a>
-    <nav><a href="terms.html">이용 약관</a> <span>환불 규정</span> <a href="privacy.html">개인정보 처리방침</a> <a href="en/terms.html">English</a></nav>
+    <nav><a href="terms.html">이용 약관</a> <span>환불 규정</span> <a href="privacy.html">개인정보 처리방침</a> <a href="en/refund.html" hreflang="en">English</a></nav>
   </div>
 </footer>
 
