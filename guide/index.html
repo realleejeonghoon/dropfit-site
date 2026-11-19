@@ -7,7 +7,7 @@
   // 외국인 방문자는 영어판으로(11/18 정훈, 11/19 시간대 조건 뺌: Mac 언어만 따름). 브라우저 언어에 한국어가 없고, 'Korean'을 직접 고른 적이 없을 때만. 검색 로봇은 옮기지 않는다
   (function () { try { if (localStorage.getItem('dropfit-lang') === 'ko') return; } catch (e) {}
     var n = navigator, L = ((n.languages && n.languages.length ? n.languages : [n.language || '']).join(',')).toLowerCase();
-    if (!L || /(^|,)ko/.test(L) || /bot|crawl|spider|slurp|preview|lighthouse/i.test(n.userAgent)) return;
+    if (!L || /(^|,)ko/.test(L) || /bot|crawl|spider|slurp|preview|lighthouse|yeti|naver|daum|kakao|facebookexternalhit|headless|google|bing/i.test(n.userAgent)) return;
     location.replace('/en/guide/' + location.search + location.hash); })();
 </script>
 <title>드롭핏 가이드</title>
