@@ -438,7 +438,7 @@
 
   /* ---------- 자르기 창 (CropWindow · 0.5) ----------
      창 684×512pt: 제목 줄 28, 왼쪽 이미지 칸 440 + 여백 22, 오른쪽 패널 200 (비율 카드 · 크기 카드 · 결과 · 저장 · 취소) */
-  var RATIOS = ['Free', '1:1', '4:5', '3:4', '16:9', 'Custom'];
+  var RATIOS = ['Freeform', '1:1', '4:5', '3:4', '16:9', 'Custom'];
   function CropWin(parent, name) {
     this.op = new P(0); this.sc = new P(0.97); this.k = new P(0);
     this.on = RATIOS.map(function (r, i) { return new P(i === 0 ? 1 : 0); });
@@ -452,12 +452,12 @@
       '<div class="cw-img p0"><div class="cw-frame"></div></div>' +
       '<div class="cw-panel">' +
         '<p class="cw-lab" style="top:20px">Ratio</p><div class="cw-card" style="top:40px;height:106px">' + chips + '</div>' +
-        '<p class="cw-lab" style="top:162px">Size</p><div class="cw-card" style="top:182px;height:42px">' +
+        '<p class="cw-lab" style="top:162px">Dimensions</p><div class="cw-card" style="top:182px;height:42px">' +
           '<span class="cw-f" style="left:10px"></span><span class="cw-x">×</span><span class="cw-f" style="left:80px">3024</span><span class="cw-u">px</span></div>' +
         '<p class="cw-lab" style="top:240px">Save as</p><div class="cw-card" style="top:260px;height:77px">' +
           '<span class="cw-row" style="top:0">Format</span><span class="cw-pick" style="top:6px">Original' + CHEV2 + '</span>' +
           '<i class="cw-sep"></i>' +
-          '<span class="cw-row" style="top:38.5px">File size</span><span class="cw-pick" style="top:44.5px">Original' + CHEV2 + '</span></div>' +
+          '<span class="cw-row" style="top:38.5px">File size</span><span class="cw-pick" style="top:44.5px">No limit' + CHEV2 + '</span></div>' +
         '<p class="cw-res"><span>Result</span><b></b></p>' +
         '<div class="cw-save">Save</div><div class="cw-cancel">Cancel</div>' +
       '</div>');
@@ -911,7 +911,7 @@
       st.host.style.height = (H * spec.s).toFixed(1) + 'px';
       var cy = mob ? 200 : 180;
       var X = mob ? 185 : 340, CS = mob ? 0.8 : 1, ARC = mob ? 130 : 170;
-      var CAPS = ['One file', 'Many at once', 'A whole folder', 'Into one PDF', 'Crop', 'Drag onto a preset'];
+      var CAPS = ['One file', 'Many files', 'A whole folder', 'Merge into one PDF', 'Crop', 'Use a preset'];
       var N = CAPS.length, SLIDE = 1.0;
       var strip = el('div', 'df-strip', root), shift = new P(0);
       strip.style.width = (W * (N + 1)) + 'px'; strip.style.height = H + 'px';
@@ -1044,8 +1044,8 @@
       }
       var p0 = panel(0), p1 = panel(1), p2 = panel(2), p3 = panel(3), p4 = panel(4);
       // 1.0 프리셋 칸 6개(시안 v10): 첫 칸이 12시, 시계 방향. 알약은 앱 hintText와 같은 글자
-      var p5 = panel(5, ['Shop', 'Visa', 'ID photo', 'JPG', 'PNG', 'PDF'], null, true);
-      p5.pill = 'Shop · JPG · 2 MB';
+      var p5 = panel(5, ['Products', 'Passport', 'ID photo', 'JPG', 'PNG', 'PDF'], null, true);
+      p5.pill = 'Products · JPG · 2 MB';
       panel(6);   // 처음과 같은 빈 화면
 
       scene(p0, row(p0.c, ['Trip'], -1, '.heic'), row(p0.c, ['Trip'], 1, '.png'), 1, 2, 1);
@@ -1063,7 +1063,7 @@
       next();
       // 큰 사진을 '상품 사진' 칸에 놓으면 JPG · 2MB로 '올릴 사진' 폴더에 생긴다 (용량은 실제 변환값으로 바꿀 자리)
       scene(p5, [{ name: 'Product.heic<small>4.2 MB</small>', photo: 'p1', pos: { x: p5.c.x - X, y: p5.c.y + 30 } }],
-        [{ name: 'Product.jpg<small>Up to 2 MB · Shop uploads</small>', photo: 'p1', pos: { x: p5.c.x + X, y: p5.c.y + 30 } }], 0, -1, 1);
+        [{ name: 'Product.jpg<small>Up to 2 MB · Uploads folder</small>', photo: 'p1', pos: { x: p5.c.x + X, y: p5.c.y + 30 } }], 0, -1, 1);
       next();
 
 
