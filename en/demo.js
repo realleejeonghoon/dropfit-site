@@ -452,12 +452,12 @@
       '<div class="cw-img p0"><div class="cw-frame"></div></div>' +
       '<div class="cw-panel">' +
         '<p class="cw-lab" style="top:20px">Ratio</p><div class="cw-card" style="top:40px;height:106px">' + chips + '</div>' +
-        '<p class="cw-lab" style="top:162px">Dimensions</p><div class="cw-card" style="top:182px;height:42px">' +
+        '<p class="cw-lab" style="top:162px">Size</p><div class="cw-card" style="top:182px;height:42px">' +
           '<span class="cw-f" style="left:10px"></span><span class="cw-x">×</span><span class="cw-f" style="left:80px">3024</span><span class="cw-u">px</span></div>' +
         '<p class="cw-lab" style="top:240px">Save as</p><div class="cw-card" style="top:260px;height:77px">' +
           '<span class="cw-row" style="top:0">Format</span><span class="cw-pick" style="top:6px">Original' + CHEV2 + '</span>' +
           '<i class="cw-sep"></i>' +
-          '<span class="cw-row" style="top:38.5px">File size</span><span class="cw-pick" style="top:44.5px">No limit' + CHEV2 + '</span></div>' +
+          '<span class="cw-row" style="top:38.5px">File size</span><span class="cw-pick" style="top:44.5px">Original size' + CHEV2 + '</span></div>' +
         '<p class="cw-res"><span>Result</span><b></b></p>' +
         '<div class="cw-save">Save</div><div class="cw-cancel">Cancel</div>' +
       '</div>');
