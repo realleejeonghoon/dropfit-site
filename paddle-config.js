@@ -2,15 +2,15 @@
 // token은 Paddle 대시보드 Developer tools > Authentication의 client-side token입니다(시험은 test_, 실계정은 live_로 시작).
 // client-side token은 공개해도 되는 값입니다. API 키(서버용)는 절대 이 저장소에 넣지 않습니다.
 window.DROPFIT_PADDLE = {
-  stage: 'pre',                // 'pre' = 판매 전(결제 버튼 닫힘), 'open' = 판매 중
-  environment: 'sandbox',      // 'sandbox' 또는 'production'
-  token: '',                   // 정훈 님이 직접 붙여 넣음
-  priceId: 'pri_01m77yz1522ayh3ajarm9jnvz3',   // Dropfit Pro 일회성 ₩14,900 (시험 계정)
-  discountId: 'dsc_01m7hx8hh6x8eychsv6hzz54t3', // 출시 기념가 9,900원 (시험 계정)
-  discountEnds: '2026-11-30T14:59:00Z',         // 2026-11-30 23:59 KST, Paddle 할인 만료(14:59 UTC)와 같음. 늦으면 만료된 할인을 넘겨 결제창이 실패할 수 있음
+  stage: 'open',               // 'pre' = 판매 전(결제 버튼 닫힘), 'open' = 판매 중
+  environment: 'production',   // 'sandbox' 또는 'production'
+  token: 'live_ff1187f85950dcb6526b98d909d', // 실계정 client-side token 'dropfit.kr'(공개 값)
+  priceId: 'pri_01m7meqdc6y15147vppscdsdfg',   // Dropfit Pro 일회성 ₩14,900 (실계정)
+  discountId: 'dsc_01m7metejtxcjfte4pvm96h146', // 출시 기념가 9,900원 (실계정)
+  discountEnds: '2026-12-31T14:59:00Z',         // 2026-12-31 23:59 KST(정훈 11/18 17:32 연장), Paddle 할인 만료(14:59 UTC)와 같음. 늦으면 만료된 할인을 넘겨 결제창이 실패할 수 있음
   plans: { team5: '', team10: '' }               // 팀 5석 59,000원·10석 99,000원 가격 ID (12/1 시작, Paddle에 만든 뒤 채움). 비어 있으면 팀 구매를 열지 않음
 };
 
 // 실계정(production) 값. 승인과 정훈 님 확인 뒤 위 값을 이것으로 바꾸고 environment: 'production', token: live_…, stage: 'open'.
 //   priceId:    'pri_01m7meqdc6y15147vppscdsdfg'  (Dropfit Pro pro_01m7mekqq3k61p7a4yg188re5t, 일회성 ₩14,900)
-//   discountId: 'dsc_01m7metejtxcjfte4pvm96h146'  (출시 기념가 33.56%, 만료 2026-11-30 14:59 UTC)
+//   discountId: 'dsc_01m7metejtxcjfte4pvm96h146'  (출시 기념가 33.56%, 만료 2026-12-31 14:59 UTC)
