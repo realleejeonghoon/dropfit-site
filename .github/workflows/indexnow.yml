@@ -1,0 +1,29 @@
+# IndexNow 제출 (2026-11-19, 정훈 님 "노출되고 있는지까지 확인")
+# main에 사이트맵이 바뀌면, Pages 배포가 끝나 열쇠 파일이 열릴 때까지 기다린 뒤 사이트맵의 모든 주소를 Bing·Yandex 등(IndexNow)에 한 번에 알린다.
+# 열쇠는 공개 값이다(IndexNow 규칙상 사이트 맨 위에 그대로 올려 두는 파일). 비밀 값 없음, 새 의존성 없음.
+name: indexnow
+on:
+  push:
+    branches: [main]
+    paths: [sitemap.xml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: 배포 기다린 뒤 제출
+        run: |
+          KEY=$(ls | grep -E '^[0-9a-f]{32}\.txt$' | head -1 | sed 's/\.txt$//')
+          for i in $(seq 1 40); do
+            [ "$(curl -s https://dropfit.kr/$KEY.txt)" = "$KEY" ] && break
+            sleep 15
+          done
+          URLS=$(grep -o '<loc>[^<]*' sitemap.xml | sed 's/<loc>//' | python3 -c 'import sys,json;print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))')
+          BODY=$(printf '{"host":"dropfit.kr","key":"%s","keyLocation":"https://dropfit.kr/%s.txt","urlList":%s}' "$KEY" "$KEY" "$URLS")
+          CODE=$(curl -s -o /dev/null -w '%{http_code}' -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -d "$BODY")
+          echo "IndexNow 응답: $CODE (200·202 = 받음)"
+          [ "$CODE" = 200 ] || [ "$CODE" = 202 ]
