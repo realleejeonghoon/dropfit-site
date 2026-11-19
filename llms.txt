@@ -14,3 +14,24 @@
 
 - [소개](https://dropfit.kr/): Dropfit 첫 화면, 가격, 자주 묻는 질문
 - [개인정보 처리방침](https://dropfit.kr/privacy.html)
+- [가이드 목록](https://dropfit.kr/guide/): Mac에서 사진·PDF 다루는 방법
+- [맥 사진 용량 줄이기](https://dropfit.kr/guide/mac-photo-size/): 미리보기·Finder·앱별 방법과 비교
+- [PDF 합치기](https://dropfit.kr/guide/mac-pdf-merge/): Finder·미리보기·앱으로 PDF와 사진을 한 파일로
+
+## English
+
+> Dropfit for Mac is an image and PDF converter for macOS, made by Usul (South Korea). Drag files onto a small circle on your desktop and choose a format; the converted files are saved next to the originals. Files never leave your Mac. It is not the fitness app or the clothing brand that share the name.
+
+- Requires macOS 14 or later, on Apple Silicon and Intel Macs.
+- Output formats: JPG, PNG, HEIC, WebP, TIFF, GIF, BMP, PDF.
+- Converts many files or whole folders at once, and merges photos and PDFs into one PDF in the order you choose.
+- Free: format conversion, folder conversion, and merging or splitting PDFs, with no account and no limits.
+- Dropfit Pro (one-time purchase, no subscription): presets that save to a size limit, width and folder of your choice, and cropping many photos to the same ratio. 14-day free trial, no card needed.
+- The app interface is in Korean until its English update on December 1, 2026.
+
+### Links
+
+- [Dropfit for Mac](https://dropfit.kr/en/): overview, pricing, FAQ
+- [Guides](https://dropfit.kr/en/guide/)
+- [How to combine PDFs on Mac](https://dropfit.kr/en/guide/mac-pdf-merge/)
+- [Privacy Policy](https://dropfit.kr/en/privacy.html)
