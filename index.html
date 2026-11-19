@@ -889,7 +889,15 @@
   .plan-pro li small { display: block; margin: 2px 0 0; }
   .plans .plan:not(.plan-pro) { border-top: 0; padding: 28px 28px 24px; }
   .plans .plan:not(.plan-pro) ul { flex: 0 0 auto; }
-  @media (min-width: 735px) { .plans .plan:not(.plan-pro) ul { flex: 1 1 auto; } .plans .plan-safe { min-height: 3em; } .plans .plan:not(.plan-pro) .plan-cta { margin-bottom: calc(12px + 13px * 3); } }
+  @media (min-width: 735px) { .plans .plan:not(.plan-pro) ul { flex: 1 1 auto; } .plans .plan-safe { min-height: 3em; } }
+  /* 무료 칸 버튼을 Pro 버튼과 같은 높이에: Pro 버튼 아래 글과 똑같은 글을 보이지 않게 둔다(글 길이·언어·폭이 달라도 맞음, 11/19 정훈) */
+  .plan-ghost { visibility: hidden; }
+  @media (max-width: 734px) { .plan-ghost { display: none; } }
+  /* 두 칸이 나란할 때 제목·가격·설명·목록·버튼·아래 글을 같은 줄에 맞춘다(subgrid). 지원 안 하는 브라우저는 위 방식으로 버튼만 맞춘다 */
+  @supports (grid-template-rows: subgrid) { @media (min-width: 735px) {
+    .plans { grid-template-rows: repeat(6, auto); row-gap: 0; }
+    .plans .plan { display: grid; grid-row: span 6; grid-template-rows: subgrid; row-gap: 0; }
+  } }
   .plan .pill-sub { width: 100%; justify-content: center; border: 0; font: inherit; cursor: pointer; background: #fff; color: var(--sky-text); }
   .plan .pill-sub { font-size: 17px; line-height: 1.5; }
   .plan-safe { margin: 12px 0 0; font-size: 13px; line-height: 1.5; color: var(--ink-2); text-align: center; }
@@ -1197,6 +1205,7 @@
           <a class="pill lg pill-sub mac-only" href="https://realleejeonghoon.github.io/dropfit-download/Dropfit-macOS.zip" data-dl>무료 다운로드</a>
           <button class="pill lg pill-sub copy-only" type="button" data-copy-link>Mac으로 보낼 링크 복사</button>
         </div>
+        <p class="plan-safe plan-ghost" aria-hidden="true"><span class="nb">카드 등록 없이 14일 먼저 써 보기</span> · <span class="nb">구입 뒤 14일 안에 전액 환불</span></p>
       </div>
       <div class="plan plan-pro">
         <h3>Pro</h3>
