@@ -876,6 +876,10 @@
   .plan .price s { font-size: 17px; color: var(--ink-2); }
   .plan .price-note { margin: 6px 0 0; font-size: 14px; color: var(--ink-2); min-height: 1.5em; }
   .plan .price-note em { font-style: normal; color: var(--sky-text); font-weight: 500; }
+  /* 기념가 남은 시간(11/19 정훈): Paddle 할인 만료(paddle-config discountEnds)까지 1초마다 줄어든다. 하늘색은 점에만 */
+  .plan .price-note .cd { display: block; margin-top: 4px; color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .plan .price-note .cd i { display: inline-block; width: 6px; height: 6px; margin: 0 7px 0 0; border-radius: 50%; background: var(--sky-deep); vertical-align: 2px; }
+  .plan .price-note .cd b { font-weight: 600; color: var(--ink); }
   .plan ul { list-style: none; margin: 24px 0 0; padding: 0; display: grid; align-content: start; gap: 10px; font-size: 16px; color: var(--ink); flex: 1; }
   .plan li { position: relative; padding-left: 16px; }
   .plan li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; border-radius: 50%; background: var(--sky-soft); }
@@ -1217,6 +1221,7 @@
           <span class="s-pre">한 번 구입 · 구독 없음</span>
           <span class="s-sale-block p-launch"><em>출시 기념가 · 11월 30일까지</em> · 한 번 구입 · 구독 없음</span>
           <span class="s-sale-block p-regular">한 번 구입 · 구독 없음</span>
+          <span class="s-sale-block p-launch cd"><i aria-hidden="true"></i>마감까지 <b data-cd></b></span>
         </p>
         <ul>
           <li>자주 쓰는 포맷·용량을 프리셋으로 저장 <small>마켓·제출처마다 6개까지</small></li>
@@ -1548,6 +1553,24 @@
 <script>
   // 첫 화면: 내리면 아래 화살표를 감추고, 첫 화면이 화면보다 길면 처음부터 감춘다
   (function () { var f = document.querySelector('.first'); function u() { document.body.classList.toggle('scrolled', scrollY > 40); if (f) f.classList.toggle('tall', f.offsetHeight > innerHeight + 1); } addEventListener('scroll', u, { passive: true }); addEventListener('resize', u); u(); })();
+</script>
+<script>
+// 기념가 남은 시간: 결제창(checkout.js)과 같은 기준(discountEnds, 이 Mac의 시계)으로 센다. 끝나면 정가로 다시 연다(결제창이 열려 있으면 그대로 둔다)
+(function () {
+  var C = window.DROPFIT_PADDLE || {}, d = document.documentElement, end = Date.parse(C.discountEnds || '');
+  var els = [].slice.call(document.querySelectorAll('[data-cd]')); if (isNaN(end) || !els.length) return;
+  var en = d.lang === 'en', t, last = '';
+  function p(n) { return (n < 10 ? '0' : '') + n; }
+  function tick() {
+    if (d.getAttribute('data-sale') !== 'launch') { clearInterval(t); return; }
+    var s = Math.floor((end - Date.now()) / 1000);
+    if (s <= 0) { clearInterval(t); if (!document.querySelector('.paddle-frame')) location.reload(); return; }
+    var dd = Math.floor(s / 86400), c = p(Math.floor(s % 86400 / 3600)) + ':' + p(Math.floor(s % 3600 / 60)) + ':' + p(s % 60);
+    var txt = dd > 0 ? (en ? dd + (dd === 1 ? ' day ' : ' days ') : dd + '일 ') + c : c;
+    if (txt !== last) { last = txt; els.forEach(function (e) { e.textContent = txt; }); }
+  }
+  tick(); t = setInterval(tick, 1000);
+})();
 </script>
 </body>
 </html>
