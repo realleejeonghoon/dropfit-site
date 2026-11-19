@@ -14,6 +14,19 @@ for p in sorted(glob.glob('en/**/*.html', recursive=True)):
             bad.append(f'{p}: 공유 그림이 영어판이 아님 {m.group(1)}')
     for m in re.finditer(r'(?:January|February|March|April|May|June|July|August|September|October|November|December) \d', v):
         bad.append(f'{p}: 날짜를 줄바꿈 없는 공백으로 묶지 않음 "{m.group()}"')
+# 링크 미리보기·검색 로봇이 영어판으로 옮겨지지 않게 (11/19 네이버 블로그 카드가 영어로 뜬 사고 재발 방지)
+NEED = ['bot', 'crawl', 'spider', 'preview', 'yeti', 'naver', 'daum', 'kakao', 'facebookexternalhit', 'headless', 'google', 'bing']
+for p in sorted(glob.glob('**/*.html', recursive=True)):
+    if p.startswith('en/'): continue
+    s = open(p, encoding='utf-8').read()
+    if "location.replace('/en/" in s:
+        m = re.search(r"/(bot\|[^/]+)/i\.test\(n\.userAgent\)", s)
+        miss = [w for w in NEED if not m or w not in m.group(1).split('|')]
+        if miss: bad.append(f'{p}: 영어판 이동에서 빼야 할 로봇이 빠짐 {miss}')
+        if 'n.webdriver' not in s: bad.append(f'{p}: 영어판 이동에서 자동 브라우저(webdriver)를 빼지 않음')
+    for m in re.finditer(r'<meta property="og:(title|description)" content="([^"]*)"', s):
+        if not re.search(r'[가-힣]', m.group(2)):
+            bad.append(f'{p}: 한국어판 og:{m.group(1)}에 한글이 없음 "{m.group(2)}"')
 for b in bad: print('✗', b)
 print('언어판 점검:', '✗ %d건' % len(bad) if bad else '✓ 모두 맞습니다')
 sys.exit(1 if bad else 0)
