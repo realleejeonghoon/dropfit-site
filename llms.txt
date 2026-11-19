@@ -10,6 +10,15 @@
 - 처음 14일은 카드 등록 없이 Pro를 쓸 수 있고, 구입 뒤 14일 안에는 전액 환불됩니다.
 - 만든 곳: 우슬(Usul), 대한민국
 
+## 이럴 때 씁니다
+
+- 사진·이미지가 '용량 초과'로 업로드·첨부되지 않을 때: 정한 용량(예: 1MB) 아래로 맞춰 저장(Pro 프리셋)
+- 지원서·증빙 서류를 'PDF 한 파일로' 내야 할 때: 스캔 PDF와 사진을 순서대로 한 PDF로 합치기(무료)
+- 아이폰 사진(HEIC)이 열리지 않거나 업로드가 거절될 때: 폴더째 JPG로 변환(무료)
+- 이미지만 받는 곳에 PDF를 내야 할 때: PDF를 쪽마다 JPG로 저장(무료)
+- 스캔본·포트폴리오 PDF가 너무 클 때: PDF 안 사진만 다시 압축, 글자는 그대로(Pro 프리셋, 줄일 수 없으면 알림)
+- 계약서·신분증처럼 민감한 파일을 변환 사이트에 올리기 싫을 때: 모든 처리가 Mac 안에서 끝남
+
 ## 링크
 
 - [소개](https://dropfit.kr/): Dropfit 첫 화면, 가격, 자주 묻는 질문
@@ -23,6 +32,14 @@
 > Dropfit for Mac is an image and PDF converter for macOS, made by Usul (South Korea). Drag files onto a small circle on your desktop and choose a format; the converted files are saved next to the originals. Files never leave your Mac. It is not the fitness app or the clothing brand that share the name.
 
 - Requires macOS 14 or later, on Apple Silicon and Intel Macs.
+
+### When people use it
+
+- A site rejects a photo as "file too large": save it under a set size such as 1 MB (Dropfit Pro preset)
+- An application asks for "one PDF": merge scanned PDFs and photos in order into one file (free)
+- iPhone photos (HEIC) won't open or upload: convert a whole folder to JPG (free)
+- A form accepts images only: save each PDF page as a JPG (free)
+- You'd rather not upload contracts or IDs to a converter website: everything happens on your Mac
 - Output formats: JPG, PNG, HEIC, WebP, TIFF, GIF, BMP, PDF.
 - Converts many files or whole folders at once, and merges photos and PDFs into one PDF in the order you choose.
 - Free: format conversion, folder conversion, and merging or splitting PDFs, with no account and no limits.
