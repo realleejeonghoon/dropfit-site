@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How to crop many photos to the same ratio on Mac (1:1, 4:5)</title>
+<meta name="description" content="Crop a batch of photos to 1:1, 4:5, 3:4 or 16:9 on a Mac without uploading them. Preview one by one vs. Dropfit for Mac, which sets the same frame on every photo.">
+<meta name="theme-color" content="#fbfbfd">
+<link rel="canonical" href="https://dropfit.kr/en/guide/mac-batch-crop/">
+<link rel="alternate" hreflang="ko" href="https://dropfit.kr/guide/mac-batch-crop/">
+<link rel="alternate" hreflang="en" href="https://dropfit.kr/en/guide/mac-batch-crop/">
+<link rel="alternate" hreflang="x-default" href="https://dropfit.kr/guide/mac-batch-crop/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dropfit">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://dropfit.kr/en/guide/mac-batch-crop/">
+<meta property="og:title" content="How to crop many photos to the same ratio on Mac (1:1, 4:5)">
+<meta property="og:description" content="Crop many photos to 1:1 or 4:5 at once on Mac, no uploads. Preview vs. an app.">
+<link rel="stylesheet" href="../../../fonts/pretendardvariable-dynamic-subset.css">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://dropfit.kr/en/guide/mac-batch-crop/#article",
+      "headline": "How to crop many photos to the same ratio on Mac (1:1, 4:5)",
+      "description": "Crop a batch of photos to 1:1, 4:5, 3:4 or 16:9 on a Mac without uploading them. Preview one by one vs. Dropfit for Mac, which sets the same frame on every photo.",
+      "inLanguage": "en-US",
+      "datePublished": "2026-11-20",
+      "dateModified": "2026-11-20",
+      "mainEntityOfPage": "https://dropfit.kr/en/guide/mac-batch-crop/",
+      "author": {
+        "@id": "https://dropfit.kr/#founder"
+      },
+      "publisher": {
+        "@id": "https://dropfit.kr/#org"
+      },
+      "about": {
+        "@id": "https://dropfit.kr/#app"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dropfit.kr/en/guide/mac-batch-crop/#faq",
+      "inLanguage": "en-US",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I crop many photos to the same ratio at once on a Mac?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Preview crops one photo at a time. Dropfit puts the same frame on every photo after you pick the ratio once, and saves them all together."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if each photo needs a different crop position?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Flip through the photos in Dropfit's Crop window and move the frame. The ratio stays the same."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are my originals replaced?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Dropfit saves new files such as \"photo (cropped).jpg\" next to the originals. Preview saves over the original, so duplicate it first."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Dropfit",
+          "item": "https://dropfit.kr/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "How to crop many photos to the same ratio on Mac (1:1, 4:5)",
+          "item": "https://dropfit.kr/en/guide/mac-batch-crop/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  /* 랜딩(index.html)·약관과 같은 글꼴·색·여백. 읽기 전용 한 단 문서 */
+  :root {
+    --ink: #1d1d1f;
+    --ink-2: #6e6e73;
+    --ink-3: #86868b;
+    --link: #3c608a;
+    --line: #d2d2d7;
+    --paper: #fbfbfd;
+    --soft: #f5f5f7;
+    --note: #f2f6fb;
+    --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: #fff; color: var(--ink); font-family: var(--font); font-size: 17px; line-height: 1.65; letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-wrap: break-word; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { width: min(720px, 100% - 48px); margin: 0 auto; }
+  .nav { position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, .78); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, .08); }
+  .nav .wrap { height: 48px; display: flex; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 8px; color: var(--ink); font-weight: 600; font-size: 15px; }
+  .brand:hover { text-decoration: none; }
+  .brand img { width: 22px; height: 22px; filter: drop-shadow(0 0 .5px rgba(18,28,45,.22)) drop-shadow(0 1px 1.5px rgba(18,28,45,.12)); }
+  main { padding: 56px 0 96px; }
+  .crumb { font-size: 14px; color: var(--ink-2); margin: 0 0 10px; }
+  h1 { font-size: clamp(30px, 4.2vw, 40px); line-height: 1.2; font-weight: 600; letter-spacing: -0.03em; margin: 0; }
+  .meta { color: var(--ink-2); font-size: 14px; margin: 10px 0 0; }
+  .answer { background: var(--soft); border-radius: 16px; padding: 20px 22px; margin: 28px 0 8px; }
+  .answer p { margin: 0; }
+  h2 { font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: -0.02em; margin: 52px 0 14px; }
+  p { margin: 0 0 12px; }
+  ol, ul { padding-left: 1.3em; margin: 10px 0 14px; }
+  li { margin: 6px 0; }
+  b { font-weight: 600; }
+  figure { margin: 20px 0; }
+  figure img { display: block; width: 100%; height: auto; border-radius: 12px; background: var(--soft); }
+  figure.portrait img { width: min(100%, 400px); margin: 0 auto; }
+  figcaption { margin-top: 8px; font-size: 13px; color: var(--ink-3); text-align: center; }
+  .table { overflow-x: auto; margin: 16px 0 8px; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 15px; line-height: 1.5; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 16px 12px 0; border-bottom: 1px solid #e5e5ea; }
+  th { font-size: 13px; font-weight: 600; color: var(--ink-2); border-bottom-color: var(--line); white-space: nowrap; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  tr.us td { background: var(--note); }
+  .cta { margin-top: 56px; padding-top: 28px; border-top: 1px solid #e5e5ea; }
+  .cta p { margin: 0 0 4px; }
+  .pill { display: inline-flex; align-items: center; justify-content: center; margin-top: 16px; padding: 11px 24px; border-radius: 980px;
+    background: linear-gradient(180deg, #cce1f5, #a3c4e6); color: #3c608a; font-weight: 500; white-space: nowrap;
+    box-shadow: 0 .5px 1.2px rgba(18, 28, 45, .12), 0 4px 12px rgba(18, 28, 45, .08); transition: box-shadow .25s; }
+  .pill:hover { text-decoration: none; box-shadow: 0 .5px 1.2px rgba(18, 28, 45, .14), 0 6px 16px rgba(18, 28, 45, .11); }
+  .src { font-size: 13px; color: var(--ink-3); margin-top: 40px; }
+  .nb { white-space: nowrap; }
+  footer { background: var(--paper); color: var(--ink-3); font-size: 12px; padding: 20px 0 32px; }
+  footer .wrap { display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 16px; }
+  footer a { color: var(--ink-2); }
+  footer nav { display: flex; gap: 12px; flex-wrap: wrap; }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li, td, figcaption { text-wrap: pretty; }
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Main menu">
+  <div class="wrap">
+    <a class="brand" href="/en/"><img src="/assets/icon-128.png" alt="">Dropfit</a>
+  </div>
+</nav>
+<main class="wrap">
+  <p class="crumb"><a href="/en/guide/">Dropfit Guides</a></p>
+  <h1>How to crop many photos to the same ratio on Mac (1:1, 4:5)</h1>
+  <p class="meta">November&nbsp;2026 · macOS 14 or later</p>
+
+  <div class="answer"><p>Preview, the Mac's built-in viewer, crops one photo at a time from a selection you draw. To crop many photos to the same ratio, an app that puts the same frame on every photo is quicker. In Dropfit for Mac you drop the photos, pick 1:1, 4:5, 3:4 or 16:9, move the frame only where needed, and save them all at once.</p></div>
+
+  <p>Ten photos for an Instagram post at 4:5, or product shots that all need to be square: cropping them one by one in Preview, the ratios drift a little each time. Online croppers work, but your originals go to someone else's server.</p>
+
+  <h2>1. Preview, one at a time (free)</h2>
+  <ol>
+    <li>Open the photo in Preview.</li>
+    <li>Choose Tools → Rectangular Selection and draw the area. Hold Shift while dragging for a square.</li>
+    <li>Choose Tools → Crop, then save.</li>
+  </ol>
+  <p>Ratios other than square, such as 4:5 or 3:4, you match by eye from the selection size, for every photo. Preview saves over the original, so duplicate it first if you need it.</p>
+  <h2>2. Pick the ratio once: Dropfit for Mac</h2>
+  <p>Cropping a set of photos to one ratio, one photo at a time, got tiresome, so I built Dropfit for Mac.</p>
+  <ol>
+    <li>Drag the photos onto the circle on your desktop and drop them on "Crop N images." You can also Control-click the circle and choose "Choose Images to Crop…"</li>
+    <li>In the Crop window, pick a ratio: Free, 1:1, 4:5, 3:4, 16:9 or Custom.</li>
+    <li>Every photo gets a frame at that ratio. Flip through and move the frame only on the photos that need it.</li>
+    <li>Click Save. Files like "photo (cropped).jpg" are saved next to the originals, which stay untouched.</li>
+  </ol>
+  <p>The same window sets the format (JPG, PNG and more) and a maximum file size, so cropping and shrinking happen in one step. For exact pixels, such as 1080×1350, enter the width and height in Custom.</p>
+  <h2>Common ratios</h2>
+  <ul>
+    <li><b>1:1</b>: square Instagram posts, product photos</li>
+    <li><b>4:5</b>: portrait Instagram posts</li>
+    <li><b>3:4</b>: ID and portrait photos</li>
+    <li><b>16:9</b>: YouTube thumbnails, slides</li>
+  </ul>
+
+  <h2>Compared</h2>
+  <div class="table"><table>
+    <thead><tr><th>Method</th><th>Price</th><th>Choosing a ratio</th><th>Many photos</th><th>Upload</th></tr></thead>
+    <tbody>
+      <tr><td>Preview</td><td>Free (built in)</td><td>Square with Shift, others by eye</td><td>One at a time</td><td>None</td></tr>
+      <tr class="us"><td>Dropfit</td><td>Dropfit Pro (one-time)</td><td>1:1, 4:5, 3:4, 16:9, Custom</td><td>Many at once</td><td>None</td></tr>
+      <tr><td>Online croppers</td><td>Mostly free</td><td>Varies</td><td>Varies</td><td>Uploaded to a server</td></tr>
+    </tbody>
+  </table></div>
+  <p>Format conversion and merging PDFs are free; Crop and presets are part of Dropfit Pro. Try every Pro feature free for 14 days with no card, and the free features keep working after the trial. Full refund within 14 days of purchase, no questions asked.</p>
+  <h2>FAQ</h2>
+  <h3>Can I crop many photos to the same ratio at once on a Mac?</h3>
+  <p>Preview crops one photo at a time. Dropfit puts the same frame on every photo after you pick the ratio once, and saves them all together.</p>
+  <h3>What if each photo needs a different crop position?</h3>
+  <p>Flip through the photos in Dropfit's Crop window and move the frame. The ratio stays the same.</p>
+  <h3>Are my originals replaced?</h3>
+  <p>No. Dropfit saves new files such as "photo (cropped).jpg" next to the originals. Preview saves over the original, so duplicate it first.</p>
+
+  <h2>Related guides</h2>
+  <ul>
+    <li><a href="/en/guide/mac-batch-resize/">How to resize many photos at once on Mac</a></li>
+    <li><a href="/en/guide/mac-id-photo-size/">How to resize an ID photo to under 500 KB or 1 MB on Mac</a></li>
+    <li><a href="/en/guide/mac-image-convert/">How to convert images on Mac: HEIC and PNG to JPG in bulk</a></li>
+  </ul>
+
+  <div class="cta">
+    <p><b>Dropfit for Mac</b> · 14-day Dropfit Pro trial, no card</p>
+    <p class="meta">macOS 14 or later · Apple Silicon and Intel</p>
+    <a class="pill" href="https://dropfit.kr/en/?from=guide-en">See Dropfit for Mac</a>
+  </div>
+
+  <p class="src">Sources: Apple Mac User Guide (Finder Quick Actions), Apple Preview User Guide (export, PDF). Dropfit behavior as of version 1.0. Checked 2026-11-20.</p>
+</main>
+<footer>
+  <div class="wrap">
+    <a href="/en/">Dropfit</a>
+    <nav><a href="/en/terms.html">Terms</a> <a href="/en/refund.html">Refund Policy</a> <a href="/en/privacy.html">Privacy Policy</a> <a href="/guide/mac-batch-crop/" hreflang="ko" data-ko>Korean</a></nav>
+  </div>
+</footer>
+<script>document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-ko]'))try{localStorage.setItem('dropfit-lang','ko')}catch(x){}});</script>
+</body>
+</html>

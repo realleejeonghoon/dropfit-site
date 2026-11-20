@@ -25,6 +25,8 @@
 - [아이폰 사진 JPG 변환](https://dropfit.kr/guide/mac-heic-to-jpg/): HEIC를 JPG로, 업로드 안 될 때
 - [PNG JPG 변환](https://dropfit.kr/guide/mac-png-to-jpg/): 여러 장을 한 번에
 - [증명사진 용량 줄이기](https://dropfit.kr/guide/mac-id-photo-size/): 500KB·1MB 제출 기준에 맞추기
+- [사진 여러 장 같은 비율로 자르기](https://dropfit.kr/guide/mac-batch-crop/): 1:1·4:5·3:4·16:9 한 번에
+- [사진 크기 한 번에 줄이기](https://dropfit.kr/guide/mac-batch-resize/): 여러 장 가로 1080px로
 
 ## English
 
@@ -34,7 +36,7 @@
 - Output formats: JPG, PNG, HEIC, WebP, TIFF, GIF, BMP, PDF.
 - Converts many files or whole folders at once, and merges photos and PDFs into one PDF in the order you choose.
 - Free: format conversion, folder conversion, and merging or splitting PDFs, with no account and no limits.
-- Dropfit Pro: ₩14,900 one-time purchase, no subscription (launch price ₩9,900 until December 31, 2026, KST). Checkout shows the price in your local currency. Pro adds presets that save to a size limit, width and folder of your choice, and cropping many photos to the same ratio. 14-day free trial, no card needed.
+- Dropfit Pro: ₩14,900 one-time purchase, no subscription (launch price ₩9,900 until December 31, 2026, KST). Checkout shows the price in your local currency. Pro adds presets that save files in the format, size limit and folder you choose, and cropping many photos to the same ratio or an exact pixel size. 14-day free trial, no card needed.
 - The app is in English and Korean and follows your Mac's language.
 
 ### Links
@@ -50,4 +52,6 @@
 - [How to convert HEIC to JPG on Mac](https://dropfit.kr/en/guide/mac-heic-to-jpg/): iPhone photos that won't upload
 - [How to convert PNG to JPG on Mac](https://dropfit.kr/en/guide/mac-png-to-jpg/)
 - [How to resize an ID photo on Mac](https://dropfit.kr/en/guide/mac-id-photo-size/): under 500 KB or 1 MB
+- [How to crop many photos to the same ratio on Mac](https://dropfit.kr/en/guide/mac-batch-crop/): 1:1, 4:5, 3:4, 16:9 at once
+- [How to resize many photos at once on Mac](https://dropfit.kr/en/guide/mac-batch-resize/): e.g. 1080 px wide
 - [Privacy Policy](https://dropfit.kr/en/privacy.html)
