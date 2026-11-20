@@ -1080,6 +1080,13 @@
 <script>
   (function (d) { d.classList.add('lg-wait'); setTimeout(function () { d.classList.add('lg-in'); }, 5000); })(document.documentElement);
 </script>
+<!-- 11/20 정훈: 앱 'Pro 구입…'(from=app)으로 온 사람에게는 무료 칸 다운로드 버튼 대신 한 줄만(이미 설치한 사람, 다운로드 수 부풀림 방지) -->
+<style>
+  .plan-using { display: none; margin: 0; font-size: 15px; color: var(--ink-2); }
+  .from-app .plan-cta [data-dl], .from-app .plan-cta [data-copy-link] { display: none !important; }
+  .from-app .plan-using { display: block; }
+</style>
+<script>(function () { try { if (new URLSearchParams(location.search).get('from') === 'app') document.documentElement.classList.add('from-app'); } catch (e) {} })();</script>
 </head>
 <body>
 
@@ -1208,6 +1215,7 @@
         <div class="plan-cta">
           <a class="pill lg pill-sub mac-only" href="https://realleejeonghoon.github.io/dropfit-download/Dropfit-macOS.zip" data-dl>무료 다운로드</a>
           <button class="pill lg pill-sub copy-only" type="button" data-copy-link>Mac으로 보낼 링크 복사</button>
+          <p class="plan-using">지금 쓰고 계신 판입니다</p>
         </div>
         <p class="plan-safe plan-ghost" aria-hidden="true"><span class="nb">카드 등록 없이 14일 먼저 써 보기</span> · <span class="nb">구입 뒤 14일 안에 전액 환불</span></p>
       </div>
