@@ -6,7 +6,7 @@
 - 변환 결과 포맷: JPG, PNG, HEIC, WebP, TIFF, GIF, BMP, PDF
 - 여러 파일과 폴더를 한 번에 변환할 수 있고, 여러 PDF를 순서대로 합칠 수 있습니다.
 - 인터넷에 파일을 올리지 않고 Mac 안에서 처리합니다.
-- 가격: 기본 기능은 무료(가입 없이, 횟수 제한 없이). Pro는 14,900원 한 번 구입, 구독 없음. Pro는 자주 쓰는 포맷·용량·저장 위치를 프리셋(6개)으로 저장하고, 여러 장을 같은 비율(1:1, 4:5, 16:9 등)로 한 번에 자릅니다.
+- 가격: 기본 기능은 무료(가입 없이, 횟수 제한 없이). Pro는 14,900원 한 번 구입, 구독 없음(출시 기념가 9,900원, 2026년 12월 31일까지). Pro는 자주 쓰는 포맷·용량·저장 위치를 프리셋(6개)으로 저장하고, 여러 장을 같은 비율(1:1, 4:5, 16:9 등)로 한 번에 자릅니다.
 - 처음 14일은 카드 등록 없이 Pro를 쓸 수 있고, 구입 뒤 14일 안에는 전액 환불됩니다.
 - 만든 곳: 우슬(Usul), 대한민국
 
@@ -34,7 +34,7 @@
 - Output formats: JPG, PNG, HEIC, WebP, TIFF, GIF, BMP, PDF.
 - Converts many files or whole folders at once, and merges photos and PDFs into one PDF in the order you choose.
 - Free: format conversion, folder conversion, and merging or splitting PDFs, with no account and no limits.
-- Dropfit Pro (one-time purchase, no subscription): presets that save to a size limit, width and folder of your choice, and cropping many photos to the same ratio. 14-day free trial, no card needed.
+- Dropfit Pro: ₩14,900 one-time purchase, no subscription (launch price ₩9,900 until December 31, 2026, KST). Checkout shows the price in your local currency. Pro adds presets that save to a size limit, width and folder of your choice, and cropping many photos to the same ratio. 14-day free trial, no card needed.
 - The app is in English and Korean and follows your Mac's language.
 
 ### Links
