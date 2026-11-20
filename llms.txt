@@ -22,6 +22,10 @@
 - [맥북 이미지 변환](https://dropfit.kr/guide/mac-image-convert/): HEIC·PNG를 JPG로, 여러 장과 폴더째
 - [사진 PDF 변환](https://dropfit.kr/guide/mac-jpg-to-pdf/): 사진 여러 장을 PDF 한 파일로
 - [PDF JPG 변환](https://dropfit.kr/guide/mac-pdf-to-jpg/): PDF 모든 쪽을 이미지로
+- [아이폰 사진 JPG 변환](https://dropfit.kr/guide/mac-heic-to-jpg/): HEIC를 JPG로, 업로드 안 될 때
+- [PNG JPG 변환](https://dropfit.kr/guide/mac-png-to-jpg/): 여러 장을 한 번에
+- [WebP JPG 변환](https://dropfit.kr/guide/mac-webp-to-jpg/): 웹에서 저장한 이미지를 JPG로
+- [증명사진 용량 줄이기](https://dropfit.kr/guide/mac-id-photo-size/): 500KB·1MB 제출 기준에 맞추기
 
 ## English
 
@@ -44,4 +48,8 @@
 - [How to convert images on Mac](https://dropfit.kr/en/guide/mac-image-convert/): HEIC and PNG to JPG in bulk
 - [How to convert photos to PDF on Mac](https://dropfit.kr/en/guide/mac-jpg-to-pdf/)
 - [How to convert PDF to JPG on Mac](https://dropfit.kr/en/guide/mac-pdf-to-jpg/): every page at once
+- [How to convert HEIC to JPG on Mac](https://dropfit.kr/en/guide/mac-heic-to-jpg/): iPhone photos that won't upload
+- [How to convert PNG to JPG on Mac](https://dropfit.kr/en/guide/mac-png-to-jpg/)
+- [How to convert WebP to JPG on Mac](https://dropfit.kr/en/guide/mac-webp-to-jpg/)
+- [How to resize an ID photo on Mac](https://dropfit.kr/en/guide/mac-id-photo-size/): under 500 KB or 1 MB
 - [Privacy Policy](https://dropfit.kr/en/privacy.html)
