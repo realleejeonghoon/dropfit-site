@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How to convert PDF to JPG on Mac (every page at once)</title>
+<meta name="description" content="Two ways to turn PDF pages into JPG or PNG images on a Mac without uploading: Preview, one page at a time, and Dropfit for Mac, every page at once. Compared.">
+<meta name="theme-color" content="#fbfbfd">
+<link rel="canonical" href="https://dropfit.kr/en/guide/mac-pdf-to-jpg/">
+<link rel="alternate" hreflang="ko" href="https://dropfit.kr/guide/mac-pdf-to-jpg/">
+<link rel="alternate" hreflang="en" href="https://dropfit.kr/en/guide/mac-pdf-to-jpg/">
+<link rel="alternate" hreflang="x-default" href="https://dropfit.kr/guide/mac-pdf-to-jpg/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dropfit">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://dropfit.kr/en/guide/mac-pdf-to-jpg/">
+<meta property="og:title" content="How to convert PDF to JPG on Mac (every page at once)">
+<meta property="og:description" content="Convert PDF to JPG on Mac with Preview or an app. One image per page. No uploads.">
+<link rel="stylesheet" href="../../../fonts/pretendardvariable-dynamic-subset.css">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://dropfit.kr/en/guide/mac-pdf-to-jpg/#article",
+      "headline": "How to convert PDF to JPG on Mac (every page at once)",
+      "description": "Two ways to turn PDF pages into JPG or PNG images on a Mac without uploading: Preview, one page at a time, and Dropfit for Mac, every page at once. Compared.",
+      "inLanguage": "en-US",
+      "datePublished": "2026-11-20",
+      "dateModified": "2026-11-20",
+      "mainEntityOfPage": "https://dropfit.kr/en/guide/mac-pdf-to-jpg/",
+      "author": {
+        "@id": "https://dropfit.kr/#founder"
+      },
+      "publisher": {
+        "@id": "https://dropfit.kr/#org"
+      },
+      "about": {
+        "@id": "https://dropfit.kr/#app"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dropfit.kr/en/guide/mac-pdf-to-jpg/#faq",
+      "inLanguage": "en-US",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I convert a PDF to JPG on a Mac for free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Export in Preview is built into macOS and free, and conversion in Dropfit for Mac is free too."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert every page of a PDF to JPG at once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Preview's Export saves one page at a time. Drop the PDF on JPG in Dropfit and every page is saved, in order, to a \"File name (JPG)\" folder."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get PNG instead of JPG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. In Preview, choose PNG as the format. In Dropfit, drop the PDF on PNG."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Dropfit",
+          "item": "https://dropfit.kr/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "How to convert PDF to JPG on Mac (every page at once)",
+          "item": "https://dropfit.kr/en/guide/mac-pdf-to-jpg/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  /* 랜딩(index.html)·약관과 같은 글꼴·색·여백. 읽기 전용 한 단 문서 */
+  :root {
+    --ink: #1d1d1f;
+    --ink-2: #6e6e73;
+    --ink-3: #86868b;
+    --link: #3c608a;
+    --line: #d2d2d7;
+    --paper: #fbfbfd;
+    --soft: #f5f5f7;
+    --note: #f2f6fb;
+    --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: #fff; color: var(--ink); font-family: var(--font); font-size: 17px; line-height: 1.65; letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-wrap: break-word; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { width: min(720px, 100% - 48px); margin: 0 auto; }
+  .nav { position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, .78); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, .08); }
+  .nav .wrap { height: 48px; display: flex; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 8px; color: var(--ink); font-weight: 600; font-size: 15px; }
+  .brand:hover { text-decoration: none; }
+  .brand img { width: 22px; height: 22px; filter: drop-shadow(0 0 .5px rgba(18,28,45,.22)) drop-shadow(0 1px 1.5px rgba(18,28,45,.12)); }
+  main { padding: 56px 0 96px; }
+  .crumb { font-size: 14px; color: var(--ink-2); margin: 0 0 10px; }
+  h1 { font-size: clamp(30px, 4.2vw, 40px); line-height: 1.2; font-weight: 600; letter-spacing: -0.03em; margin: 0; }
+  .meta { color: var(--ink-2); font-size: 14px; margin: 10px 0 0; }
+  .answer { background: var(--soft); border-radius: 16px; padding: 20px 22px; margin: 28px 0 8px; }
+  .answer p { margin: 0; }
+  h2 { font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: -0.02em; margin: 52px 0 14px; }
+  p { margin: 0 0 12px; }
+  ol, ul { padding-left: 1.3em; margin: 10px 0 14px; }
+  li { margin: 6px 0; }
+  b { font-weight: 600; }
+  figure { margin: 20px 0; }
+  figure img { display: block; width: 100%; height: auto; border-radius: 12px; background: var(--soft); }
+  figure.portrait img { width: min(100%, 400px); margin: 0 auto; }
+  figcaption { margin-top: 8px; font-size: 13px; color: var(--ink-3); text-align: center; }
+  .table { overflow-x: auto; margin: 16px 0 8px; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 15px; line-height: 1.5; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 16px 12px 0; border-bottom: 1px solid #e5e5ea; }
+  th { font-size: 13px; font-weight: 600; color: var(--ink-2); border-bottom-color: var(--line); white-space: nowrap; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  tr.us td { background: var(--note); }
+  .cta { margin-top: 56px; padding-top: 28px; border-top: 1px solid #e5e5ea; }
+  .cta p { margin: 0 0 4px; }
+  .pill { display: inline-flex; align-items: center; justify-content: center; margin-top: 16px; padding: 11px 24px; border-radius: 980px;
+    background: linear-gradient(180deg, #cce1f5, #a3c4e6); color: #3c608a; font-weight: 500; white-space: nowrap;
+    box-shadow: 0 .5px 1.2px rgba(18, 28, 45, .12), 0 4px 12px rgba(18, 28, 45, .08); transition: box-shadow .25s; }
+  .pill:hover { text-decoration: none; box-shadow: 0 .5px 1.2px rgba(18, 28, 45, .14), 0 6px 16px rgba(18, 28, 45, .11); }
+  .src { font-size: 13px; color: var(--ink-3); margin-top: 40px; }
+  .nb { white-space: nowrap; }
+  footer { background: var(--paper); color: var(--ink-3); font-size: 12px; padding: 20px 0 32px; }
+  footer .wrap { display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 16px; }
+  footer a { color: var(--ink-2); }
+  footer nav { display: flex; gap: 12px; flex-wrap: wrap; }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li, td, figcaption { text-wrap: pretty; }
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Main menu">
+  <div class="wrap">
+    <a class="brand" href="/en/"><img src="/assets/icon-128.png" alt="">Dropfit</a>
+  </div>
+</nav>
+<main class="wrap">
+  <p class="crumb"><a href="/en/guide/">Dropfit Guides</a></p>
+  <h1>How to convert PDF to JPG on Mac (every page at once)</h1>
+  <p class="meta">November&nbsp;2026 · macOS 14 or later</p>
+
+  <div class="answer"><p>To turn a page or two of a PDF into JPG on a Mac, select the page in Preview, choose <b>File → Export</b>, and save as JPEG. Export saves one page at a time, so converting every page means repeating it for each page. To convert all pages at once, an app is quicker. Neither method uploads your files.</p></div>
+
+  <p>A portfolio needs to go up as one image per page, or you need to send a single page of a contract as a picture. Online converters cap the page count or make you upload the file.</p>
+
+  <h2>1. Preview (a page or two)</h2>
+  <ol>
+    <li>Open the PDF in Preview and choose View → Thumbnails.</li>
+    <li>Select the page you want.</li>
+    <li>Choose File → Export, set Format to JPEG, and save.</li>
+  </ol>
+  <p>Export saves only the page you are on. For 10 pages, you repeat it 10 times.</p>
+  <h2>2. Every page at once: Dropfit for Mac</h2>
+  <p>When I had to post my own portfolio page by page, exporting one page at a time in Preview wore me out, so I built this into Dropfit for Mac.</p>
+  <ol>
+    <li>Drag the PDF onto the circle on your desktop.</li>
+    <li>Drop it on JPG among the formats that fan out. Before you let go, it shows how many images you'll get, for example "5 pages → 5 JPG images."</li>
+    <li>A folder named "File name (JPG)" appears next to the PDF, with the pages saved in order as numbered images.</li>
+  </ol>
+  <ul>
+    <li>A one-page PDF is saved as "File name.jpg", without a folder.</li>
+    <li>Pick PNG to get PNG images.</li>
+    <li>You can drop several PDFs or a whole folder.</li>
+  </ul>
+  <p>Conversion is free, with no account and no limits.</p>
+
+  <h2>Compared</h2>
+  <div class="table"><table>
+    <thead><tr><th>Method</th><th>Price</th><th>Many pages</th><th>Output</th><th>Several PDFs</th><th>Upload</th></tr></thead>
+    <tbody>
+      <tr><td>Preview</td><td>Free (built in)</td><td>One page at a time</td><td>You name each file</td><td>One at a time</td><td>None</td></tr>
+      <tr class="us"><td>Dropfit</td><td>Free</td><td>All at once</td><td>Collected in a "(JPG)" folder</td><td>Many, or a whole folder</td><td>None</td></tr>
+      <tr><td>Online converters</td><td>Mostly free (page limits)</td><td>Mostly yes</td><td>Downloaded as a zip</td><td>Varies</td><td>Uploaded to a server</td></tr>
+    </tbody>
+  </table></div>
+  <p>For a page or two, Preview is enough. For every page, or several PDFs, an app is faster.</p>
+  <h2>FAQ</h2>
+  <h3>Can I convert a PDF to JPG on a Mac for free?</h3>
+  <p>Yes. Export in Preview is built into macOS and free, and conversion in Dropfit for Mac is free too.</p>
+  <h3>Can I convert every page of a PDF to JPG at once?</h3>
+  <p>Preview's Export saves one page at a time. Drop the PDF on JPG in Dropfit and every page is saved, in order, to a "File name (JPG)" folder.</p>
+  <h3>Can I get PNG instead of JPG?</h3>
+  <p>Yes. In Preview, choose PNG as the format. In Dropfit, drop the PDF on PNG.</p>
+
+  <h2>Related guides</h2>
+  <ul>
+    <li><a href="/en/guide/mac-image-convert/">How to convert images on Mac</a></li>
+    <li><a href="/en/guide/mac-jpg-to-pdf/">How to convert photos to PDF on Mac</a></li>
+    <li><a href="/en/guide/mac-pdf-merge/">How to combine PDFs on Mac</a></li>
+  </ul>
+
+  <div class="cta">
+    <p><b>Dropfit for Mac</b> · Conversion is free</p>
+    <p class="meta">macOS 14 or later · Apple Silicon and Intel</p>
+    <a class="pill" href="https://dropfit.kr/en/?from=guide-en">See Dropfit for Mac</a>
+  </div>
+
+  <p class="src">Sources: Apple Mac User Guide (Finder Quick Actions), Apple Preview User Guide (export, PDF). Dropfit behavior as of version 1.0. Checked 2026-11-20.</p>
+</main>
+<footer>
+  <div class="wrap">
+    <a href="/en/">Dropfit</a>
+    <nav><a href="/en/terms.html">Terms</a> <a href="/en/refund.html">Refund Policy</a> <a href="/en/privacy.html">Privacy Policy</a> <a href="/guide/mac-pdf-to-jpg/" hreflang="ko" data-ko>Korean</a></nav>
+  </div>
+</footer>
+<script>document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-ko]'))try{localStorage.setItem('dropfit-lang','ko')}catch(x){}});</script>
+</body>
+</html>

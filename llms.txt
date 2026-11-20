@@ -18,6 +18,13 @@
 - [용량 초과로 업로드가 안 될 때](https://dropfit.kr/guide/upload-size-limit/): 사진을 1MB·2MB 이하로 줄이는 법, 확인할 세 가지
 - [맥 사진 용량 줄이기](https://dropfit.kr/guide/mac-photo-size/): 미리보기·Finder·앱별 방법과 비교
 - [PDF 합치기](https://dropfit.kr/guide/mac-pdf-merge/): Finder·미리보기·앱으로 PDF와 사진을 한 파일로
+- [PDF 용량 줄이기](https://dropfit.kr/guide/mac-pdf-size/): 10MB·5MB 제출 기준에 맞추는 법, 글자 PDF·스캔본 실제 결과
+- [맥북 이미지 변환](https://dropfit.kr/guide/mac-image-convert/): HEIC·PNG를 JPG로, 여러 장과 폴더째
+- [사진 PDF 변환](https://dropfit.kr/guide/mac-jpg-to-pdf/): 사진 여러 장을 PDF 한 파일로
+- [PDF JPG 변환](https://dropfit.kr/guide/mac-pdf-to-jpg/): PDF 모든 쪽을 이미지로
+- [아이폰 사진 JPG 변환](https://dropfit.kr/guide/mac-heic-to-jpg/): HEIC를 JPG로, 업로드 안 될 때
+- [PNG JPG 변환](https://dropfit.kr/guide/mac-png-to-jpg/): 여러 장을 한 번에
+- [증명사진 용량 줄이기](https://dropfit.kr/guide/mac-id-photo-size/): 500KB·1MB 제출 기준에 맞추기
 
 ## English
 
@@ -36,4 +43,11 @@
 - [Guides](https://dropfit.kr/en/guide/)
 - [Photo too large to upload?](https://dropfit.kr/en/guide/upload-size-limit/): get it under 1 MB on a Mac
 - [How to combine PDFs on Mac](https://dropfit.kr/en/guide/mac-pdf-merge/)
+- [How to reduce PDF file size on Mac](https://dropfit.kr/en/guide/mac-pdf-size/): hit 10 MB or 5 MB, real results
+- [How to convert images on Mac](https://dropfit.kr/en/guide/mac-image-convert/): HEIC and PNG to JPG in bulk
+- [How to convert photos to PDF on Mac](https://dropfit.kr/en/guide/mac-jpg-to-pdf/)
+- [How to convert PDF to JPG on Mac](https://dropfit.kr/en/guide/mac-pdf-to-jpg/): every page at once
+- [How to convert HEIC to JPG on Mac](https://dropfit.kr/en/guide/mac-heic-to-jpg/): iPhone photos that won't upload
+- [How to convert PNG to JPG on Mac](https://dropfit.kr/en/guide/mac-png-to-jpg/)
+- [How to resize an ID photo on Mac](https://dropfit.kr/en/guide/mac-id-photo-size/): under 500 KB or 1 MB
 - [Privacy Policy](https://dropfit.kr/en/privacy.html)
