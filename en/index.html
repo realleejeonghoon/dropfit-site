@@ -1424,6 +1424,18 @@
     try { window.DropfitCheckout.open({ locale: 'en', from: 'en-' + (window.__dfSrc || 'dropfit-kr') }).catch(payFail); } catch (x) { payFail(); }
   });
 
+  // 팀·기관 결제 링크(11/21): 답장에 붙인 /?buy=team5|team10|site 로 오면 그 가격의 결제창을 바로 연다. 사이트에 버튼은 없음
+  (function () {
+    var plan; try { plan = new URLSearchParams(location.search).get('buy'); } catch (x) { return; }
+    if (!/^(team5|team10|site)$/.test(plan || '')) return;
+    var cfg = window.DROPFIT_PADDLE || {}; if (!cfg.plans || !cfg.plans[plan]) return;
+    var tries = 50;
+    (function go() {
+      if (!window.DropfitCheckout) { if (--tries > 0) setTimeout(go, 200); else payFail(); return; }
+      try { window.DropfitCheckout.open({ locale: 'en', from: 'en-buy-' + plan, plan: plan }).catch(payFail); } catch (x) { payFail(); }
+    })();
+  })();
+
   // 결제 완료: 결제창을 닫고 완료 카드를 띄운 뒤, 키가 준비되면 [Dropfit 열기]를 켠다
   function setWaiting() { act.hidden = false; act.disabled = true; act.textContent = 'Preparing your license key…'; act.onclick = null; }
   function setReady(url) { act.disabled = false; act.textContent = 'Open Dropfit'; act.onclick = function () { location.href = url; }; }
