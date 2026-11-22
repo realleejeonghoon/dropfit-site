@@ -57,6 +57,7 @@
   th { font-size: 13px; font-weight: 600; color: var(--ink-2); border-bottom-color: var(--line); white-space: nowrap; }
   td:first-child { min-width: 8em; }
   .wide table { min-width: 680px; }
+  td a[href^="mailto:"] { overflow-wrap: anywhere; }   /* 11/22 크기 점검: 320·360px 휴대폰에서 메일 주소가 표 밖으로 나가지 않게 */
   footer { background: var(--paper); color: #86868b; font-size: 12px; padding: 20px 0 32px; }
   footer .wrap { display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 16px; }
   footer a { color: var(--ink-2); }

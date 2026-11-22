@@ -527,7 +527,7 @@
   function swEdTop() { return SW_TOP + SW_ROW; }
   // 창 좌표: 칸 줄 가운데 · 펼친 네 줄의 오른쪽 단추 · 이름 칸 · 펼친 목록 k번째 항목
   SetWin.row = function (n) { return { x: 190, y: SW_TOP + n * SW_ROW + SW_ROW / 2 }; };
-  SetWin.line = function (n) { return { x: 380 - 22 - 12 - 60, y: swEdTop() + n * SW_LINE + SW_LINE / 2 }; };
+  SetWin.line = function (n) { return { x: 380 - 22 - 12 - 70, y: swEdTop() + n * SW_LINE + SW_LINE / 2 }; };
   SetWin.field = function () { return { x: 380 - 22 - 12 - 70, y: swEdTop() + SW_LINE / 2 }; };
   function swMenuTop(n, list, sel) {   // macOS 팝업 단추: 지금 고른 항목이 단추 자리에 오도록 목록이 열린다
     var y = 0;
@@ -537,7 +537,7 @@
   SetWin.item = function (n, list, sel, k) {
     var y = 0;
     for (var i = 0, j = 0; i < list.length; i++) { if (list[i] === '-') { y += 9; continue; } if (j === k) break; y += 22; j++; }
-    return { x: 380 - 22 - 12 - 60, y: swMenuTop(n, list, sel) + 5 + y + 11 };
+    return { x: 380 - 22 - 12 - 70, y: swMenuTop(n, list, sel) + 5 + y + 11 };
   };
   SetWin.prototype.render = function (T) {
     var o = this.op.at(T);
