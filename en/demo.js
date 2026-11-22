@@ -528,7 +528,7 @@
   function swEdTop() { return SW_TOP + SW_ROW; }
   // 창 좌표: 칸 줄 가운데 · 펼친 네 줄의 오른쪽 단추 · 이름 칸 · 펼친 목록 k번째 항목
   SetWin.row = function (n) { return { x: 190, y: SW_TOP + n * SW_ROW + SW_ROW / 2 }; };
-  SetWin.line = function (n) { return { x: 380 - 22 - 12 - 60, y: swEdTop() + n * SW_LINE + SW_LINE / 2 }; };
+  SetWin.line = function (n) { return { x: 380 - 22 - 12 - 70, y: swEdTop() + n * SW_LINE + SW_LINE / 2 }; };
   SetWin.field = function () { return { x: 380 - 22 - 12 - 70, y: swEdTop() + SW_LINE / 2 }; };
   function swMenuTop(n, list, sel) {   // macOS 팝업 단추: 지금 고른 항목이 단추 자리에 오도록 목록이 열린다
     var y = 0;
@@ -538,7 +538,7 @@
   SetWin.item = function (n, list, sel, k) {
     var y = 0;
     for (var i = 0, j = 0; i < list.length; i++) { if (list[i] === '-') { y += 9; continue; } if (j === k) break; y += 22; j++; }
-    return { x: 380 - 22 - 12 - 60, y: swMenuTop(n, list, sel) + 5 + y + 11 };
+    return { x: 380 - 22 - 12 - 70, y: swMenuTop(n, list, sel) + 5 + y + 11 };
   };
   SetWin.prototype.render = function (T) {
     var o = this.op.at(T);
@@ -1183,6 +1183,97 @@
     }
   };
 
+  /* ================= 직접 해 보기 (11/22 정훈 '써 보게'): 손가락으로 사진을 Dropfit에 끌어다 놓는다 =================
+     시연과 같은 동그라미·링·곡선을 쓰고, 시각만 실제 시간(누를 때마다 그 순간에 값을 덧붙임)으로 움직인다 */
+  var PLAY = {
+    spec: function (w) { var W = 540; return { key: 'p', W: W, H: 470, s: w / W, mobile: true, fit: true }; },
+    make: function (st, spec) {
+      var W = spec.W, H = spec.H, root = st.root, cy = 200, X = 190, CS = 1.1, HEIC = 2;
+      root.style.height = H + 'px'; st.host.style.height = (H * spec.s).toFixed(1) + 'px';
+      var c = { x: W / 2, y: cy };
+      var cards = el('div', 'df-cards', root);
+      var scaler = el('div', 'df-k', root);
+      scaler.style.transform = 'translate(' + c.x + 'px,' + c.y + 'px)';
+      var orb = new Orb(scaler), app = new App(scaler, orb, { hint: true });
+      var ring = app.ring(makeLayout(6, { x: 0, y: 0 }, { x0: -1e4, y0: -1e4, x1: 1e4, y1: 1e4 }));
+      scaler.appendChild(orb.e); st.add(ring); st.add(orb);
+      var hn = app.hint; scaler.appendChild(hn.e); st.add(hn);
+      var cap = el('div', 'df-cap', root, 'Drag the photo onto Dropfit in the middle');
+      cap.style.transform = 'translate(' + c.x + 'px,' + (H - 70) + 'px) translate(-50%,-50%)';
+      var capOp = new P(1);
+      st.add({ render: function (T) { cap.style.opacity = Math.min(capOp.at(T), 1 - hn.op.at(T)).toFixed(3); } });
+      function now() { return st.T + st.off; }
+      function mk(name, out, base) {
+        var e = el('div', 'df-card' + (out ? ' new' : ''), cards, '<div class="ic"><div class="ph p0"></div></div><span>' + name + '</span>');
+        var o = { e: e, op: new P(out ? 0 : 1), x: new P(base.x), y: new P(base.y), s: new P(CS), base: base, name: e.lastChild };
+        o.render = function (T) {
+          var op = o.op.at(T); e.style.opacity = op; if (op <= 0) return;
+          e.style.transform = 'translate(' + o.x.at(T).toFixed(2) + 'px,' + o.y.at(T).toFixed(2) + 'px) translate(-50%,-50%) scale(' + o.s.at(T).toFixed(4) + ')';
+        };
+        st.add(o); return o;
+      }
+      var src = mk('Trip.heic', false, { x: c.x - X, y: c.y + 30 });
+      var ghost = mk('Trip.heic', false, { x: c.x - X, y: c.y + 30 }); ghost.op = new P(0); ghost.e.classList.add('df-gh');
+      var out = mk('Trip.png', true, { x: c.x + X, y: c.y + 30 });
+      src.e.classList.add('df-grab');
+      // 처음에 손가락을 부르는 작은 움직임: 사진이 동그라미 쪽으로 살짝 기울었다 돌아온다
+      var t0 = 0.6; src.x.to(t0, src.base.x + 14, ease(EIO, 0.5)); src.x.to(t0 + 0.5, src.base.x, ease(EIO, 0.5));
+      var drag = null, inside = false, idx = -1, busy = false, files = [{ photo: 'p0' }]; files.photo = 'p0';
+      function local(ev) {
+        var r = st.host.getBoundingClientRect(), k = r.width / W;
+        return { x: (ev.clientX - r.left) / k, y: (ev.clientY - r.top) / k };
+      }
+      function leave(t) {
+        var o = orb; app.hover(t, -1);
+        ring.petals.forEach(function (p) { p.open.to(t, 0, Motion.close); });
+        ring.veil.to(t, 0, Motion.close); hn.op.to(t, 0, ease(EIO, 0.2));
+        o.thumb.to(t, 0, Motion.hover); o.badge.to(t, 0); o.scan.to(t, 0);
+        o.glyph.to(t, 1, Motion.reset); o.active.to(t, 0, Motion.reset); o.scale.to(t, 1, Motion.orb);
+        inside = false; idx = -1;
+      }
+      src.e.addEventListener('pointerdown', function (ev) {
+        if (busy) return;
+        ev.preventDefault();
+        try { src.e.setPointerCapture(ev.pointerId); } catch (e) {}
+        var p = local(ev), t = now();
+        drag = { dx: src.base.x - p.x, dy: src.base.y - p.y };
+        ghost.x.to(t, src.base.x); ghost.y.to(t, src.base.y); ghost.s.to(t, CS);
+        ghost.op.to(t, 0.72, ease(EO, 0.12)); ghost.s.to(t, CS * 1.06, ease(EO, 0.15));
+        out.op.to(t, 0, ease(EIO, 0.2)); capOp.to(t, 0.35, ease(EIO, 0.2));
+      });
+      src.e.addEventListener('pointermove', function (ev) {
+        if (!drag) return;
+        var p = local(ev), t = now(), gx = p.x + drag.dx, gy = p.y + drag.dy;
+        ghost.x.to(t, gx); ghost.y.to(t, gy);
+        var rx = p.x - c.x, ry = p.y - c.y, d = Math.hypot(rx, ry);
+        if (!inside && Math.hypot(gx - c.x, gy - c.y) < 70) {
+          inside = true; ghost.op.to(t, 0, ease(EO, 0.12)); app.enter(t, ring, files, HEIC);
+        } else if (inside && d > ring.L.outer + 70) {
+          leave(t); ghost.op.to(t, 0.72, ease(EO, 0.12));
+        }
+        if (inside) { var i = hitTest(ring.L, HEIC, rx, ry); if (i !== idx) { idx = i; app.hover(t, i); } }
+      });
+      function up() {
+        if (!drag) return;
+        var t = now(); drag = null;
+        if (inside && idx >= 0) {
+          var fmt = FORMATS[idx][0], r = app.drop(t, fmt, 1);
+          inside = false; busy = true;
+          out.name.textContent = 'Trip.' + fmt.toLowerCase();
+          out.op.to(r.done, 1, ease(EO, 0.45)); out.s.to(r.done, CS * 0.94); out.s.to(r.done, CS, Motion.done);
+          capOp.to(r.done, 0); 
+          setTimeout(function () { busy = false; cap.textContent = 'Try another format'; capOp.to(now(), 1, ease(EIO, 0.3)); st.host.dispatchEvent(new CustomEvent('dfplaydone', { bubbles: true, detail: fmt })); }, (r.idle - t) * 1000);
+        } else {
+          if (inside) leave(t);
+          ghost.op.to(t, 0, ease(EIO, 0.2)); capOp.to(t, 1, ease(EIO, 0.3));
+        }
+      }
+      src.e.addEventListener('pointerup', up); src.e.addEventListener('pointercancel', up);
+      return 1e9;
+    }
+  };
+
+
   /* ---------- 실행 ---------- */
   function run(host, build) {
     if (!host) return null;
@@ -1191,7 +1282,7 @@
     return st;
   }
   function start() {
-    var stages = [run(document.getElementById('dfTop'), TOP), run(document.getElementById('dfCta'), CTA)].filter(Boolean);
+    var stages = [run(document.getElementById('dfTop'), TOP), run(document.getElementById('dfCta'), CTA), run(document.getElementById('dfPlay'), PLAY)].filter(Boolean);
     if (!stages.length) return;
     var reduce = global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var visible = new Map(), t0 = performance.now();

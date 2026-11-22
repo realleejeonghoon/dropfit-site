@@ -402,15 +402,14 @@
   .sw1-ed p { position: absolute; left: 12px; width: 324px; height: 38px; }
   .sw1-ed p.sep::before { content: ""; position: absolute; left: 12px; right: 0; top: -.5px; height: .5px; background: rgba(18, 28, 45, .07); }
   .sw1-ed p > span { position: absolute; left: 12px; top: 11px; font-size: 13px; color: #1d1d1f; white-space: nowrap; }
-  .sw1-pick { position: absolute; right: 12px; top: 8px; width: 120px; height: 22px; box-sizing: border-box; padding: 0 0 0 8px; border-radius: 5.5px; font-style: normal;
-    display: flex; align-items: center; justify-content: space-between; background: #fff; font-size: 12px; color: #1d1d1f; white-space: nowrap;
-    box-shadow: 0 0 0 .5px rgba(18, 28, 45, .12), 0 .5px 1.5px rgba(18, 28, 45, .10); }
+  .sw1-pick { position: absolute; right: 12px; top: 7px; width: 140px; height: 24px; box-sizing: border-box; padding: 0 0 0 12px; border-radius: 6px; font-style: normal;
+    display: flex; align-items: center; justify-content: space-between; background: rgba(18, 28, 45, .08); font-size: 13px; color: #1d1d1f; white-space: nowrap; }
   .sw1-pick svg { width: 8px; height: 12px; margin-right: 6px; flex: none; color: rgba(44, 44, 46, .6); }
-  .sw1-field { --f: 0; position: absolute; right: 12px; top: 8px; width: 140px; height: 22px; box-sizing: border-box; padding: 0 6px; border-radius: 5px; text-decoration: none;
+  .sw1-field { --f: 0; position: absolute; right: 12px; top: 7px; width: 140px; height: 24px; box-sizing: border-box; padding: 0 8px; border-radius: 6px; text-decoration: none;
     display: flex; align-items: center; background: #fff; font-size: 13px; color: #1d1d1f; white-space: nowrap;
     box-shadow: 0 0 0 .5px rgba(18, 28, 45, .18), 0 0 0 calc(3px * var(--f)) rgb(96 138 180 / calc(.45 * var(--f))); }
   .sw1-field s { display: inline-block; width: 1px; height: 15px; margin-left: 1px; background: #1d1d1f; text-decoration: none; }
-  .df-sw1 .sw1-menu { left: 213px; width: 140px; font-size: 12px; line-height: 22px; z-index: 2; opacity: 0; visibility: hidden; text-align: left; }
+  .df-sw1 .sw1-menu { left: 193px; width: 160px; font-size: 12px; line-height: 22px; z-index: 2; opacity: 0; visibility: hidden; text-align: left; }
   .df-seg-b { font-size: 9px; font-weight: 600; letter-spacing: .4px; fill: #3c608a; text-anchor: middle; dominant-baseline: central; }
   /* 마지막 섹션: 포물선 (사진 카드) */
   .df-cta { position: relative; width: 100%; max-width: 1080px; margin: -12px auto 0; }
@@ -786,6 +785,9 @@
   .po .po-field input[type=email] { padding-right: 136px; }
   .po-field .pill { position: absolute; top: 5px; right: 5px; bottom: 5px; border: 0; font: inherit; font-size: 14px; padding: 0 16px; cursor: pointer; }
   .po-field .pill[disabled] { opacity: .55; cursor: default; }
+  /* 11/22 크기 점검: 단추 폭만큼 칸 안쪽을 비우고, 안내 글이 다 안 들어가는 좁은 화면은 단추를 아래 줄로 */
+  .po-field.tight input[type=email] { padding-right: 20px !important; }
+  .po-field.tight .pill { position: static; display: block; width: 100%; height: 44px; margin-top: 8px; }
   .po-opt .po-sel { font-style: normal; color: var(--ink-3); }
   .po-opt > span { display: block; }
   /* 출시 전 의견 메일: 선택 동의 체크 (기본 비어 있음) */
@@ -978,6 +980,7 @@
   @media (prefers-reduced-motion: reduce) { .scroll-cue { animation: none; } }
   .uses { background: #fff; padding: 148px 0 136px !important; box-shadow: 0 -1px 0 rgba(0,0,0,.04), 0 1px 0 rgba(0,0,0,.04); }
   .uses .tz-voice { max-width: 34em; }
+  .tz-voice .vs-lead { margin: 0 0 18px; text-align: center; font-size: 14px; font-weight: 600; color: var(--ink-2); letter-spacing: -0.01em; }   /* 11/22: 쓰임 예시임을 밝힘(후기로 보이지 않게) */
   .uses .tz-voice .sc-l1 { font-size: clamp(22px, 2.6vw, 30px); }
   .uses .tz-voice .sc-l2 { margin-top: 12px; font-size: 17px; }
   .uses .tz-voice figcaption { margin-bottom: 22px; }
@@ -1044,6 +1047,9 @@
   .not-mac .m-first .wrap { text-align: center; }
   .m-demo { width: calc(100% + 32px); margin: 8px -16px 0; }
   .m-demo .df-cta { margin: 0 auto !important; }
+  .uses .df-play { max-width: 540px; margin: -24px auto 0 !important; }
+  .df-play .df-grab { pointer-events: auto; cursor: grab; touch-action: none; }
+  .df-play .df-gh { pointer-events: none; z-index: 6; }
   .m-title { display: block; margin: 4px 0 0; font-size: 26px; line-height: 1.3; font-weight: 700; letter-spacing: -0.025em; text-align: center; color: var(--ink); text-wrap: balance; }
   .not-mac .m-first .notice { margin: 16px auto 0; text-align: center; }
   .ml-msg { margin: 10px 0 0; font-size: 13px; color: var(--ink-3); }
@@ -1063,6 +1069,8 @@
   .plan-using { display: none; margin: 0; font-size: 15px; color: var(--ink-2); }
   .from-app .plan-cta [data-dl], .from-app .plan-cta [data-copy-link] { display: none !important; }
   .from-app .plan-using { display: block; }
+  /* 11/22 크기 점검: 320px 폭 휴대폰에서 가로 넘침 없게 */
+  @media (max-width: 359px) { .sec-sub .nb { white-space: normal; } .team > div { padding: 0; } .plans .plan.plan, .plans .plan:not(.plan-pro) { padding-left: 18px; padding-right: 18px; } }
 </style>
 <script>(function () { try { if (new URLSearchParams(location.search).get('from') === 'app') document.documentElement.classList.add('from-app'); } catch (e) {} })();</script>
 </head>
@@ -1124,15 +1132,17 @@
   <div class="wrap">
     <h2 class="sec-title uses-title reveal" id="uses-title">Drag files onto <span class="grad">Dropfit</span>.</h2>
     <div class="tz-voice reveal" aria-roledescription="carousel">
+      <p class="vs-lead">What people use it for</p>
       <div class="vs-stage" aria-live="off">
-        <figure class="vs on"><figcaption class="vc"><svg class="av" viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="avc10"><circle cx="60" cy="60" r="60"/></clipPath></defs><g clip-path="url(#avc10)" fill="none" stroke="#1d1d1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="60" fill="#f5f5f7" stroke="none"/><path d="M18 124c3-20 18-30 42-30s39 10 42 30" fill="#fff"/><path d="M52 79v15M68 79v15"/><path d="M44 98v26M76 98v26M44 108h32"/><path d="M49 94c3 5 7 7 11 7s8-2 11-7"/><path d="M36 56c-6-2-8 9-1 12M84 56c6-2 8 9 1 12" fill="#fff"/><path d="M36 52c0-17 11-26 24-26s24 9 24 26c0 21-10 33-24 33S36 73 36 52z" fill="#fff"/><path d="M33 56c-5-8-3-20 5-26 3-8 13-12 22-11 9-1 19 3 22 11 8 6 10 18 5 26-3-6-7-9-11-11-1-5-5-8-16-8s-15 3-16 8c-4 2-8 5-11 11z" fill="#1d1d1f"/><path d="M42 30c3 2 6 3 9 2M58 25c3 2 6 2 9 0M72 30c3 1 6 0 8-2" stroke="#fff" stroke-width="1.5"/><path d="M47 50q4-2 8 0M65 50q4-2 8 0"/><circle cx="51" cy="57" r="2" fill="#1d1d1f" stroke="none"/><circle cx="69" cy="57" r="2" fill="#1d1d1f" stroke="none"/><path d="M53 72q7 5 14 0"/><path d="M60 57c-2 4-3 7 1 8"/></g></svg><span>Online seller</span></figcaption><p class="sc-l1">Marketplaces have different file size limits. You shrink photos again and&nbsp;again.</p><p class="sc-l2">Save each limit as a preset in Dropfit. Drag photos onto it, and they&nbsp;fit.</p></figure>
+        <figure class="vs on"><figcaption class="vc"><svg class="av" viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="avc10"><circle cx="60" cy="60" r="60"/></clipPath></defs><g clip-path="url(#avc10)" fill="none" stroke="#1d1d1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="60" fill="#f5f5f7" stroke="none"/><path d="M18 124c3-20 18-30 42-30s39 10 42 30" fill="#fff"/><path d="M52 79v15M68 79v15"/><path d="M44 98v26M76 98v26M44 108h32"/><path d="M49 94c3 5 7 7 11 7s8-2 11-7"/><path d="M36 56c-6-2-8 9-1 12M84 56c6-2 8 9 1 12" fill="#fff"/><path d="M36 52c0-17 11-26 24-26s24 9 24 26c0 21-10 33-24 33S36 73 36 52z" fill="#fff"/><path d="M33 56c-5-8-3-20 5-26 3-8 13-12 22-11 9-1 19 3 22 11 8 6 10 18 5 26-3-6-7-9-11-11-1-5-5-8-16-8s-15 3-16 8c-4 2-8 5-11 11z" fill="#1d1d1f"/><path d="M42 30c3 2 6 3 9 2M58 25c3 2 6 2 9 0M72 30c3 1 6 0 8-2" stroke="#fff" stroke-width="1.5"/><path d="M47 50q4-2 8 0M65 50q4-2 8 0"/><circle cx="51" cy="57" r="2" fill="#1d1d1f" stroke="none"/><circle cx="69" cy="57" r="2" fill="#1d1d1f" stroke="none"/><path d="M53 72q7 5 14 0"/><path d="M60 57c-2 4-3 7 1 8"/></g></svg><span>For online sellers</span></figcaption><p class="sc-l1">Marketplaces have different file size limits. You shrink photos again and&nbsp;again.</p><p class="sc-l2">Save each limit as a preset in Dropfit. Drag photos onto it, and they&nbsp;fit.</p></figure>
         
-        <figure class="vs" aria-hidden="true"><figcaption class="vc"><svg class="av" viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="avc12"><circle cx="60" cy="60" r="60"/></clipPath></defs><g clip-path="url(#avc12)" fill="none" stroke="#1d1d1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="60" fill="#f5f5f7" stroke="none"/><path d="M18 124c3-20 18-30 42-30s39 10 42 30" fill="#fff"/><path d="M52 79v15M68 79v15"/><path d="M49 94c3 5 7 7 11 7s8-2 11-7"/><path d="M36 56c-6-2-8 9-1 12M84 56c6-2 8 9 1 12" fill="#fff"/><path d="M36 52c0-17 11-26 24-26s24 9 24 26c0 21-10 33-24 33S36 73 36 52z" fill="#fff"/><circle cx="60" cy="15" r="9" fill="#1d1d1f"/><path d="M35 54c-3-20 9-31 25-31s28 11 25 31c-4-10-13-17-25-17s-21 7-25 17z" fill="#1d1d1f"/><path d="M47 30c-3 4-5 8-5 12M60 27v9M73 30c3 4 5 8 5 12" stroke="#fff" stroke-width="1.6"/><path d="M46 50q4-2 8 0M66 50q4-2 8 0"/><path d="M46 58q5-5 10 0M64 58q5-5 10 0"/><path d="M52 71q8 7 16 0"/><path d="M60 57c-2 4-3 7 1 8"/></g></svg><span>Content creator</span></figcaption><p class="sc-l1">Thumbnails at 16:9, feed posts at 4:5. You crop them one by&nbsp;one.</p><p class="sc-l2">Drag a batch onto Dropfit, pick a ratio, and they’re all cropped at&nbsp;once.</p></figure>
-        <figure class="vs" aria-hidden="true"><figcaption class="vc"><svg class="av" viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="avc13"><circle cx="60" cy="60" r="60"/></clipPath></defs><g clip-path="url(#avc13)" fill="none" stroke="#1d1d1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="60" fill="#f5f5f7" stroke="none"/><path d="M84 36c13 2 18 18 12 33-3-9-7-14-13-17z" fill="#1d1d1f"/><path d="M14 124c2-22 14-34 30-38 4 8 10 12 16 12s12-4 16-12c16 4 28 16 30 38" fill="#fff"/><path d="M52 79v12M68 79v12"/><path d="M55 100v12M65 100v12"/><path d="M36 56c-6-2-8 9-1 12M84 56c6-2 8 9 1 12" fill="#fff"/><path d="M36 52c0-17 11-26 24-26s24 9 24 26c0 21-10 33-24 33S36 73 36 52z" fill="#fff"/><path d="M35 53c-2-19 9-30 25-30s27 11 25 30c-5-9-14-15-25-15s-20 6-25 15z" fill="#1d1d1f"/><path d="M84 34l3 5" stroke-width="4"/><path d="M47 50q4-2 8 0M65 50q4-2 8 0"/><circle cx="51" cy="57" r="2" fill="#1d1d1f" stroke="none"/><circle cx="69" cy="57" r="2" fill="#1d1d1f" stroke="none"/><path d="M53 72q7 5 14 0"/><path d="M60 57c-2 4-3 7 1 8"/></g></svg><span>Job applicant</span></figcaption><p class="sc-l1">Your photo is “too large.” Your documents are separate&nbsp;files.</p><p class="sc-l2">Dropfit shrinks the photo to fit and merges the files into one&nbsp;PDF.</p></figure>
-        <figure class="vs" aria-hidden="true"><figcaption class="vc"><svg class="av" viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="avc14"><circle cx="60" cy="60" r="60"/></clipPath></defs><g clip-path="url(#avc14)" fill="none" stroke="#1d1d1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="60" fill="#f5f5f7" stroke="none"/><path d="M18 124c3-20 18-30 42-30s39 10 42 30" fill="#fff"/><path d="M52 79v15M68 79v15"/><path d="M49 94c3 5 7 7 11 7s8-2 11-7"/><path d="M36 56c-6-2-8 9-1 12M84 56c6-2 8 9 1 12" fill="#fff"/><path d="M36 52c0-17 11-26 24-26s24 9 24 26c0 21-10 33-24 33S36 73 36 52z" fill="#fff"/><path d="M37 50c-1 6 0 10 2 13M83 50c1 6 0 10-2 13" stroke-width="3.4"/><circle cx="50" cy="58" r="7.5"/><circle cx="70" cy="58" r="7.5"/><path d="M57.5 57q2.5-2 5 0M42.5 57l-6-1M77.5 57l6-1"/><circle cx="50" cy="58.5" r="1.8" fill="#1d1d1f" stroke="none"/><circle cx="70" cy="58.5" r="1.8" fill="#1d1d1f" stroke="none"/><path d="M53 73q7 4 14-1"/><path d="M60 63c-1 2-2 4 1 5"/><path d="M34 48c0-19 11-30 26-30s26 11 26 30z" fill="#1d1d1f"/><path d="M44 26v16M52 21v21M60 19v23M68 21v21M76 26v16" stroke="#fff" stroke-width="1.4" opacity=".55"/><rect x="32" y="40" width="56" height="10" rx="5" fill="#1d1d1f"/><path d="M36 45h48" stroke="#fff" stroke-width="1.2" opacity=".5"/></g></svg><span>Freelance designer</span></figcaption><p class="sc-l1">To merge client PDFs, you upload them to a&nbsp;website.</p><p class="sc-l2">Dropfit merges them on your Mac. Nothing is&nbsp;uploaded.</p></figure>
-        <figure class="vs" aria-hidden="true"><figcaption class="vc"><svg class="av" viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="avc15"><circle cx="60" cy="60" r="60"/></clipPath></defs><g clip-path="url(#avc15)" fill="none" stroke="#1d1d1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="60" fill="#f5f5f7" stroke="none"/><path d="M18 124c3-20 18-30 42-30s39 10 42 30" fill="#fff"/><path d="M52 79v15M68 79v15"/><path d="M48 84c0 7 5 11 12 11s12-4 12-11" fill="#fff"/><path d="M49 89c3 4 7 6 11 6s8-2 11-6"/><path d="M36 56c-6-2-8 9-1 12M84 56c6-2 8 9 1 12" fill="#fff"/><path d="M36 52c0-17 11-26 24-26s24 9 24 26c0 21-10 33-24 33S36 73 36 52z" fill="#fff"/><path d="M29 74c-8-30 4-56 31-56s39 26 31 56c-2 5-6 6-8 4 2-14 1-25-3-32-9 4-25 4-38-3-4 8-6 20-5 34-3 2-6 1-8-3z" fill="#1d1d1f"/><path d="M48 26c-4 6-6 12-6 19M64 24c-2 5-2 10 0 15M78 30c3 6 4 12 3 19" stroke="#fff" stroke-width="1.6"/><path d="M47 50q4-2 8 0M65 50q4-2 8 0"/><circle cx="51" cy="57" r="2" fill="#1d1d1f" stroke="none"/><circle cx="69" cy="57" r="2" fill="#1d1d1f" stroke="none"/><path d="M53 72q7 5 14 0"/><path d="M60 57c-2 4-3 7 1 8"/><path d="M84 52l15-22 5 3.4-15 22z" fill="#fff"/><path d="M99 30l2.5-4 2.5 7.4z" fill="#1d1d1f"/><path d="M86.5 53.7l-3 4.8.5-6.5"/></g></svg><span>Photo editor</span></figcaption><p class="sc-l1">Some sites don’t accept iPhone photos&nbsp;(HEIC).</p><p class="sc-l2">Drag a whole folder onto Dropfit and choose JPG. Every photo is&nbsp;converted.</p></figure>
+        <figure class="vs" aria-hidden="true"><figcaption class="vc"><svg class="av" viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="avc12"><circle cx="60" cy="60" r="60"/></clipPath></defs><g clip-path="url(#avc12)" fill="none" stroke="#1d1d1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="60" fill="#f5f5f7" stroke="none"/><path d="M18 124c3-20 18-30 42-30s39 10 42 30" fill="#fff"/><path d="M52 79v15M68 79v15"/><path d="M49 94c3 5 7 7 11 7s8-2 11-7"/><path d="M36 56c-6-2-8 9-1 12M84 56c6-2 8 9 1 12" fill="#fff"/><path d="M36 52c0-17 11-26 24-26s24 9 24 26c0 21-10 33-24 33S36 73 36 52z" fill="#fff"/><circle cx="60" cy="15" r="9" fill="#1d1d1f"/><path d="M35 54c-3-20 9-31 25-31s28 11 25 31c-4-10-13-17-25-17s-21 7-25 17z" fill="#1d1d1f"/><path d="M47 30c-3 4-5 8-5 12M60 27v9M73 30c3 4 5 8 5 12" stroke="#fff" stroke-width="1.6"/><path d="M46 50q4-2 8 0M66 50q4-2 8 0"/><path d="M46 58q5-5 10 0M64 58q5-5 10 0"/><path d="M52 71q8 7 16 0"/><path d="M60 57c-2 4-3 7 1 8"/></g></svg><span>For content creators</span></figcaption><p class="sc-l1">Thumbnails at 16:9, feed posts at 4:5. You crop them one by&nbsp;one.</p><p class="sc-l2">Drag a batch onto Dropfit, pick a ratio, and they’re all cropped at&nbsp;once.</p></figure>
+        <figure class="vs" aria-hidden="true"><figcaption class="vc"><svg class="av" viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="avc13"><circle cx="60" cy="60" r="60"/></clipPath></defs><g clip-path="url(#avc13)" fill="none" stroke="#1d1d1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="60" fill="#f5f5f7" stroke="none"/><path d="M84 36c13 2 18 18 12 33-3-9-7-14-13-17z" fill="#1d1d1f"/><path d="M14 124c2-22 14-34 30-38 4 8 10 12 16 12s12-4 16-12c16 4 28 16 30 38" fill="#fff"/><path d="M52 79v12M68 79v12"/><path d="M55 100v12M65 100v12"/><path d="M36 56c-6-2-8 9-1 12M84 56c6-2 8 9 1 12" fill="#fff"/><path d="M36 52c0-17 11-26 24-26s24 9 24 26c0 21-10 33-24 33S36 73 36 52z" fill="#fff"/><path d="M35 53c-2-19 9-30 25-30s27 11 25 30c-5-9-14-15-25-15s-20 6-25 15z" fill="#1d1d1f"/><path d="M84 34l3 5" stroke-width="4"/><path d="M47 50q4-2 8 0M65 50q4-2 8 0"/><circle cx="51" cy="57" r="2" fill="#1d1d1f" stroke="none"/><circle cx="69" cy="57" r="2" fill="#1d1d1f" stroke="none"/><path d="M53 72q7 5 14 0"/><path d="M60 57c-2 4-3 7 1 8"/></g></svg><span>For job applicants</span></figcaption><p class="sc-l1">Your photo is “too large.” Your documents are separate&nbsp;files.</p><p class="sc-l2">Dropfit shrinks the photo to fit and merges the files into one&nbsp;PDF.</p></figure>
+        <figure class="vs" aria-hidden="true"><figcaption class="vc"><svg class="av" viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="avc16"><circle cx="60" cy="60" r="60"/></clipPath></defs><g clip-path="url(#avc16)" fill="none" stroke="#1d1d1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="60" fill="#f5f5f7" stroke="none"/><path d="M18 124c3-20 18-30 42-30s39 10 42 30" fill="#fff"/><path d="M52 79v15M68 79v15"/><path d="M40 100l-5 24M80 100l5 24"/><path d="M36 56c-6-2-8 9-1 12M84 56c6-2 8 9 1 12" fill="#fff"/><path d="M36 52c0-17 11-26 24-26s24 9 24 26c0 21-10 33-24 33S36 73 36 52z" fill="#fff"/><path d="M37 54c-1-5 0-9 3-12M83 54c1-5 0-9-3-12" stroke-width="3.4"/><path d="M41 39v10q19 6 38 0V39" fill="#1d1d1f"/><path d="M26 34l34-13 34 13-34 13z" fill="#1d1d1f"/><path d="M94 34v15"/><circle cx="94" cy="51" r="2.6" fill="#1d1d1f" stroke="none"/><path d="M47 52q4-2 8 0M65 52q4-2 8 0"/><circle cx="51" cy="58" r="2" fill="#1d1d1f" stroke="none"/><circle cx="69" cy="58" r="2" fill="#1d1d1f" stroke="none"/><path d="M60 59c-2 4-3 7 1 8"/><path d="M53 73q7 5 14 0"/></g></svg><span>For college and grad students</span></figcaption><p class="sc-l1">The assignment must be one PDF. Your notes are photos and separate&nbsp;files.</p><p class="sc-l2">Drag them all onto Dropfit, and photos and PDFs become one&nbsp;PDF.</p></figure>
+        <figure class="vs" aria-hidden="true"><figcaption class="vc"><svg class="av" viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="avc14"><circle cx="60" cy="60" r="60"/></clipPath></defs><g clip-path="url(#avc14)" fill="none" stroke="#1d1d1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="60" fill="#f5f5f7" stroke="none"/><path d="M18 124c3-20 18-30 42-30s39 10 42 30" fill="#fff"/><path d="M52 79v15M68 79v15"/><path d="M49 94c3 5 7 7 11 7s8-2 11-7"/><path d="M36 56c-6-2-8 9-1 12M84 56c6-2 8 9 1 12" fill="#fff"/><path d="M36 52c0-17 11-26 24-26s24 9 24 26c0 21-10 33-24 33S36 73 36 52z" fill="#fff"/><path d="M37 50c-1 6 0 10 2 13M83 50c1 6 0 10-2 13" stroke-width="3.4"/><circle cx="50" cy="58" r="7.5"/><circle cx="70" cy="58" r="7.5"/><path d="M57.5 57q2.5-2 5 0M42.5 57l-6-1M77.5 57l6-1"/><circle cx="50" cy="58.5" r="1.8" fill="#1d1d1f" stroke="none"/><circle cx="70" cy="58.5" r="1.8" fill="#1d1d1f" stroke="none"/><path d="M53 73q7 4 14-1"/><path d="M60 63c-1 2-2 4 1 5"/><path d="M34 48c0-19 11-30 26-30s26 11 26 30z" fill="#1d1d1f"/><path d="M44 26v16M52 21v21M60 19v23M68 21v21M76 26v16" stroke="#fff" stroke-width="1.4" opacity=".55"/><rect x="32" y="40" width="56" height="10" rx="5" fill="#1d1d1f"/><path d="M36 45h48" stroke="#fff" stroke-width="1.2" opacity=".5"/></g></svg><span>For freelance designers</span></figcaption><p class="sc-l1">To merge client PDFs, you upload them to a&nbsp;website.</p><p class="sc-l2">Dropfit merges them on your Mac. Nothing is&nbsp;uploaded.</p></figure>
+        <figure class="vs" aria-hidden="true"><figcaption class="vc"><svg class="av" viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="avc15"><circle cx="60" cy="60" r="60"/></clipPath></defs><g clip-path="url(#avc15)" fill="none" stroke="#1d1d1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="60" fill="#f5f5f7" stroke="none"/><path d="M18 124c3-20 18-30 42-30s39 10 42 30" fill="#fff"/><path d="M52 79v15M68 79v15"/><path d="M48 84c0 7 5 11 12 11s12-4 12-11" fill="#fff"/><path d="M49 89c3 4 7 6 11 6s8-2 11-6"/><path d="M36 56c-6-2-8 9-1 12M84 56c6-2 8 9 1 12" fill="#fff"/><path d="M36 52c0-17 11-26 24-26s24 9 24 26c0 21-10 33-24 33S36 73 36 52z" fill="#fff"/><path d="M29 74c-8-30 4-56 31-56s39 26 31 56c-2 5-6 6-8 4 2-14 1-25-3-32-9 4-25 4-38-3-4 8-6 20-5 34-3 2-6 1-8-3z" fill="#1d1d1f"/><path d="M48 26c-4 6-6 12-6 19M64 24c-2 5-2 10 0 15M78 30c3 6 4 12 3 19" stroke="#fff" stroke-width="1.6"/><path d="M47 50q4-2 8 0M65 50q4-2 8 0"/><circle cx="51" cy="57" r="2" fill="#1d1d1f" stroke="none"/><circle cx="69" cy="57" r="2" fill="#1d1d1f" stroke="none"/><path d="M53 72q7 5 14 0"/><path d="M60 57c-2 4-3 7 1 8"/><path d="M84 52l15-22 5 3.4-15 22z" fill="#fff"/><path d="M99 30l2.5-4 2.5 7.4z" fill="#1d1d1f"/><path d="M86.5 53.7l-3 4.8.5-6.5"/></g></svg><span>For photo editors</span></figcaption><p class="sc-l1">Some sites don’t accept iPhone photos&nbsp;(HEIC).</p><p class="sc-l2">Drag a whole folder onto Dropfit and choose JPG. Every photo is&nbsp;converted.</p></figure>
       </div>
-      <div class="vs-dots"><button type="button" aria-label="Online seller" aria-current="true"></button><button type="button" aria-label="Content creator"></button><button type="button" aria-label="Job applicant"></button><button type="button" aria-label="Freelance designer"></button><button type="button" aria-label="Photo editor"></button></div>
+      <div class="vs-dots"><button type="button" aria-label="Online seller" aria-current="true"></button><button type="button" aria-label="Content creator"></button><button type="button" aria-label="Job applicant"></button><button type="button" aria-label="College or grad student"></button><button type="button" aria-label="Freelance designer"></button><button type="button" aria-label="Photo editor"></button></div>
     </div>
   </div>
 </section>
@@ -1196,7 +1206,7 @@
         <p class="price"><b>₩0</b></p>
         <p class="price-note"><span class="nb">No account needed</span> · <span class="nb">No conversion limits</span> · <span class="nb">Stays free after the trial</span></p>
         <ul>
-          <li>Convert images and PDFs <small>JPG·PNG·HEIC·WebP·TIFF·GIF·BMP·PDF</small></li>
+          <li>Convert images and PDFs <small>JPG·PNG·HEIC·WebP·<wbr>TIFF·GIF·BMP·PDF</small></li>
           <li>Many files or a whole folder at&nbsp;once</li>
           <li>Merge and split PDFs</li>
           <li>Automatic updates</li>
@@ -1456,7 +1466,7 @@
   })();
 </script>
 <script src="../logo.js?v=2" defer></script>
-<script src="demo.js?v=17" defer></script>
+<script src="demo.js?v=19" defer></script>
 
 <aside class="dl-card" id="paidCard" aria-label="Purchase complete">
   <button class="dl-x" type="button" aria-label="Close" data-paid-close><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l8 8M10 2 2 10"/></svg></button>
@@ -1581,9 +1591,15 @@
 <script>
   // 11/22 정훈 확정(C): 휴대폰·태블릿에서만 시연·후기를 첫 화면으로 옮기고, Mac 링크를 메일로 보낸다(주소는 보내는 데만 쓰고 저장하지 않음, 처리방침 4번)
   (function () {
-    if (!document.documentElement.classList.contains('not-mac')) return;
-    var demo = document.getElementById('dfCta'), slot = document.querySelector('.m-first .m-demo');
-    if (demo && slot) { demo.classList.remove('pp-cta'); slot.appendChild(demo); }
+    var nm = document.documentElement.classList.contains('not-mac');
+    var demo = document.getElementById('dfCta'), slot = nm ? document.querySelector('.m-first .m-demo') : null, ut = document.querySelector('.uses .uses-title');
+    // 11/22 정훈 '써 보게': 첫 화면은 손가락으로 직접 끌어다 놓는 체험(PLAY). 자동 시연은 가격 칸 제자리
+    // 11/22 정훈 '웹에도': Mac·PC는 '끌어다 놓으세요' 제목 바로 아래에 같은 체험을 둔다
+    if (slot || ut) { var pl = document.createElement('div'); pl.className = 'df-cta df-play'; pl.id = 'dfPlay'; pl.setAttribute('role', 'application'); pl.setAttribute('aria-label', 'Try it: drag a photo onto Dropfit and pick a format'); if (slot) slot.appendChild(pl); else ut.parentNode.insertBefore(pl, ut.nextSibling);
+      // 체험 완료 수(고객·데이터 현황판 '체험 완료 %'): 처음 한 번만 보낸다. 사진·파일은 보내지 않음
+      pl.addEventListener('dfplaydone', function (ev) { if (pl.dataset.sent) return; pl.dataset.sent = '1'; try { var ua = navigator.userAgent, pdv = /iPad|Tablet|Android(?!.*Mobile)/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1) ? 'tablet' : /iPhone|iPod|Android|Mobile/i.test(ua) ? 'phone' : /Macintosh/.test(ua) ? 'mac' : 'other', pb = new URLSearchParams({ event: 'play', src: window.__dfSrc || '', f: String(ev.detail || ''), dv: pdv }), PU = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';
+        if (!(navigator.sendBeacon && navigator.sendBeacon(PU, pb))) fetch(PU, { method: 'POST', mode: 'no-cors', body: pb, keepalive: true }); } catch (e) {} }); }
+    if (!nm) return;
     var voice = document.querySelector('.uses .tz-voice'), box = document.querySelector('.m-first .notice');
     if (voice && box) box.parentNode.insertBefore(voice, box.nextSibling);
     var f = document.getElementById('mlForm'), e = document.getElementById('mlEmail'), m = document.getElementById('mlMsg');
@@ -1604,6 +1620,22 @@
         .catch(function () { say('We couldn’t send it right now. Please copy the link below instead.', 'no'); })
         .then(function () { busy = false; f.querySelector('button').disabled = false; });
     });
+  })();
+</script>
+<script>
+  // 11/22 크기 점검: 메일 칸의 안내 글(name@example.com)이 단추에 가리지 않게 칸마다 맞춘다
+  (function () {
+    var cv = document.createElement('canvas').getContext('2d');
+    function fit() {
+      document.querySelectorAll('.po-field').forEach(function (f) {
+        var i = f.querySelector('input'), b = f.querySelector('.pill'); if (!i || !b || !f.offsetWidth) return;
+        f.classList.remove('tight'); i.style.paddingRight = '';
+        var cs = getComputedStyle(i); cv.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+        var need = parseFloat(cs.paddingLeft) + cv.measureText(i.placeholder || '').width + 12 + b.offsetWidth + 5;
+        if (need > f.clientWidth) f.classList.add('tight'); else i.style.paddingRight = (b.offsetWidth + 17) + 'px';
+      });
+    }
+    fit(); addEventListener('resize', fit); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
   })();
 </script>
 </body>
