@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>
   // 외국인 방문자는 영어판으로(11/18 정훈, 11/19 시간대 조건 뺌: Mac 언어만 따름). 브라우저 언어 목록에 한국어가 없고, 'Korean'을 직접 고른 적이 없을 때만. 검색 로봇·링크 미리보기(네이버 Yeti·카카오·페이스북 등)는 옮기지 않는다(11/19 네이버 블로그 링크 카드가 영어로 뜸)
+  // 11/22: 인스타·페이스북·스레드·라인 앱 안 브라우저는 휴대폰 언어와 달리 en-US를 내보내는 경우가 많아(메타 광고 방문 33%, 인스타 DM 71%가 영어 페이지) 자동 이동하지 않는다
   (function () { try { if (localStorage.getItem('dropfit-lang') === 'ko') return; } catch (e) {}
     var n = navigator, L = ((n.languages && n.languages.length ? n.languages : [n.language || '']).join(',')).toLowerCase();
-    if (!L || /(^|,)ko/.test(L) || /bot|crawl|spider|slurp|preview|lighthouse|yeti|naver|daum|kakao|facebookexternalhit|headless|google|bing/i.test(n.userAgent) || n.webdriver) return;
+    if (!L || /(^|,)ko/.test(L) || /bot|crawl|spider|slurp|preview|lighthouse|yeti|naver|daum|kakao|facebookexternalhit|headless|google|bing|instagram|fban|fbav|fb_iab|barcelona|\bline\b/i.test(n.userAgent) || n.webdriver) return;
     location.replace('/en/' + location.search + location.hash); })();
 </script>
 <meta name="naver-site-verification" content="525eed3164218a99d3ffb142c8768b86348e020f" />
@@ -80,11 +81,14 @@
       "alternateName": ["드롭핏", "드롭핏 맥 앱", "Dropfit for Mac"],
       "url": "https://dropfit.kr/",
       "description": "끌어다 놓으면 JPG · PNG · HEIC · WebP · TIFF · GIF · BMP · PDF로 바뀌는 Mac용 이미지·PDF 변환 앱, 드롭핏",
-      "disambiguatingDescription": "의류 브랜드 드로우핏(DRAW FIT)이나 운동 앱이 아닌, Mac에서 사진·PDF를 변환하는 앱",
+      "disambiguatingDescription": "의류 브랜드 드로우핏(DRAW FIT)이나 운동 앱(dropfit.app)이 아닌, Mac에서 사진·PDF를 변환하는 앱. 2026년 11월 19일 1.0 출시, Mac App Store가 아니라 dropfit.kr에서 직접 내려받음",
       "author": { "@id": "https://dropfit.kr/#founder" },
       "publisher": { "@id": "https://dropfit.kr/#org" },
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "macOS 14 이상",
+      "softwareVersion": "1.0",
+      "datePublished": "2026-11-19",
+      "downloadUrl": "https://dropfit.kr/",
       "offers": [
         { "@type": "Offer", "name": "무료", "price": "0", "priceCurrency": "KRW" },
         { "@type": "Offer", "name": "Pro", "price": "14900", "priceCurrency": "KRW" }
@@ -450,6 +454,32 @@
   .sw-row em svg { width: 8px; height: 12px; margin-right: 6px; color: rgba(44, 44, 46, .6); }
   .df-sw .sw-menu { left: 225px; width: 128px; font-size: 12px; line-height: 22px; z-index: 2; opacity: 0; visibility: hidden; text-align: left; }
   @media (max-width: 599px) { .df-sw .sw-menu { font-size: 12px; line-height: 22px; width: 128px; } }
+  /* 설정 창 1.0 (메뉴 카드 · Pro): 칸 6줄 44pt, 누른 칸 아래 네 줄 38pt (Settings.swift menuCard·editor) */
+  .df-sw1 { width: 380px; height: 358px; transform-origin: 190px 0; background: #f0f1f4; }
+  .df-sw1 .cw-bar { width: 380px; }
+  .df-sw1 p { margin: 0; text-align: left; }
+  .sw1-h { left: 22px; top: 46px; font-size: 13px; font-weight: 600; color: #1d1d1f; }
+  .df-sw1 .sw1-card { left: 22px; top: 72px; width: 336px; height: 264px; overflow: hidden; }
+  .sw1-row { left: 0; width: 336px; height: 44px; }
+  .sw1-row.sep::before { content: ""; position: absolute; left: 12px; right: 0; top: -.5px; height: .5px; background: rgba(18, 28, 45, .07); }
+  .sw1-row > * { position: absolute; }
+  .sw1-row b { left: 12px; top: 6px; font-size: 13px; font-weight: 500; color: #1d1d1f; white-space: nowrap; }
+  .sw1-row span { left: 12px; top: 24px; font-size: 11.5px; color: rgba(44, 44, 46, .5); white-space: nowrap; }
+  .sw1-row i { right: 12px; top: 17px; width: 10px; height: 10px; color: rgba(44, 44, 46, .4); }
+  .sw1-row i svg { display: block; width: 10px; height: 10px; }
+  .df-sw1 .sw1-ed { left: 0; top: 44px; width: 336px; height: 0; overflow: hidden; background: #f0f1f4; box-shadow: inset 0 .5px 0 rgba(18, 28, 45, .07); }
+  .sw1-ed p { position: absolute; left: 12px; width: 324px; height: 38px; }
+  .sw1-ed p.sep::before { content: ""; position: absolute; left: 12px; right: 0; top: -.5px; height: .5px; background: rgba(18, 28, 45, .07); }
+  .sw1-ed p > span { position: absolute; left: 12px; top: 11px; font-size: 13px; color: #1d1d1f; white-space: nowrap; }
+  .sw1-pick { position: absolute; right: 12px; top: 8px; width: 120px; height: 22px; box-sizing: border-box; padding: 0 0 0 8px; border-radius: 5.5px; font-style: normal;
+    display: flex; align-items: center; justify-content: space-between; background: #fff; font-size: 12px; color: #1d1d1f; white-space: nowrap;
+    box-shadow: 0 0 0 .5px rgba(18, 28, 45, .12), 0 .5px 1.5px rgba(18, 28, 45, .10); }
+  .sw1-pick svg { width: 8px; height: 12px; margin-right: 6px; flex: none; color: rgba(44, 44, 46, .6); }
+  .sw1-field { --f: 0; position: absolute; right: 12px; top: 8px; width: 140px; height: 22px; box-sizing: border-box; padding: 0 6px; border-radius: 5px; text-decoration: none;
+    display: flex; align-items: center; background: #fff; font-size: 13px; color: #1d1d1f; white-space: nowrap;
+    box-shadow: 0 0 0 .5px rgba(18, 28, 45, .18), 0 0 0 calc(3px * var(--f)) rgb(96 138 180 / calc(.45 * var(--f))); }
+  .sw1-field s { display: inline-block; width: 1px; height: 15px; margin-left: 1px; background: #1d1d1f; text-decoration: none; }
+  .df-sw1 .sw1-menu { left: 213px; width: 140px; font-size: 12px; line-height: 22px; z-index: 2; opacity: 0; visibility: hidden; text-align: left; }
   .df-seg-b { font-size: 9px; font-weight: 600; letter-spacing: .4px; fill: #3c608a; text-anchor: middle; dominant-baseline: central; }
   /* 마지막 섹션: 포물선 (사진 카드) */
   .df-cta { position: relative; width: 100%; max-width: 1080px; margin: -12px auto 0; }
@@ -1077,6 +1107,22 @@
   .vc .av { width: 52px; height: 52px; border-radius: 50%; flex: none; }
 
   #uses .av > g > circle:first-child { fill: #f5f5f7; }   /* 회색 구역 위에서는 얼굴 바탕을 흰색으로 */
+  /* 11/22 정훈 확정(C): 휴대폰·태블릿 첫 화면 = 시연 → 제목 → 메일 칸 → 후기 → 로고. Mac 화면은 그대로 */
+  .m-first { display: none; }
+  .not-mac .m-first { display: block; padding: 8px 0 28px; }
+  .not-mac .m-first .wrap { text-align: center; }
+  .m-demo { width: calc(100% + 32px); margin: 8px -16px 0; }
+  .m-demo .df-cta { margin: 0 auto !important; }
+  .m-title { display: block; margin: 4px 0 0; font-size: 26px; line-height: 1.3; font-weight: 700; letter-spacing: -0.025em; text-align: center; color: var(--ink); text-wrap: balance; }
+  .not-mac .m-first .notice { margin: 16px auto 0; text-align: center; }
+  .ml-msg { margin: 10px 0 0; font-size: 13px; color: var(--ink-3); }
+  .ml-msg.ok { color: var(--sky, #3C608A); }
+  .ml-msg.no { color: #B3261E; }
+  .ml-copy { margin: 6px 0 0; font-size: 13px; }
+  .ml-copy button { background: none; border: 0; padding: 0; font: inherit; color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+  .not-mac .m-first .tz-voice { margin: 30px auto 0; opacity: 1; transform: none; }
+  .not-mac .uses { display: none; }
+  .not-mac .intro .cta, .not-mac .intro .notice { display: none !important; }
 </style>
 <script>
   (function (d) { d.classList.add('lg-wait'); setTimeout(function () { d.classList.add('lg-in'); }, 5000); })(document.documentElement);
@@ -1104,6 +1150,17 @@
 </nav>
 
 <div class="first">
+<section class="m-first" aria-label="Dropfit 시연과 링크 받기"><div class="wrap">
+    <div class="m-demo"></div>
+    <h2 class="m-title">Dropfit에 끌어다 놓으세요.</h2>
+    <div class="notice" role="note">
+      <strong>Dropfit은 Mac 전용 앱입니다.</strong>
+      <span class="nb">Mac에서 열 링크를</span> <span class="nb">메일로 보내 드립니다.</span>
+      <form class="po" id="mlForm" novalidate style="margin:14px 0 0"><label class="po-field"><span class="sr">메일 주소</span><input type="email" id="mlEmail" name="email" autocomplete="email" inputmode="email" placeholder="name@example.com" required><button class="pill" type="submit">링크 받기</button></label></form>
+      <p class="ml-msg" id="mlMsg" role="status" aria-live="polite">링크 한 통만 보내고, 주소는 저장하지 않습니다.</p>
+      <p class="ml-copy"><button type="button" data-copy-link>카카오톡으로 옮기려면 링크 복사</button></p>
+    </div>
+</div></section>
 <section class="logo-top" aria-label="Dropfit">
   <div class="wrap">
     <div class="logo-box" id="dfLogo"><div class="lg-lock"><div class="lg-ic"></div><div class="lg-wm" aria-hidden="true"><span>D</span><span>r</span><span>o</span><span>p</span><span>f</span><span>i</span><span>t</span></div></div></div>
@@ -1342,6 +1399,8 @@
     var isTouchMac = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1; // iPadOS는 Mac으로 위장함
     var isMac = /Macintosh/.test(ua) && !isTouchMac; // iPhone UA의 'like Mac OS X'는 제외
     if (!isMac) document.documentElement.classList.add('not-mac');
+    // 기기 종류(11/22 정훈 결정 카드 B): mac·phone·tablet·other 넷 중 하나만 보낸다. 기기를 알아볼 수 있는 값은 없다
+    var DV = isMac ? 'mac' : (isTouchMac || /iPad|Tablet|Android(?!.*Mobile)/i.test(ua)) ? 'tablet' : /iPhone|iPod|Android|Mobile/i.test(ua) ? 'phone' : 'other';
 
     var toast = document.getElementById('toast'), timer;
     function show(msg) {
@@ -1382,7 +1441,7 @@
     try {
       if (!sessionStorage.getItem('dropfit-visit')) {
         sessionStorage.setItem('dropfit-visit', '1');
-        var vb = new URLSearchParams({ event: 'visit', src: SRC || 'dropfit-kr' }), VU = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';
+        var vb = new URLSearchParams({ event: 'visit', src: SRC || 'dropfit-kr', dv: DV }), VU = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';
         if (!(navigator.sendBeacon && navigator.sendBeacon(VU, vb))) fetch(VU, { method: 'POST', mode: 'no-cors', body: vb, keepalive: true });
       }
     } catch (e) {}
@@ -1435,7 +1494,10 @@
       document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (e) {} t.remove();
     }
     document.querySelectorAll('[data-copy-link]').forEach(function (b) {
-      b.addEventListener('click', function () { var tag = FROM || (SRC.indexOf('r-') === 0 ? '' : SRC); copy(location.origin + location.pathname + (tag ? '?from=' + tag : ''), '링크를 복사했습니다'); });
+      b.addEventListener('click', function () { var tag = FROM || (SRC.indexOf('r-') === 0 ? '' : SRC); copy(location.origin + location.pathname + (tag ? '?from=' + tag : ''), '링크를 복사했습니다');
+        try { var cb = new URLSearchParams({ event: 'copy', src: SRC || 'dropfit-kr', dv: DV }), CU = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';   // 링크 복사 수: 휴대폰→Mac 이어받기 측정
+          if (!(navigator.sendBeacon && navigator.sendBeacon(CU, cb))) fetch(CU, { method: 'POST', mode: 'no-cors', body: cb, keepalive: true }); } catch (e) {}
+      });
     });
     document.querySelectorAll('[data-copy]').forEach(function (b) {
       b.addEventListener('click', function () { copy(document.querySelector(b.dataset.copy).textContent, '명령어를 복사했습니다'); });
@@ -1575,6 +1637,34 @@
   }
   tick(); t = setInterval(tick, 1000);
 })();
+</script>
+<script>
+  // 11/22 정훈 확정(C): 휴대폰·태블릿에서만 시연·후기를 첫 화면으로 옮기고, Mac 링크를 메일로 보낸다(주소는 보내는 데만 쓰고 저장하지 않음, 처리방침 4번)
+  (function () {
+    if (!document.documentElement.classList.contains('not-mac')) return;
+    var demo = document.getElementById('dfCta'), slot = document.querySelector('.m-first .m-demo');
+    if (demo && slot) { demo.classList.remove('pp-cta'); slot.appendChild(demo); }
+    var voice = document.querySelector('.uses .tz-voice'), box = document.querySelector('.m-first .notice');
+    if (voice && box) box.parentNode.insertBefore(voice, box.nextSibling);
+    var f = document.getElementById('mlForm'), e = document.getElementById('mlEmail'), m = document.getElementById('mlMsg');
+    if (!f) return;
+    var ua = navigator.userAgent, dv = /iPad|Tablet|Android(?!.*Mobile)/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1) ? 'tablet' : /iPhone|iPod|Android|Mobile/i.test(ua) ? 'phone' : 'other';
+    function say(t, c) { m.textContent = t; m.className = 'ml-msg' + (c ? ' ' + c : ''); }
+    var busy = false;
+    f.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var v = e.value.trim();
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v) || v.length > 120) { say('메일 주소를 다시 확인해 주세요.', 'no'); e.focus(); return; }
+      if (busy || !window.__dfCount) return;
+      busy = true; f.querySelector('button').disabled = true; say('보내는 중입니다…');
+      var body = new URLSearchParams({ event: 'sendlink', email: v, src: window.__dfSrc || '', dv: dv, lang: 'ko' });
+      fetch(window.__dfCount, { method: 'POST', body: body })
+        .then(function (r) { return r.text(); })
+        .then(function (t) { if (/"ok":true/.test(t)) { say('보냈습니다. Mac에서 메일을 열고 링크를 누르면 다운로드 페이지가 열립니다.', 'ok'); e.value = ''; } else if (/"why":"email"/.test(t)) say('메일 주소를 다시 확인해 주세요.', 'no'); else say('지금은 보내지 못했습니다. 아래 ‘링크 복사’로 옮겨 주세요.', 'no'); })
+        .catch(function () { say('지금은 보내지 못했습니다. 아래 ‘링크 복사’로 옮겨 주세요.', 'no'); })
+        .then(function () { busy = false; f.querySelector('button').disabled = false; });
+    });
+  })();
 </script>
 </body>
 </html>
