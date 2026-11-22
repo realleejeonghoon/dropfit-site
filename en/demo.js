@@ -484,39 +484,61 @@
     if (this.cache.w !== w) { this.eW.textContent = w; this.cache.w = w; }
   };
 
-  /* ---------- 설정 창 (SettingsView · 0.5) ----------
-     창 380pt: 제목 줄 28, 머리말 두 줄, 카드 안에 포맷마다 한 줄(38pt) — 체크 상자 · 이름 · 설명 · 오른쪽 기본 용량 */
-  var SET_ROWS = [['JPG', 'General', 1], ['PNG', 'Lossless', 1], ['HEIC', 'Efficient', 1], ['TIFF', 'Print', 1], ['GIF', 'Web', 1], ['PDF', 'Document', 1], ['BMP', 'Uncompressed', 0]];
-  var SIZES = ['Original size', '-', 'Up to 2 MB', 'Up to 1 MB', 'Up to 500 KB', '-', 'Custom…'];
+  /* ---------- 설정 창 (SettingsView · 1.0 메뉴 카드, Pro) ----------
+     창 380pt: 제목 줄 28, '메뉴' 머리말, 카드 안에 칸 6줄(44pt: 이름 · 포맷 · 용량 · 저장 위치 요약 · 꺾쇠).
+     줄을 누르면 바로 아래 같은 카드 안에서 네 줄(이름 · 포맷 · 용량 · 저장 위치, 38pt)이 펼쳐지고, 창도 함께 길어진다 (Settings.swift menuCard·editor) */
+  var SW_SLOTS = [["JPG", "JPG", "Original size", "Next to original"], ["Passport", "JPG", "1 MB", "Next to original"], ["ID photo", "JPG", "500 KB", "Next to original"], ["JPG", "JPG", "Original size", "Next to original"], ["PNG", "PNG", "Original size", "Next to original"], ["PDF", "PDF", "Original size", "Next to original"]];
+  var SW_T = {"title": "Dropfit Settings", "menu": "Menu", "name": "Name", "fmt": "Format", "size": "File size", "place": "Save to", "orig": "Original size", "beside": "Next to original", "deflt": "Default location", upRe: /^Up to / };
+  var SIZES = ["Original size", "-", "Up to 2 MB", "Up to 1 MB", "Up to 500 KB", "-", "Custom…"];
+  var PLACES = ["Default location", "Next to original", "Uploads", "-", "Choose Folder…"];
+  var SW_ROW = 44, SW_LINE = 38, SW_ED = 4 * SW_LINE + 0.5, SW_TOP = 72;
   var CHEV2 = '<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 4.5L4 2l2.5 2.5M1.5 7.5L4 10l2.5-2.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  var CHECK = '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3.6 7.3l2.3 2.3 4.6-5" fill="none" stroke="#3c608a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var CHEVD = '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.6L5 6.6l3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   function SetWin(parent) {
+    var self = this;
     this.op = new P(0); this.sc = new P(0.97);
-    this.on = SET_ROWS.map(function (r) { return new P(r[2]); });
-    this.size = SET_ROWS.map(function () { return new P('Original size'); });
-    this.drop = new P(0); this.dropRow = 0; this.hi = SIZES.map(function () { return new P(0); });
-    var rows = SET_ROWS.map(function (r, i) {
-      return '<div class="sw-row' + (i ? ' sep' : '') + '" style="top:' + (i * 38.5) + 'px"><i class="sw-box">' + CHECK + '</i><p class="sw-n"><b>' + r[0] + '</b><span>' + r[1] + '</span></p><em><span></span>' + CHEV2 + '</em></div>';
+    this.ed = new P(0);                                   // 첫 칸 아래 네 줄이 펼쳐진 정도 0~1
+    this.name = new P(''); this.size = new P(SW_T.orig); this.place = new P(SW_T.deflt);
+    this.focus = new P(0); this.caret = new P(0);
+    this.drop = new P(0); this.dropKind = new P('size');
+    this.hi = [SIZES, PLACES].map(function (l) { return l.map(function () { return new P(0); }); });
+    var rows = SW_SLOTS.map(function (r, i) {
+      return '<div class="sw1-row' + (i ? ' sep' : '') + '"><b>' + r[0] + '</b><span>' + [r[1], r[2], r[3]].join(' · ') + '</span><i>' + CHEVD + '</i></div>';
     }).join('');
-    this.e = el('div', 'df-cw df-sw', parent,
-      '<div class="cw-bar"><i></i><i></i><i></i><b>Dropfit Settings</b></div>' +
-      '<p class="sw-h">Menu</p>' +
-      '<div class="cw-card sw-card">' + rows + '</div>' +
-      '<div class="df-menu sw-menu">' + SIZES.map(function (t) { return t === '-' ? '<hr>' : '<b>' + t + '</b>'; }).join('') + '</div>');
-    this.eRows = this.e.querySelectorAll('.sw-row');
-    this.eBox = this.e.querySelectorAll('.sw-box');
-    this.eSize = this.e.querySelectorAll('.sw-row em span');
-    this.eMenu = this.e.querySelector('.sw-menu');
-    this.eItems = this.eMenu.querySelectorAll('b');
+    function pick(t, cls) { return '<em class="sw1-pick ' + (cls || '') + '"><span>' + t + '</span>' + CHEV2 + '</em>'; }
+    var ed = '<div class="sw1-ed">' +
+      '<p style="top:0"><span>' + SW_T.name + '</span><u class="sw1-field"><span></span><s></s></u></p>' +
+      '<p style="top:38px" class="sep"><span>' + SW_T.fmt + '</span>' + pick('JPG') + '</p>' +
+      '<p style="top:76px" class="sep"><span>' + SW_T.size + '</span>' + pick(SW_T.orig, 'k-size') + '</p>' +
+      '<p style="top:114px" class="sep"><span>' + SW_T.place + '</span>' + pick(SW_T.deflt, 'k-place') + '</p></div>';
+    function menu(list, cls) { return '<div class="df-menu sw1-menu ' + cls + '">' + list.map(function (t) { return t === '-' ? '<hr>' : '<b>' + t + '</b>'; }).join('') + '</div>'; }
+    this.e = el('div', 'df-cw df-sw1', parent,
+      '<div class="cw-bar"><i></i><i></i><i></i><b>' + SW_T.title + '</b></div>' +
+      '<p class="sw1-h">' + SW_T.menu + '</p>' +
+      '<div class="cw-card sw1-card">' + rows + ed + '</div>' + menu(SIZES, 'm-size') + menu(PLACES, 'm-place'));
+    this.eRows = this.e.querySelectorAll('.sw1-row');
+    this.eTitle = this.eRows[0].querySelector('b'); this.eSum = this.eRows[0].querySelector('span'); this.eChev = this.eRows[0].querySelector('i');
+    this.eCard = this.e.querySelector('.sw1-card'); this.eEd = this.e.querySelector('.sw1-ed');
+    this.eField = this.e.querySelector('.sw1-field'); this.eName = this.eField.querySelector('span'); this.eCaret = this.eField.querySelector('s');
+    this.eSize = this.e.querySelector('.k-size span'); this.ePlace = this.e.querySelector('.k-place span');
+    this.eMenus = [this.e.querySelector('.m-size'), this.e.querySelector('.m-place')];
+    this.eItems = this.eMenus.map(function (m) { return m.querySelectorAll('b'); });
     this.cache = {};
   }
-  // 창 좌표에서 n번째 줄의 체크 상자 · 용량 단추 · 펼친 목록 k번째 항목
-  SetWin.box = function (n) { return { x: 22 + 12 + 7, y: 72 + n * 38.5 + 19 }; };
-  SetWin.pick = function (n) { return { x: 380 - 22 - 12 - 54, y: 72 + n * 38.5 + 19 }; };
-  SetWin.item = function (n, k) {   // macOS 팝업 단추: 지금 고른 항목이 단추 자리에 오도록 목록이 열린다
-    var y = 0, top = 72 + n * 38.5 + 19 - 11 - 5;
-    for (var i = 0, j = 0; i < SIZES.length; i++) { if (SIZES[i] === '-') { y += 9; continue; } if (j === k) break; y += 22; j++; }
-    return { x: 380 - 22 - 12 - 54, y: top + 5 + y + 11 };
+  function swEdTop() { return SW_TOP + SW_ROW; }
+  // 창 좌표: 칸 줄 가운데 · 펼친 네 줄의 오른쪽 단추 · 이름 칸 · 펼친 목록 k번째 항목
+  SetWin.row = function (n) { return { x: 190, y: SW_TOP + n * SW_ROW + SW_ROW / 2 }; };
+  SetWin.line = function (n) { return { x: 380 - 22 - 12 - 60, y: swEdTop() + n * SW_LINE + SW_LINE / 2 }; };
+  SetWin.field = function () { return { x: 380 - 22 - 12 - 70, y: swEdTop() + SW_LINE / 2 }; };
+  function swMenuTop(n, list, sel) {   // macOS 팝업 단추: 지금 고른 항목이 단추 자리에 오도록 목록이 열린다
+    var y = 0;
+    for (var i = 0, j = 0; i < list.length; i++) { if (list[i] === '-') { y += 9; continue; } if (j === sel) break; y += 22; j++; }
+    return swEdTop() + n * SW_LINE + SW_LINE / 2 - 11 - 5 - y;
+  }
+  SetWin.item = function (n, list, sel, k) {
+    var y = 0;
+    for (var i = 0, j = 0; i < list.length; i++) { if (list[i] === '-') { y += 9; continue; } if (j === k) break; y += 22; j++; }
+    return { x: 380 - 22 - 12 - 60, y: swMenuTop(n, list, sel) + 5 + y + 11 };
   };
   SetWin.prototype.render = function (T) {
     var o = this.op.at(T);
@@ -524,18 +546,32 @@
     this.e.style.visibility = o > 0.001 ? 'visible' : 'hidden';
     if (o <= 0.001) return;
     this.e.style.setProperty('--sc', this.sc.at(T).toFixed(4));
-    for (var i = 0; i < SET_ROWS.length; i++) {
-      var on = this.on[i].at(T);
-      this.eRows[i].style.opacity = (0.55 + 0.45 * on).toFixed(3);
-      this.eBox[i].style.setProperty('--on', on.toFixed(3));
-      var t = this.size[i].at(T);
-      if (this.cache[i] !== t) { this.eSize[i].textContent = t; this.cache[i] = t; }
+    var ed = this.ed.at(T), h = SW_ED * ed;
+    this.e.style.height = (SW_TOP + 6 * SW_ROW + h + 22).toFixed(2) + 'px';
+    this.eCard.style.height = (6 * SW_ROW + h).toFixed(2) + 'px';
+    this.eEd.style.height = h.toFixed(2) + 'px';
+    this.eEd.style.opacity = Math.min(1, ed * 1.4).toFixed(3);
+    for (var i = 0; i < this.eRows.length; i++) this.eRows[i].style.top = (i * SW_ROW + (i ? h : 0)).toFixed(2) + 'px';
+    this.eChev.style.transform = 'rotate(' + (180 * Math.min(1, ed)).toFixed(1) + 'deg)';
+    var nm = this.name.at(T), sz = this.size.at(T), pl = this.place.at(T);
+    var key = nm + '|' + sz + '|' + pl;
+    if (this.cache.k !== key) {
+      this.cache.k = key;
+      this.eName.textContent = nm; this.eSize.textContent = sz; this.ePlace.textContent = pl;
+      this.eTitle.textContent = nm || 'JPG';
+      var lim = sz === SW_T.orig ? SW_T.orig : sz.replace(SW_T.upRe, '');
+      this.eSum.textContent = ['JPG', lim, pl === SW_T.deflt ? SW_T.beside : pl].join(' · ');
     }
-    var d = this.drop.at(T);
-    this.eMenu.style.opacity = d.toFixed(3);
-    this.eMenu.style.visibility = d > 0.001 ? 'visible' : 'hidden';
-    this.eMenu.style.top = (72 + this.dropRow * 38.5 + 19 - 11 - 5) + 'px';
-    for (var k = 0; k < this.eItems.length; k++) this.eItems[k].style.setProperty('--on', this.hi[k].at(T).toFixed(3));
+    this.eField.style.setProperty('--f', this.focus.at(T).toFixed(3));
+    this.eCaret.style.opacity = this.focus.at(T) > 0.5 && (this.caret.at(T) || Math.floor(T * 2) % 2 === 0) ? 1 : 0;
+    var d = this.drop.at(T), kind = this.dropKind.at(T);
+    for (var m = 0; m < 2; m++) {
+      var on = (m === 0) === (kind === 'size') ? d : 0, me = this.eMenus[m];
+      me.style.opacity = on.toFixed(3);
+      me.style.visibility = on > 0.001 ? 'visible' : 'hidden';
+      me.style.top = (m === 0 ? swMenuTop(2, SIZES, 0) : swMenuTop(3, PLACES, 0)).toFixed(1) + 'px';
+      for (var k = 0; k < this.eItems[m].length; k++) this.eItems[m][k].style.setProperty('--on', this.hi[m][k].at(T).toFixed(3));
+    }
   };
 
   /* ---------- 앱 동작 (OrbController) ---------- */
@@ -1027,6 +1063,42 @@
         st.add(cw); st.add(cur);
         return { start: tt, finish: [tt + 0.15], idle: tt + 1.6 };
       }
+      // 설정 창에서 첫 칸을 'Products' 프리셋으로 정하고 닫는다 (Pro: 칸을 누르면 아래에 이름 · 포맷 · 용량 · 저장 위치)
+      function settings(pn, t0) {
+        var KW = mob ? 0.62 : 0.68, top = mob ? 14 : 12;
+        var sw = new SetWin(strip), cur = new Cursor(strip);
+        var ox = pn.c.x - 190;
+        sw.e.style.transform = 'translate(' + ox.toFixed(1) + 'px,' + top + 'px) scale(calc(' + KW + ' * var(--sc, 1)))';
+        function inWin(p) { return { x: pn.c.x + (p.x - 190) * KW, y: top + p.y * KW }; }
+        function go(p, tt, d) { p = inWin(p); cur.x.to(tt, p.x + 2, ease(EIO, d)); cur.y.to(tt, p.y + 3, ease(HAND, d)); return tt + d; }
+        var to = t0 + 0.3;
+        sw.op.to(to, 1, ease(EO, 0.3)); sw.sc.to(to, 1, ease(EO, 0.35));
+        var p0 = inWin({ x: 300, y: 420 });
+        cur.x.to(0, p0.x); cur.y.to(0, p0.y); cur.op.to(to + 0.25, 1, ease(EO, 0.25));
+        var tt = to + 0.6;
+        tt = go(SetWin.row(0), tt, 0.75) + 0.15;            // 첫 칸을 누르면 네 줄이 펼쳐진다
+        sw.ed.to(tt, 1, spring(0.5, 0.9)); tt += 0.55;
+        tt = go(SetWin.field(), tt, 0.5) + 0.12;            // 이름
+        sw.focus.to(tt, 1, ease(EO, 0.15)); tt += 0.25;
+        ["P", "Pr", "Pro", "Prod", "Produ", "Produc", "Product", "Products"].forEach(function (v) { sw.caret.to(tt, 1); sw.name.to(tt, v); tt += 0.1; });
+        sw.caret.to(tt + 0.3, 0); tt += 0.3;
+        tt = go(SetWin.line(2), tt, 0.55) + 0.12;           // 용량: 원본 용량 → 2MB 이하
+        sw.focus.to(tt, 0, ease(EIO, 0.15));
+        sw.dropKind.to(tt, 'size'); sw.drop.to(tt, 1, ease(EO, 0.12)); sw.hi[0][0].to(tt, 1); tt += 0.3;
+        sw.hi[0][0].to(tt, 0); tt = go(SetWin.item(2, SIZES, 0, 1), tt, 0.4);
+        sw.hi[0][2].to(tt, 1); tt += 0.28;
+        sw.drop.to(tt, 0, ease(EIO, 0.18)); sw.hi[0][2].to(tt + 0.2, 0); sw.size.to(tt, SIZES[2]); tt += 0.45;
+        tt = go(SetWin.line(3), tt, 0.45) + 0.12;           // 저장 위치: 기본 저장 위치 → 올릴 사진 폴더
+        sw.dropKind.to(tt, 'place'); sw.drop.to(tt, 1, ease(EO, 0.12)); sw.hi[1][0].to(tt, 1); tt += 0.3;
+        sw.hi[1][0].to(tt, 0); tt = go(SetWin.item(3, PLACES, 0, 2), tt, 0.4);
+        sw.hi[1][2].to(tt, 1); tt += 0.28;
+        sw.drop.to(tt, 0, ease(EIO, 0.18)); sw.hi[1][2].to(tt + 0.2, 0); sw.place.to(tt, PLACES[2]); tt += 0.9;
+        tt = go({ x: 18, y: 14 }, tt, 0.75) + 0.2;          // 닫기
+        sw.op.to(tt, 0, ease(EIO, 0.28)); sw.sc.to(tt, 0.98, ease(EIO, 0.28));
+        cur.op.to(tt + 0.1, 0, ease(EIO, 0.3));
+        st.add(sw); st.add(cur);
+        return tt + 0.2;
+      }
       function next() {
         slideAt.push(t);
         idx++;
@@ -1063,7 +1135,7 @@
       next();
       // 큰 사진을 '상품 사진' 칸에 놓으면 JPG · 2MB로 '올릴 사진' 폴더에 생긴다 (용량은 실제 변환값으로 바꿀 자리)
       scene(p5, [{ name: 'Product.heic<small>4.2 MB</small>', photo: 'p1', pos: { x: p5.c.x - X, y: p5.c.y + 30 } }],
-        [{ name: 'Product.jpg<small>Up to 2 MB · Uploads folder</small>', photo: 'p1', pos: { x: p5.c.x + X, y: p5.c.y + 30 } }], 0, -1, 1);
+        [{ name: 'Product.jpg<small>Up to 2 MB · Uploads folder</small>', photo: 'p1', pos: { x: p5.c.x + X, y: p5.c.y + 30 } }], 0, -1, 1, false, false, false, settings);
       next();
 
 
