@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>
   // 외국인 방문자는 영어판으로(11/18 정훈, 11/19 시간대 조건 뺌: Mac 언어만 따름). 브라우저 언어 목록에 한국어가 없고, 'Korean'을 직접 고른 적이 없을 때만. 검색 로봇·링크 미리보기(네이버 Yeti·카카오·페이스북 등)는 옮기지 않는다(11/19 네이버 블로그 링크 카드가 영어로 뜸)
+  // 11/22: 인스타·페이스북·스레드·라인 앱 안 브라우저는 휴대폰 언어와 달리 en-US를 내보내는 경우가 많아(메타 광고 방문 33%, 인스타 DM 71%가 영어 페이지) 자동 이동하지 않는다
   (function () { try { if (localStorage.getItem('dropfit-lang') === 'ko') return; } catch (e) {}
     var n = navigator, L = ((n.languages && n.languages.length ? n.languages : [n.language || '']).join(',')).toLowerCase();
-    if (!L || /(^|,)ko/.test(L) || /bot|crawl|spider|slurp|preview|lighthouse|yeti|naver|daum|kakao|facebookexternalhit|headless|google|bing/i.test(n.userAgent) || n.webdriver) return;
+    if (!L || /(^|,)ko/.test(L) || /bot|crawl|spider|slurp|preview|lighthouse|yeti|naver|daum|kakao|facebookexternalhit|headless|google|bing|instagram|fban|fbav|fb_iab|barcelona|\bline\b/i.test(n.userAgent) || n.webdriver) return;
     location.replace('/en/' + location.search + location.hash); })();
 </script>
 <meta name="naver-site-verification" content="525eed3164218a99d3ffb142c8768b86348e020f" />
@@ -1342,6 +1343,8 @@
     var isTouchMac = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1; // iPadOS는 Mac으로 위장함
     var isMac = /Macintosh/.test(ua) && !isTouchMac; // iPhone UA의 'like Mac OS X'는 제외
     if (!isMac) document.documentElement.classList.add('not-mac');
+    // 기기 종류(11/22 정훈 결정 카드 B): mac·phone·tablet·other 넷 중 하나만 보낸다. 기기를 알아볼 수 있는 값은 없다
+    var DV = isMac ? 'mac' : (isTouchMac || /iPad|Tablet|Android(?!.*Mobile)/i.test(ua)) ? 'tablet' : /iPhone|iPod|Android|Mobile/i.test(ua) ? 'phone' : 'other';
 
     var toast = document.getElementById('toast'), timer;
     function show(msg) {
@@ -1382,7 +1385,7 @@
     try {
       if (!sessionStorage.getItem('dropfit-visit')) {
         sessionStorage.setItem('dropfit-visit', '1');
-        var vb = new URLSearchParams({ event: 'visit', src: SRC || 'dropfit-kr' }), VU = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';
+        var vb = new URLSearchParams({ event: 'visit', src: SRC || 'dropfit-kr', dv: DV }), VU = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';
         if (!(navigator.sendBeacon && navigator.sendBeacon(VU, vb))) fetch(VU, { method: 'POST', mode: 'no-cors', body: vb, keepalive: true });
       }
     } catch (e) {}
@@ -1435,7 +1438,10 @@
       document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (e) {} t.remove();
     }
     document.querySelectorAll('[data-copy-link]').forEach(function (b) {
-      b.addEventListener('click', function () { var tag = FROM || (SRC.indexOf('r-') === 0 ? '' : SRC); copy(location.origin + location.pathname + (tag ? '?from=' + tag : ''), '링크를 복사했습니다'); });
+      b.addEventListener('click', function () { var tag = FROM || (SRC.indexOf('r-') === 0 ? '' : SRC); copy(location.origin + location.pathname + (tag ? '?from=' + tag : ''), '링크를 복사했습니다');
+        try { var cb = new URLSearchParams({ event: 'copy', src: SRC || 'dropfit-kr', dv: DV }), CU = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';   // 링크 복사 수: 휴대폰→Mac 이어받기 측정
+          if (!(navigator.sendBeacon && navigator.sendBeacon(CU, cb))) fetch(CU, { method: 'POST', mode: 'no-cors', body: cb, keepalive: true }); } catch (e) {}
+      });
     });
     document.querySelectorAll('[data-copy]').forEach(function (b) {
       b.addEventListener('click', function () { copy(document.querySelector(b.dataset.copy).textContent, '명령어를 복사했습니다'); });
