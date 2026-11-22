@@ -1343,6 +1343,8 @@
     var isTouchMac = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1; // iPadOS는 Mac으로 위장함
     var isMac = /Macintosh/.test(ua) && !isTouchMac; // iPhone UA의 'like Mac OS X'는 제외
     if (!isMac) document.documentElement.classList.add('not-mac');
+    // 기기 종류(11/22 정훈 결정 카드 B): mac·phone·tablet·other 넷 중 하나만 보낸다. 기기를 알아볼 수 있는 값은 없다
+    var DV = isMac ? 'mac' : (isTouchMac || /iPad|Tablet|Android(?!.*Mobile)/i.test(ua)) ? 'tablet' : /iPhone|iPod|Android|Mobile/i.test(ua) ? 'phone' : 'other';
 
     var toast = document.getElementById('toast'), timer;
     function show(msg) {
@@ -1383,7 +1385,7 @@
     try {
       if (!sessionStorage.getItem('dropfit-visit')) {
         sessionStorage.setItem('dropfit-visit', '1');
-        var vb = new URLSearchParams({ event: 'visit', src: SRC || 'dropfit-kr' }), VU = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';
+        var vb = new URLSearchParams({ event: 'visit', src: SRC || 'dropfit-kr', dv: DV }), VU = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';
         if (!(navigator.sendBeacon && navigator.sendBeacon(VU, vb))) fetch(VU, { method: 'POST', mode: 'no-cors', body: vb, keepalive: true });
       }
     } catch (e) {}
@@ -1436,7 +1438,10 @@
       document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (e) {} t.remove();
     }
     document.querySelectorAll('[data-copy-link]').forEach(function (b) {
-      b.addEventListener('click', function () { var tag = FROM || (SRC.indexOf('r-') === 0 ? '' : SRC); copy(location.origin + location.pathname + (tag ? '?from=' + tag : ''), '링크를 복사했습니다'); });
+      b.addEventListener('click', function () { var tag = FROM || (SRC.indexOf('r-') === 0 ? '' : SRC); copy(location.origin + location.pathname + (tag ? '?from=' + tag : ''), '링크를 복사했습니다');
+        try { var cb = new URLSearchParams({ event: 'copy', src: SRC || 'dropfit-kr', dv: DV }), CU = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';   // 링크 복사 수: 휴대폰→Mac 이어받기 측정
+          if (!(navigator.sendBeacon && navigator.sendBeacon(CU, cb))) fetch(CU, { method: 'POST', mode: 'no-cors', body: cb, keepalive: true }); } catch (e) {}
+      });
     });
     document.querySelectorAll('[data-copy]').forEach(function (b) {
       b.addEventListener('click', function () { copy(document.querySelector(b.dataset.copy).textContent, '명령어를 복사했습니다'); });
