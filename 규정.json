@@ -1,0 +1,22 @@
+{
+ "설명": "dropfit.kr 업무 규정. 관문(tools/관문.py)이 이 파일만 읽는다. 시안: https://claude.ai/artifact/JRzgvAYTZNrKp8JDqKTcc3",
+ "모드": "위험별",
+ "모드_설명": "막음 = 보호 파일 무단 변경·삭제, 검사 약화. 경고 = 영역 없음. 1차는 lang-check·secret-scan 워크플로가 PR마다 따로 돈다.",
+ "확정표시": "확정:",
+ "백업폴더": "backup/",
+ "검사약화_표시": ["continue-on-error","if: false","|| true","@skip"],
+ "영역": [
+  {"이름":"결제·법적 문서","범위":["checkout.js","paddle-config.js","pro/**","activate/**","terms.html","privacy.html","refund.html","en/terms*","en/privacy*","en/refund*"],
+   "보호":["checkout.js","paddle-config.js","terms.html","privacy.html","refund.html","en/terms*","en/privacy*","en/refund*"],"1차":[],
+   "2차":"Paddle 가격·할인 ID와 대조, 한·영 같은 뜻","3차":"구입 대비 키 발급 일치 100%"},
+  {"이름":"판매 페이지·가이드","범위":["index.html","en/**","guide/**","assets/**","fonts/**","*.js","favicon.ico","README.md"],
+   "보호":["favicon.ico"],"1차":[],
+   "2차":"한·영 같은 뜻, 앱 소스로 기능 사실 확인","3차":"7일: 방문 대비 다운로드율, 가이드 28일 순위"},
+  {"이름":"검색 노출","범위":["llms.txt","robots.txt","sitemap.xml","*.txt","CNAME"],
+   "보호":["CNAME","robots.txt","da2564e4c8343f7529e6e5ab9d11fcaf.txt"],"1차":[],
+   "2차":"서치 콘솔·AI 답변 실측","3차":"7·28·84일 순위·인용"},
+  {"이름":"점검·운영","범위":[".github/**","tools/**","규정.json"],
+   "보호":[".github/**","tools/관문.py","규정.json"],"1차":[],"2차":"-","3차":"-"}
+ ],
+ "영역밖_무시":["backup/**"]
+}
