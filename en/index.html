@@ -1050,6 +1050,20 @@
   .uses .df-play { max-width: 540px; margin: -24px auto 0 !important; }
   .df-play .df-grab { pointer-events: auto; cursor: grab; touch-action: none; }
   .df-play .df-gh { pointer-events: none; z-index: 6; }
+  /* 11/22 정훈: 앱의 'Dropfit 찾기' 하늘빛(LocateGlow)처럼 사진 둘레에 은은한 빛. 1.4초 간격 세 번 퍼지고 쉬었다 반복, 처음 손을 대면 멈춤 */
+  .df-play .df-grab .ic { position: relative; }
+  .df-play .df-grab .ic::before, .df-play .df-grab .ic::after { content: ""; position: absolute; left: 0; top: 0; width: 92px; height: 68px; border-radius: 6px; pointer-events: none; }
+  .df-play .df-grab .ic::before { inset: -3px; width: auto; height: auto; border-radius: 8px; background: #a3c4e6; filter: blur(6px); z-index: -1; animation: dfLocFill 7s ease-in-out infinite; }
+  .df-play .df-grab .ic::after { box-sizing: border-box; border: 4px solid #b9d3ed; filter: blur(1.2px); animation: dfLocRing 7s infinite; }
+  @keyframes dfLocFill { 0% { opacity: 0; } 6% { opacity: .55; } 58% { opacity: .55; } 72%, 100% { opacity: 0; } }
+  @keyframes dfLocRing { 0% { transform: scale(.98); opacity: .95; animation-timing-function: ease-out; } 20% { transform: scale(1.45); opacity: 0; }
+    20.01% { transform: scale(.98); opacity: .95; animation-timing-function: ease-out; } 40% { transform: scale(1.45); opacity: 0; }
+    40.01% { transform: scale(.98); opacity: .95; animation-timing-function: ease-out; } 60%, 100% { transform: scale(1.45); opacity: 0; } }
+  .df-play .df-back { appearance: none; border: 0; background: none; padding: 8px 14px; font: inherit; font-size: 14px; color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; white-space: nowrap;
+    opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .3s, visibility .3s; }
+  .df-play .df-back.on { opacity: 1; visibility: visible; pointer-events: auto; }
+  .df-play.df-touched .df-grab .ic::before, .df-play.df-touched .df-grab .ic::after { animation: none; opacity: 0; transition: opacity .3s; }
+  @media (prefers-reduced-motion: reduce) { .df-play .df-grab .ic::after { display: none; } .df-play .df-grab .ic::before { animation: none; opacity: .45; } }
   .m-title { display: block; margin: 4px 0 0; font-size: 26px; line-height: 1.3; font-weight: 700; letter-spacing: -0.025em; text-align: center; color: var(--ink); text-wrap: balance; }
   .not-mac .m-first .notice { margin: 16px auto 0; text-align: center; }
   .ml-msg { margin: 10px 0 0; font-size: 13px; color: var(--ink-3); }
@@ -1466,7 +1480,7 @@
   })();
 </script>
 <script src="../logo.js?v=2" defer></script>
-<script src="demo.js?v=19" defer></script>
+<script src="demo.js?v=21" defer></script>
 
 <aside class="dl-card" id="paidCard" aria-label="Purchase complete">
   <button class="dl-x" type="button" aria-label="Close" data-paid-close><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l8 8M10 2 2 10"/></svg></button>
