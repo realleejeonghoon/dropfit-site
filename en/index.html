@@ -1038,6 +1038,22 @@
   .vc .av { width: 52px; height: 52px; border-radius: 50%; flex: none; }
 
   #uses .av > g > circle:first-child { fill: #f5f5f7; }   /* 회색 구역 위에서는 얼굴 바탕을 흰색으로 */
+  /* 11/22 정훈 확정(C): 휴대폰·태블릿 첫 화면 = 시연 → 제목 → 메일 칸 → 후기 → 로고. Mac 화면은 그대로 */
+  .m-first { display: none; }
+  .not-mac .m-first { display: block; padding: 8px 0 28px; }
+  .not-mac .m-first .wrap { text-align: center; }
+  .m-demo { width: calc(100% + 32px); margin: 8px -16px 0; }
+  .m-demo .df-cta { margin: 0 auto !important; }
+  .m-title { display: block; margin: 4px 0 0; font-size: 26px; line-height: 1.3; font-weight: 700; letter-spacing: -0.025em; text-align: center; color: var(--ink); text-wrap: balance; }
+  .not-mac .m-first .notice { margin: 16px auto 0; text-align: center; }
+  .ml-msg { margin: 10px 0 0; font-size: 13px; color: var(--ink-3); }
+  .ml-msg.ok { color: var(--sky, #3C608A); }
+  .ml-msg.no { color: #B3261E; }
+  .ml-copy { margin: 6px 0 0; font-size: 13px; }
+  .ml-copy button { background: none; border: 0; padding: 0; font: inherit; color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+  .not-mac .m-first .tz-voice { margin: 30px auto 0; opacity: 1; transform: none; }
+  .not-mac .uses { display: none; }
+  .not-mac .intro .cta, .not-mac .intro .notice { display: none !important; }
 </style>
 <script>
   (function (d) { d.classList.add('lg-wait'); setTimeout(function () { d.classList.add('lg-in'); }, 5000); })(document.documentElement);
@@ -1065,6 +1081,17 @@
 </nav>
 
 <div class="first">
+<section class="m-first" aria-label="Dropfit demo and link by email"><div class="wrap">
+    <div class="m-demo"></div>
+    <h2 class="m-title">Drag files onto Dropfit.</h2>
+    <div class="notice" role="note">
+      <strong>Dropfit is a Mac app.</strong>
+      <span class="nb">We’ll email you a link</span> <span class="nb">to open on your Mac.</span>
+      <form class="po" id="mlForm" novalidate style="margin:14px 0 0"><label class="po-field"><span class="sr">Email address</span><input type="email" id="mlEmail" name="email" autocomplete="email" inputmode="email" placeholder="name@example.com" required><button class="pill" type="submit">Email me the link</button></label></form>
+      <p class="ml-msg" id="mlMsg" role="status" aria-live="polite">We send one email with the link and don’t keep your address.</p>
+      <p class="ml-copy"><button type="button" data-copy-link>Or copy the link instead</button></p>
+    </div>
+</div></section>
 <section class="logo-top" aria-label="Dropfit">
   <div class="wrap">
     <div class="logo-box" id="dfLogo"><div class="lg-lock"><div class="lg-ic"></div><div class="lg-wm" aria-hidden="true"><span>D</span><span>r</span><span>o</span><span>p</span><span>f</span><span>i</span><span>t</span></div></div></div>
@@ -1550,6 +1577,34 @@
   }
   tick(); t = setInterval(tick, 1000);
 })();
+</script>
+<script>
+  // 11/22 정훈 확정(C): 휴대폰·태블릿에서만 시연·후기를 첫 화면으로 옮기고, Mac 링크를 메일로 보낸다(주소는 보내는 데만 쓰고 저장하지 않음, 처리방침 4번)
+  (function () {
+    if (!document.documentElement.classList.contains('not-mac')) return;
+    var demo = document.getElementById('dfCta'), slot = document.querySelector('.m-first .m-demo');
+    if (demo && slot) { demo.classList.remove('pp-cta'); slot.appendChild(demo); }
+    var voice = document.querySelector('.uses .tz-voice'), box = document.querySelector('.m-first .notice');
+    if (voice && box) box.parentNode.insertBefore(voice, box.nextSibling);
+    var f = document.getElementById('mlForm'), e = document.getElementById('mlEmail'), m = document.getElementById('mlMsg');
+    if (!f) return;
+    var ua = navigator.userAgent, dv = /iPad|Tablet|Android(?!.*Mobile)/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1) ? 'tablet' : /iPhone|iPod|Android|Mobile/i.test(ua) ? 'phone' : 'other';
+    function say(t, c) { m.textContent = t; m.className = 'ml-msg' + (c ? ' ' + c : ''); }
+    var busy = false;
+    f.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var v = e.value.trim();
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v) || v.length > 120) { say('Please check your email address.', 'no'); e.focus(); return; }
+      if (busy || !window.__dfCount) return;
+      busy = true; f.querySelector('button').disabled = true; say('Sending…');
+      var body = new URLSearchParams({ event: 'sendlink', email: v, src: window.__dfSrc || '', dv: dv, lang: 'en' });
+      fetch(window.__dfCount, { method: 'POST', body: body })
+        .then(function (r) { return r.text(); })
+        .then(function (t) { if (/"ok":true/.test(t)) { say('Sent. Open the email on your Mac and tap the link to get Dropfit.', 'ok'); e.value = ''; } else if (/"why":"email"/.test(t)) say('Please check your email address.', 'no'); else say('We couldn’t send it right now. Please copy the link below instead.', 'no'); })
+        .catch(function () { say('We couldn’t send it right now. Please copy the link below instead.', 'no'); })
+        .then(function () { busy = false; f.querySelector('button').disabled = false; });
+    });
+  })();
 </script>
 </body>
 </html>
