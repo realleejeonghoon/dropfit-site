@@ -47,6 +47,7 @@
 
 - [Dropfit for Mac](https://dropfit.kr/en/): overview, pricing, FAQ
 - [Guides](https://dropfit.kr/en/guide/)
+- [How to compress photos on Mac](https://dropfit.kr/en/guide/mac-photo-size/): many at once, to a size you set
 - [Photo too large to upload?](https://dropfit.kr/en/guide/upload-size-limit/): get it under 1 MB on a Mac
 - [Portfolio and application PDFs with a size limit](https://dropfit.kr/en/guide/application-pdf-limit/): merge scanned documents into one PDF under 50 MB on a Mac
 - [How to combine PDFs on Mac](https://dropfit.kr/en/guide/mac-pdf-merge/)
