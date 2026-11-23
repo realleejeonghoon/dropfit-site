@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dropfit Guides</title>
+<meta name="description" content="How to compress photos, combine PDFs and convert images on a Mac.">
+<meta name="theme-color" content="#fbfbfd">
+<link rel="canonical" href="https://dropfit.kr/en/guide/">
+<link rel="alternate" hreflang="ko" href="https://dropfit.kr/guide/">
+<link rel="alternate" hreflang="en" href="https://dropfit.kr/en/guide/">
+<link rel="alternate" hreflang="x-default" href="https://dropfit.kr/guide/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dropfit">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://dropfit.kr/en/guide/">
+<meta property="og:title" content="Dropfit Guides">
+<meta property="og:description" content="How to compress photos, combine PDFs and convert images on a Mac.">
+<link rel="stylesheet" href="../../../fonts/pretendardvariable-dynamic-subset.css">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<style>
+  /* 랜딩(index.html)·약관과 같은 글꼴·색·여백. 읽기 전용 한 단 문서 */
+  :root {
+    --ink: #1d1d1f;
+    --ink-2: #6e6e73;
+    --ink-3: #86868b;
+    --link: #3c608a;
+    --line: #d2d2d7;
+    --paper: #fbfbfd;
+    --soft: #f5f5f7;
+    --note: #f2f6fb;
+    --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: #fff; color: var(--ink); font-family: var(--font); font-size: 17px; line-height: 1.65; letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-wrap: break-word; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { width: min(720px, 100% - 48px); margin: 0 auto; }
+  .nav { position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, .78); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, .08); }
+  .nav .wrap { height: 48px; display: flex; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 8px; color: var(--ink); font-weight: 600; font-size: 15px; }
+  .brand:hover { text-decoration: none; }
+  .brand img { width: 22px; height: 22px; filter: drop-shadow(0 0 .5px rgba(18,28,45,.22)) drop-shadow(0 1px 1.5px rgba(18,28,45,.12)); }
+  main { padding: 56px 0 96px; }
+  .crumb { font-size: 14px; color: var(--ink-2); margin: 0 0 10px; }
+  h1 { font-size: clamp(30px, 4.2vw, 40px); line-height: 1.2; font-weight: 600; letter-spacing: -0.03em; margin: 0; }
+  .meta { color: var(--ink-2); font-size: 14px; margin: 10px 0 0; }
+  .answer { background: var(--soft); border-radius: 16px; padding: 20px 22px; margin: 28px 0 8px; }
+  .answer p { margin: 0; }
+  h2 { font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: -0.02em; margin: 52px 0 14px; }
+  p { margin: 0 0 12px; }
+  ol, ul { padding-left: 1.3em; margin: 10px 0 14px; }
+  li { margin: 6px 0; }
+  b { font-weight: 600; }
+  figure { margin: 20px 0; }
+  figure img { display: block; width: 100%; height: auto; border-radius: 12px; background: var(--soft); }
+  figure.portrait img { width: min(100%, 400px); margin: 0 auto; }
+  figcaption { margin-top: 8px; font-size: 13px; color: var(--ink-3); text-align: center; }
+  .table { overflow-x: auto; margin: 16px 0 8px; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 15px; line-height: 1.5; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 16px 12px 0; border-bottom: 1px solid #e5e5ea; }
+  th { font-size: 13px; font-weight: 600; color: var(--ink-2); border-bottom-color: var(--line); white-space: nowrap; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  tr.us td { background: var(--note); }
+  .cta { margin-top: 56px; padding-top: 28px; border-top: 1px solid #e5e5ea; }
+  .cta p { margin: 0 0 4px; }
+  .pill { display: inline-flex; align-items: center; justify-content: center; margin-top: 16px; padding: 11px 24px; border-radius: 980px;
+    background: linear-gradient(180deg, #cce1f5, #a3c4e6); color: #3c608a; font-weight: 500; white-space: nowrap;
+    box-shadow: 0 .5px 1.2px rgba(18, 28, 45, .12), 0 4px 12px rgba(18, 28, 45, .08); transition: box-shadow .25s; }
+  .pill:hover { text-decoration: none; box-shadow: 0 .5px 1.2px rgba(18, 28, 45, .14), 0 6px 16px rgba(18, 28, 45, .11); }
+  .src { font-size: 13px; color: var(--ink-3); margin-top: 40px; }
+  .nb { white-space: nowrap; }
+  footer { background: var(--paper); color: var(--ink-3); font-size: 12px; padding: 20px 0 32px; }
+  footer .wrap { display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 16px; }
+  footer a { color: var(--ink-2); }
+  footer nav { display: flex; gap: 12px; flex-wrap: wrap; }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li, td, figcaption { text-wrap: pretty; }
+  body { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; } main { flex: 1 0 auto; width: min(720px, 100% - 48px); }
+  .glist { list-style: none; padding: 0; margin: 32px 0 0; }
+  .glist li { padding: 18px 0; border-bottom: 1px solid #e5e5ea; }
+  .glist a { font-size: 19px; font-weight: 600; letter-spacing: -0.02em; }
+  .glist p { margin: 4px 0 0; color: var(--ink-2); font-size: 15px; }
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Main menu">
+  <div class="wrap">
+    <a class="brand" href="/en/"><img src="/assets/icon-128.png" alt="">Dropfit</a>
+  </div>
+</nav>
+<main class="wrap">
+  <h1>Dropfit Guides</h1>
+  <p class="meta">How to work with images and PDFs on a Mac.</p>
+  <ul class="glist">
+    <li><a href="/en/guide/upload-size-limit/">Photo too large to upload? How to get it under 1&nbsp;MB on a Mac</a><p>Three checks when a site says “file too large,” and how to shrink photos under the limit.</p></li>
+    <li><a href="/en/guide/application-pdf-limit/">Portfolio and application PDFs with a size limit: merge into one file under 50&nbsp;MB</a><p>Merge scanned documents in order and fit them under limits like “one PDF, 50&nbsp;MB or less.”</p></li>
+    <li><a href="/en/guide/mac-pdf-merge/">How to combine PDFs on Mac</a><p>Three ways to combine PDFs and photos into one PDF without uploading, compared.</p></li>
+    <li><a href="/en/guide/mac-pdf-size/">How to reduce PDF file size on Mac (to 10&nbsp;MB or 5&nbsp;MB)</a><p>Preview’s Quartz filter vs. an app with a target size, with real results for text PDFs and scans.</p></li>
+    <li><a href="/en/guide/mac-image-convert/">How to convert images on Mac: HEIC and PNG to JPG in bulk</a><p>What Finder Quick Actions, Preview and an app can and can’t do.</p></li>
+    <li><a href="/en/guide/mac-jpg-to-pdf/">How to convert photos to PDF on Mac</a><p>Turn photos of documents into one PDF, with the order and name you choose.</p></li>
+    <li><a href="/en/guide/mac-pdf-to-jpg/">How to convert PDF to JPG on Mac</a><p>A page or two in Preview, or every page at once.</p></li>
+    <li><a href="/en/guide/mac-heic-to-jpg/">How to convert HEIC to JPG on Mac (iPhone photos)</a><p>When iPhone photos won’t upload. Many at once, or a whole folder.</p></li>
+    <li><a href="/en/guide/mac-png-to-jpg/">How to convert PNG to JPG on Mac</a><p>Many at once, and what happens to transparency.</p></li>
+    <li><a href="/en/guide/mac-id-photo-size/">How to resize an ID photo to under 500&nbsp;KB or 1&nbsp;MB on Mac</a><p>By hand in Preview, or set the limit once.</p></li>
+    <li><a href="/en/guide/mac-batch-crop/">How to crop many photos to the same ratio on Mac (1:1, 4:5)</a><p>Pick the ratio once and frame every photo.</p></li>
+    <li><a href="/en/guide/mac-batch-resize/">How to resize many photos at once on Mac</a><p>Finder, Preview, or an exact width in an app.</p></li>
+  </ul>
+</main>
+<footer>
+  <div class="wrap">
+    <a href="/en/">Dropfit</a>
+    <nav><a href="/en/terms.html">Terms</a> <a href="/en/refund.html">Refund Policy</a> <a href="/en/privacy.html">Privacy Policy</a> <a href="/guide/" hreflang="ko" data-ko>Korean</a></nav>
+  </div>
+</footer>
+<script>document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-ko]'))try{localStorage.setItem('dropfit-lang','ko')}catch(x){}});</script>
+</body>
+</html>
