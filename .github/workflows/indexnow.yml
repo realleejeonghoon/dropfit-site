@@ -24,6 +24,11 @@ jobs:
           done
           URLS=$(grep -o '<loc>[^<]*' sitemap.xml | sed 's/<loc>//' | python3 -c 'import sys,json;print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))')
           BODY=$(printf '{"host":"dropfit.kr","key":"%s","keyLocation":"https://dropfit.kr/%s.txt","urlList":%s}' "$KEY" "$KEY" "$URLS")
-          CODE=$(curl -s -o /dev/null -w '%{http_code}' -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' -d "$BODY")
-          echo "IndexNow 응답: $CODE (200·202 = 받음)"
-          [ "$CODE" = 200 ] || [ "$CODE" = 202 ]
+          OK=0
+          # 네이버는 공용 주소와 별도로 서치어드바이저 주소에도 직접 알린다(11/23 네이버 웹문서 검색 노출 0 실측)
+          for EP in https://api.indexnow.org/indexnow https://searchadvisor.naver.com/indexnow; do
+            CODE=$(curl -s -o /dev/null -w '%{http_code}' -X POST "$EP" -H 'Content-Type: application/json; charset=utf-8' -d "$BODY")
+            echo "IndexNow $EP 응답: $CODE (200·202 = 받음)"
+            { [ "$CODE" = 200 ] || [ "$CODE" = 202 ]; } && OK=$((OK+1))
+          done
+          [ "$OK" -ge 1 ]
