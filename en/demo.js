@@ -1202,6 +1202,13 @@
       cap.style.transform = 'translate(' + c.x + 'px,' + (H - 70) + 'px) translate(-50%,-50%)';
       var capOp = new P(1);
       st.add({ render: function (T) { cap.style.opacity = Math.min(capOp.at(T), 1 - hn.op.at(T)).toFixed(3); } });
+      // 11/22 정훈: 끝난 뒤 '처음으로' 단추. 누르면 새 파일이 사라지고 사진에 빛이 다시 돈다
+      var cap0 = cap.textContent, back = el('button', 'df-back', root, 'Start over');
+      back.type = 'button'; back.style.transform = 'translate(' + c.x + 'px,' + (H - 34) + 'px) translate(-50%,-50%)';
+      function showBack(on) { back.classList.toggle('on', on); back.tabIndex = on ? 0 : -1; }
+      showBack(false);
+      back.addEventListener('click', function () { if (busy) return; var t = now(); showBack(false);
+        out.op.to(t, 0, ease(EIO, 0.3)); cap.textContent = cap0; capOp.to(t, 1, ease(EIO, 0.3)); st.host.classList.remove('df-touched'); });
       function now() { return st.T + st.off; }
       function mk(name, out, base) {
         var e = el('div', 'df-card' + (out ? ' new' : ''), cards, '<div class="ic"><div class="ph p0"></div></div><span>' + name + '</span>');
@@ -1232,6 +1239,7 @@
         inside = false; idx = -1;
       }
       src.e.addEventListener('pointerdown', function (ev) {
+        st.host.classList.add('df-touched');   // 처음 손을 대면 빛 안내를 멈춘다
         if (busy) return;
         ev.preventDefault();
         try { src.e.setPointerCapture(ev.pointerId); } catch (e) {}
@@ -1262,7 +1270,7 @@
           out.name.textContent = 'Trip.' + fmt.toLowerCase();
           out.op.to(r.done, 1, ease(EO, 0.45)); out.s.to(r.done, CS * 0.94); out.s.to(r.done, CS, Motion.done);
           capOp.to(r.done, 0); 
-          setTimeout(function () { busy = false; cap.textContent = 'Try another format'; capOp.to(now(), 1, ease(EIO, 0.3)); st.host.dispatchEvent(new CustomEvent('dfplaydone', { bubbles: true, detail: fmt })); }, (r.idle - t) * 1000);
+          setTimeout(function () { busy = false; cap.textContent = 'Try another format'; capOp.to(now(), 1, ease(EIO, 0.3)); showBack(true); st.host.dispatchEvent(new CustomEvent('dfplaydone', { bubbles: true, detail: fmt })); }, (r.idle - t) * 1000);
         } else {
           if (inside) leave(t);
           ghost.op.to(t, 0, ease(EIO, 0.2)); capOp.to(t, 1, ease(EIO, 0.3));

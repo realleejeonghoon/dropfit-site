@@ -1049,7 +1049,8 @@
   @media (prefers-reduced-motion: reduce) { .scroll-cue { animation: none; } }
   .uses { background: #fff; padding: 148px 0 136px !important; box-shadow: 0 -1px 0 rgba(0,0,0,.04), 0 1px 0 rgba(0,0,0,.04); }
   .uses .tz-voice { max-width: 34em; }
-  .tz-voice .vs-lead { margin: 0 0 18px; text-align: center; font-size: 14px; font-weight: 600; color: var(--ink-2); letter-spacing: -0.01em; }   /* 11/22: 쓰임 예시임을 밝힘(후기로 보이지 않게) */
+  .tz-voice .vs-lead { margin: 0 0 30px; text-align: center; font-size: clamp(22px, 2.4vw, 28px); line-height: 1.3; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }   /* 11/22 정훈 '사용 예는 강조': 소제목 크기로 */
+  @media (max-width: 734px) { .tz-voice .vs-lead { font-size: 21px; margin-bottom: 24px; } }   /* 11/22: 쓰임 예시임을 밝힘(후기로 보이지 않게) */
   .uses .tz-voice .sc-l1 { font-size: clamp(22px, 2.6vw, 30px); }
   .uses .tz-voice .sc-l2 { margin-top: 12px; font-size: 17px; }
   .uses .tz-voice figcaption { margin-bottom: 22px; }
@@ -1119,6 +1120,20 @@
   .uses .df-play { max-width: 540px; margin: -24px auto 0 !important; }
   .df-play .df-grab { pointer-events: auto; cursor: grab; touch-action: none; }
   .df-play .df-gh { pointer-events: none; z-index: 6; }
+  /* 11/22 정훈: 앱의 'Dropfit 찾기' 하늘빛(LocateGlow)처럼 사진 둘레에 은은한 빛. 1.4초 간격 세 번 퍼지고 쉬었다 반복, 처음 손을 대면 멈춤 */
+  .df-play .df-grab .ic { position: relative; }
+  .df-play .df-grab .ic::before, .df-play .df-grab .ic::after { content: ""; position: absolute; left: 0; top: 0; width: 92px; height: 68px; border-radius: 6px; pointer-events: none; }
+  .df-play .df-grab .ic::before { inset: -3px; width: auto; height: auto; border-radius: 8px; background: #a3c4e6; filter: blur(6px); z-index: -1; animation: dfLocFill 7s ease-in-out infinite; }
+  .df-play .df-grab .ic::after { box-sizing: border-box; border: 4px solid #b9d3ed; filter: blur(1.2px); animation: dfLocRing 7s infinite; }
+  @keyframes dfLocFill { 0% { opacity: 0; } 6% { opacity: .55; } 58% { opacity: .55; } 72%, 100% { opacity: 0; } }
+  @keyframes dfLocRing { 0% { transform: scale(.98); opacity: .95; animation-timing-function: ease-out; } 20% { transform: scale(1.45); opacity: 0; }
+    20.01% { transform: scale(.98); opacity: .95; animation-timing-function: ease-out; } 40% { transform: scale(1.45); opacity: 0; }
+    40.01% { transform: scale(.98); opacity: .95; animation-timing-function: ease-out; } 60%, 100% { transform: scale(1.45); opacity: 0; } }
+  .df-play .df-back { appearance: none; border: 0; background: none; padding: 8px 14px; font: inherit; font-size: 14px; color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; white-space: nowrap;
+    opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .3s, visibility .3s; }
+  .df-play .df-back.on { opacity: 1; visibility: visible; pointer-events: auto; }
+  .df-play.df-touched .df-grab .ic::before, .df-play.df-touched .df-grab .ic::after { animation: none; opacity: 0; transition: opacity .3s; }
+  @media (prefers-reduced-motion: reduce) { .df-play .df-grab .ic::after { display: none; } .df-play .df-grab .ic::before { animation: none; opacity: .45; } }
   .m-title { display: block; margin: 4px 0 0; font-size: 26px; line-height: 1.3; font-weight: 700; letter-spacing: -0.025em; text-align: center; color: var(--ink); text-wrap: balance; }
   .not-mac .m-first .notice { margin: 16px auto 0; text-align: center; }
   .ml-msg { margin: 10px 0 0; font-size: 13px; color: var(--ink-3); }
@@ -1140,6 +1155,14 @@
   .from-app .plan-using { display: block; }
   /* 11/22 크기 점검: 320px 폭 휴대폰에서 가로 넘침 없게 */
   @media (max-width: 359px) { .sec-sub .nb { white-space: normal; } .team > div { padding: 0; } .plans .plan.plan, .plans .plan:not(.plan-pro) { padding-left: 18px; padding-right: 18px; } }
+  /* 11/22 정훈 '한 화면 = 한 구역': 구역마다 화면 한 장 높이, 내용은 가운데, 아래 단추로 다음 구역 */
+  .scr { min-height: calc(100svh - 48px); box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; position: relative; padding-bottom: 72px; }
+  .uses.scr { padding: 40px 0 88px !important; }
+  @media (min-width: 735px) { .demo-top.scr .stage { max-width: calc((100svh - 230px) * 1.6); margin: 0 auto; } }   /* 시연 창이 화면 한 장 안에 */
+  .scr-cue { appearance: none; border: 0; background: none; padding: 0; cursor: pointer; position: absolute; left: 50%; bottom: 16px; width: 40px; height: 40px; margin-left: -20px; display: grid; place-items: center; color: var(--ink-3); border-radius: 50%; animation: cueBob 2.4s var(--ease) infinite; }
+  .scr-cue svg { width: 20px; height: 20px; }
+  .scr-cue:hover { color: var(--sky-text); }
+  @media (prefers-reduced-motion: reduce) { .scr-cue { animation: none; } }
 </style>
 <script>(function () { try { if (new URLSearchParams(location.search).get('from') === 'app') document.documentElement.classList.add('from-app'); } catch (e) {} })();</script>
 </head>
@@ -1200,6 +1223,11 @@
 <section class="uses" id="uses" aria-labelledby="uses-title">
   <div class="wrap">
     <h2 class="sec-title uses-title reveal" id="uses-title"><span class="grad">Dropfit</span>에 끌어다 놓으세요.</h2>
+  </div>
+</section>
+
+<section class="uses uses-voice" aria-label="이런 일에 씁니다">
+  <div class="wrap">
     <div class="tz-voice reveal" aria-roledescription="carousel">
       <p class="vs-lead">이런 일에 씁니다</p>
       <div class="vs-stage" aria-live="off">
@@ -1534,7 +1562,7 @@
   })();
 </script>
 <script src="logo.js?v=2" defer></script>
-<script src="demo.js?v=19" defer></script>
+<script src="demo.js?v=21" defer></script>
 
 <aside class="dl-card" id="paidCard" aria-label="구입 완료">
   <button class="dl-x" type="button" aria-label="닫기" data-paid-close><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l8 8M10 2 2 10"/></svg></button>
@@ -1696,6 +1724,24 @@
       });
     }
     fit(); addEventListener('resize', fit); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  })();
+</script>
+<script>
+  // 11/22 정훈 '한 화면 = 한 구역': 휴대폰·웹 모두 구역마다 화면 한 장, 아래 단추로 다음 구역
+  (function () {
+    var nm = document.documentElement.classList.contains('not-mac'), SVG = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>', list = [];
+    function q(s) { return document.querySelector(s); }
+    function wrap(els) { els = els.filter(Boolean); if (!els.length) return null; var d = document.createElement('div'); els[0].parentNode.insertBefore(d, els[0]); els.forEach(function (e) { d.appendChild(e); }); return d; }
+    if (nm) { var w = q('.m-first .wrap'); if (w) { list.push(wrap([w.querySelector('.m-demo'), w.querySelector('.m-title')]), wrap([w.querySelector('.notice')]), wrap([w.querySelector('.tz-voice')])); }
+      list.push(wrap([q('.first > .logo-top'), q('.first > .intro')])); }
+    else { list.push(q('#uses'), q('.uses-voice')); }
+    ['#how', 'section[aria-labelledby="feat-title"]', 'section[aria-labelledby="pricing-title"]', '#faq', '.final'].forEach(function (s) { list.push(q(s)); });
+    list = list.filter(Boolean);
+    var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    list.forEach(function (s, i) { s.classList.add('scr'); if (i === list.length - 1) return;
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'scr-cue'; b.setAttribute('aria-label', '다음 구역'); b.innerHTML = SVG;
+      b.addEventListener('click', function () { var nav = q('.nav'); scrollTo({ top: list[i + 1].getBoundingClientRect().top + scrollY - (nav ? nav.offsetHeight : 48), behavior: still ? 'auto' : 'smooth' }); }); s.appendChild(b); });
+    var first = q('.first > .scroll-cue'); if (first && list[0] && !nm) first.setAttribute('href', '#uses');
   })();
 </script>
 </body>
