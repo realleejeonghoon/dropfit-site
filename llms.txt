@@ -63,3 +63,16 @@
 - [How to crop many photos to the same ratio on Mac](https://dropfit.kr/en/guide/mac-batch-crop/): 1:1, 4:5, 3:4, 16:9 at once
 - [How to resize many photos at once on Mac](https://dropfit.kr/en/guide/mac-batch-resize/): e.g. 1080 px wide
 - [Privacy Policy](https://dropfit.kr/en/privacy.html)
+
+## 日本語
+
+> Dropfit（ドロップフィット）は、Mac用の画像・PDF変換アプリです。開発は韓国のUsul。画面の円にファイルをドラッグして形式を選ぶと、変換したファイルが元のファイルと同じフォルダに保存されます。ファイルはMacの外に出ません。同名のフィットネスアプリ（dropfit.app）や衣料ブランドとは別物です。
+
+- 動作環境：macOS 14以降（Appleシリコン・Intel）
+- 変換できる形式：JPG・PNG・HEIC・WebP・TIFF・GIF・BMP・PDF。複数ファイルやフォルダごとの変換、PDFの結合・分割
+- 価格：変換・フォルダごとの変換・PDFの結合と分割は無料（アカウント不要、回数制限なし）。Dropfit Proは買い切り₩14,900、サブスクなし（2026年12月31日まで発売記念価格₩9,900）。Proは形式と容量のプリセット保存、同じ比率での一括切り抜き、プリセットごとの保存先
+- 最初の14日間はカード登録なしでProを試せます。購入から14日以内なら全額返金
+- リリース：2026年11月19日（1.0）。Mac App Storeではなく dropfit.kr から直接ダウンロード
+
+- [日本語ページ](https://dropfit.kr/ja/): 使い方、価格、よくある質問
+- [特定商取引法に基づく表記](https://dropfit.kr/ja/tokusho.html)
