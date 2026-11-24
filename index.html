@@ -9,7 +9,7 @@
   (function () { try { if (localStorage.getItem('dropfit-lang') === 'ko') return; } catch (e) {}
     var n = navigator, L = ((n.languages && n.languages.length ? n.languages : [n.language || '']).join(',')).toLowerCase();
     if (!L || /(^|,)ko/.test(L) || /bot|crawl|spider|slurp|preview|lighthouse|yeti|naver|daum|kakao|facebookexternalhit|headless|google|bing|instagram|fban|fbav|fb_iab|barcelona|\bline\b/i.test(n.userAgent) || n.webdriver) return;
-    location.replace('/en/' + location.search + location.hash); })();
+    location.replace((/^ja/.test(L) ? '/ja/' : '/en/') + location.search + location.hash); })();
 </script>
 <meta name="naver-site-verification" content="525eed3164218a99d3ffb142c8768b86348e020f" />
 <meta name="naver-site-verification" content="b415c15790008d511bf50fd4cf44ccfb97bf0cb5" />
@@ -24,6 +24,7 @@
 <link rel="canonical" href="https://dropfit.kr/">
 <link rel="alternate" hreflang="ko" href="https://dropfit.kr/">
 <link rel="alternate" hreflang="en" href="https://dropfit.kr/en/">
+<link rel="alternate" hreflang="ja" href="https://dropfit.kr/ja/">
 <link rel="alternate" hreflang="x-default" href="https://dropfit.kr/">
 <meta property="og:url" content="https://dropfit.kr/">
 <meta property="og:image" content="https://dropfit.kr/assets/og.png?v=11">
