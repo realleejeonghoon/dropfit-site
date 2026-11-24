@@ -12,7 +12,7 @@
     var F = ((location.search.match(/[?&]from=([^&#]*)/) || [])[1] || '').toLowerCase();
     if (F && !/^(jp|tw|hk|sg|my|ph|vn|id|cn|en)-|^th-[a-z]/.test(F)) return;
     if (!L || /(^|,)ko/.test(L) || /bot|crawl|spider|slurp|preview|lighthouse|yeti|naver|daum|kakao|facebookexternalhit|meta-external|facebookcatalog|headless|google|bing|instagram|fban|fbav|fb_iab|barcelona|\bline\b/i.test(n.userAgent) || n.webdriver) return;
-    location.replace('/en/' + location.search + location.hash); })();
+    location.replace((/^ja/.test(L) ? '/ja/' : '/en/') + location.search + location.hash); })();
 </script>
 <meta name="naver-site-verification" content="525eed3164218a99d3ffb142c8768b86348e020f" />
 <meta name="naver-site-verification" content="b415c15790008d511bf50fd4cf44ccfb97bf0cb5" />
@@ -27,6 +27,7 @@
 <link rel="canonical" href="https://dropfit.kr/">
 <link rel="alternate" hreflang="ko" href="https://dropfit.kr/">
 <link rel="alternate" hreflang="en" href="https://dropfit.kr/en/">
+<link rel="alternate" hreflang="ja" href="https://dropfit.kr/ja/">
 <link rel="alternate" hreflang="x-default" href="https://dropfit.kr/">
 <meta property="og:url" content="https://dropfit.kr/">
 <meta property="og:image" content="https://dropfit.kr/assets/og.png?v=11">
@@ -1415,7 +1416,7 @@
 
 <footer>
   <div class="wrap">
-    <span class="f-biz"><span class="nb">Dropfit · 상호 우슬 · 대표 이정훈</span> · <span class="nb">사업자등록번호 372-57-00909</span><br><span class="nb">서울특별시 용산구 한강대로43길 8, 103동 1509호</span> <span class="nb f-mail"><span class="f-sep">· </span><a href="tel:+821096179325">010-9617-9325</a> · <a href="mailto:leejeonghoon.official@gmail.com">leejeonghoon.official@gmail.com</a></span></span>
+    <span class="f-biz"><span class="nb">Dropfit · 상호 우슬 · 대표 이정훈</span> · <span class="nb">사업자등록번호 372-57-00909</span> · <span class="nb">호스팅 제공 GitHub, Inc.</span><br><span class="nb">서울특별시 용산구 한강대로43길 8, 103동 1509호</span> <span class="nb f-mail"><span class="f-sep">· </span><a href="tel:+821096179325">010-9617-9325</a> · <a href="mailto:leejeonghoon.official@gmail.com">leejeonghoon.official@gmail.com</a></span></span>
     <span class="f-links"><a href="guide/">가이드</a><a href="terms.html">이용약관</a><a href="refund.html">환불 규정</a><a href="privacy.html">개인정보 처리방침</a><a href="en/" hreflang="en" lang="en">English</a></span>
   </div>
 </footer>
