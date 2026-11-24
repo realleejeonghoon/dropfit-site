@@ -134,7 +134,7 @@
     document.getElementById('s-ready').hidden = false;
     document.getElementById('open').href = 'dropfit://activate?key=' + encodeURIComponent(m[1]);
   })();
-  // 키 다시 받기(lang: 서버 일본어 메일 반영 뒤 'ja'로 바꿈, F-015 ⑤-1): 한국어 첫 화면(#resend)과 같은 창구·같은 안내(있는 주소인지 알려 주지 않음)
+  // 키 다시 받기(lang ja, 서버 판 42 일본어 메일, F-015 ⑤-1): 한국어 첫 화면(#resend)과 같은 창구·같은 안내(있는 주소인지 알려 주지 않음)
   (function () {
     var COUNT_URL = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';
     var rs = document.getElementById('rsForm'), em = document.getElementById('rsEmail'), msg = document.getElementById('rsMsg');
@@ -143,7 +143,7 @@
       e.preventDefault();
       if (!em.value.trim() || !em.checkValidity()) { show('メールアドレスをご確認ください。', true); em.focus(); return; }
       var btn = rs.querySelector('button'); btn.disabled = true;
-      fetch(COUNT_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams({ event: 'keyresend', email: em.value.trim(), lang: 'en' }) })
+      fetch(COUNT_URL, { method: 'POST', mode: 'no-cors', body: new URLSearchParams({ event: 'keyresend', email: em.value.trim(), lang: 'ja' }) })
         .then(function () { show('このメールアドレスで購入が見つかれば、ライセンスキーを再送しました。受信トレイをご確認ください。'); })
         .catch(function () { btn.disabled = false; show('送信できませんでした。インターネット接続をご確認ください。', true); });
     });
