@@ -53,6 +53,7 @@
 - [Best image compression apps for Mac](https://dropfit.kr/en/guide/mac-image-compression-apps/): Preview, ImageOptim, Squoosh, TinyPNG, Clop, Tangerine and Dropfit compared by situation, including when Dropfit isn't the right fit
 - [Photo too large to upload?](https://dropfit.kr/en/guide/upload-size-limit/): get it under 1 MB on a Mac
 - [Portfolio and application PDFs with a size limit](https://dropfit.kr/en/guide/application-pdf-limit/): merge scanned documents into one PDF under 50 MB on a Mac
+- [How to merge PDFs without uploading them](https://dropfit.kr/en/guide/pdf-merge/): offline on Mac and Windows
 - [How to combine PDFs on Mac](https://dropfit.kr/en/guide/mac-pdf-merge/)
 - [How to reduce PDF file size on Mac](https://dropfit.kr/en/guide/mac-pdf-size/): hit 10 MB or 5 MB, real results
 - [How to convert images on Mac](https://dropfit.kr/en/guide/mac-image-convert/): HEIC and PNG to JPG in bulk
