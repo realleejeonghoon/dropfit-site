@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+  // 외국인 방문자는 영어판으로(11/18 정훈, 11/19 시간대 조건 뺌: Mac 언어만 따름). 브라우저 언어에 한국어가 없고, 'Korean'을 직접 고른 적이 없을 때만. 검색 로봇은 옮기지 않는다
+  (function () { try { if (localStorage.getItem('dropfit-lang') === 'ko') return; } catch (e) {}
+    var n = navigator, L = ((n.languages && n.languages.length ? n.languages : [n.language || '']).join(',')).toLowerCase();
+    if (!L || /(^|,)ko/.test(L) || /bot|crawl|spider|slurp|preview|lighthouse|yeti|naver|daum|kakao|facebookexternalhit|headless|google|bing|instagram|fban|fbav|fb_iab|barcelona|\bline\b/i.test(n.userAgent) || n.webdriver) return;
+    location.replace('/en/guide/application-pdf-limit/' + location.search + location.hash); })();
+</script>
+<title>포트폴리오·지원 서류 PDF 용량 제한: 맥에서 한 파일로 합쳐 50MB 아래로</title>
+<meta name="description" content="대학 모집요강의 &#x27;PDF 1개, 50MB 이하&#x27;, 서류 묶음별 40MB 같은 제출 기준에 맞춰, 스캔한 지원 서류와 포트폴리오를 맥에서 순서대로 합치고 정한 용량 아래로 줄이는 법. 실제 모집요강 문구와 함께.">
+<meta name="theme-color" content="#fbfbfd">
+<link rel="canonical" href="https://dropfit.kr/guide/application-pdf-limit/">
+<link rel="alternate" hreflang="ko" href="https://dropfit.kr/guide/application-pdf-limit/">
+<link rel="alternate" hreflang="en" href="https://dropfit.kr/en/guide/application-pdf-limit/">
+<link rel="alternate" hreflang="x-default" href="https://dropfit.kr/guide/application-pdf-limit/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dropfit">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://dropfit.kr/guide/application-pdf-limit/">
+<meta property="og:title" content="포트폴리오·지원 서류 PDF 용량 제한: 맥에서 한 파일로 합쳐 50MB 아래로">
+<meta property="og:description" content="모집요강의 &#x27;PDF 1개, 50MB 이하&#x27;에 맞춰 지원 서류를 맥에서 한 파일로 합치고 줄이는 법.">
+<link rel="stylesheet" href="../../fonts/pretendardvariable-dynamic-subset.css">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://dropfit.kr/guide/application-pdf-limit/#article",
+      "headline": "포트폴리오·지원 서류 PDF 용량 제한: 맥에서 한 파일로 합쳐 50MB 아래로",
+      "description": "대학 모집요강의 'PDF 1개, 50MB 이하', 서류 묶음별 40MB 같은 제출 기준에 맞춰, 스캔한 지원 서류와 포트폴리오를 맥에서 순서대로 합치고 정한 용량 아래로 줄이는 법. 실제 모집요강 문구와 함께.",
+      "inLanguage": "ko-KR",
+      "datePublished": "2026-11-21",
+      "dateModified": "2026-11-21",
+      "mainEntityOfPage": "https://dropfit.kr/guide/application-pdf-limit/",
+      "author": {
+        "@id": "https://dropfit.kr/#founder"
+      },
+      "publisher": {
+        "@id": "https://dropfit.kr/#org"
+      },
+      "about": {
+        "@id": "https://dropfit.kr/#app"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dropfit.kr/guide/application-pdf-limit/#faq",
+      "inLanguage": "ko-KR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "모집요강에 'PDF 1개, 50MB 이하'라고 되어 있으면 어떻게 하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "서류를 모두 스캔한 다음 요강의 순서대로 PDF 한 파일로 합치고, 50MB 아래인지 확인합니다. 드롭핏은 PDF·50MB로 정한 프리셋에 서류를 끌어다 놓으면 합치기와 용량 맞추기를 한 번에 합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "스캔본이 너무 커서 기준 아래로 줄어들지 않으면요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "해상도를 200dpi 정도로 낮춰 다시 스캔하는 쪽이 확실합니다. 이미 300dpi 이상으로 스캔한 파일은 어떤 방법으로 줄여도 글자가 뭉개지기 쉽습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "포트폴리오도 같은 방법으로 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "사람인처럼 파일당 50MB로 받는 곳은 같은 방법으로 맞출 수 있습니다. 다만 학교는 포트폴리오를 우편으로만 받거나(한국예술종합학교 2027 예술사), 개인이 만든 포트폴리오를 받지 않는 전형(숭실대 2027 재외국민 활동 증빙)도 있어 요강을 먼저 확인해야 합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "원본 서류 파일이 바뀌나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아니요. 드롭핏은 합친 PDF를 새 파일로 저장하고 원본은 그대로 둡니다. 파일은 인터넷에 올라가지 않습니다."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Dropfit",
+          "item": "https://dropfit.kr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "포트폴리오·지원 서류 PDF 용량 제한: 맥에서 한 파일로 합쳐 50MB 아래로",
+          "item": "https://dropfit.kr/guide/application-pdf-limit/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  /* 랜딩(index.html)·약관과 같은 글꼴·색·여백. 읽기 전용 한 단 문서 */
+  :root {
+    --ink: #1d1d1f;
+    --ink-2: #6e6e73;
+    --ink-3: #86868b;
+    --link: #3c608a;
+    --line: #d2d2d7;
+    --paper: #fbfbfd;
+    --soft: #f5f5f7;
+    --note: #f2f6fb;
+    --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: #fff; color: var(--ink); font-family: var(--font); font-size: 17px; line-height: 1.65; letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-wrap: break-word; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { width: min(720px, 100% - 48px); margin: 0 auto; }
+  .nav { position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, .78); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, .08); }
+  .nav .wrap { height: 48px; display: flex; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 8px; color: var(--ink); font-weight: 600; font-size: 15px; }
+  .brand:hover { text-decoration: none; }
+  .brand img { width: 22px; height: 22px; filter: drop-shadow(0 0 .5px rgba(18,28,45,.22)) drop-shadow(0 1px 1.5px rgba(18,28,45,.12)); }
+  main { padding: 56px 0 96px; }
+  .crumb { font-size: 14px; color: var(--ink-2); margin: 0 0 10px; }
+  h1 { font-size: clamp(30px, 4.2vw, 40px); line-height: 1.2; font-weight: 600; letter-spacing: -0.03em; margin: 0; }
+  .meta { color: var(--ink-2); font-size: 14px; margin: 10px 0 0; }
+  .answer { background: var(--soft); border-radius: 16px; padding: 20px 22px; margin: 28px 0 8px; }
+  .answer p { margin: 0; }
+  h2 { font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: -0.02em; margin: 52px 0 14px; }
+  p { margin: 0 0 12px; }
+  ol, ul { padding-left: 1.3em; margin: 10px 0 14px; }
+  li { margin: 6px 0; }
+  b { font-weight: 600; }
+  figure { margin: 20px 0; }
+  figure img { display: block; width: 100%; height: auto; border-radius: 12px; background: var(--soft); }
+  figure.portrait img { width: min(100%, 400px); margin: 0 auto; }
+  figcaption { margin-top: 8px; font-size: 13px; color: var(--ink-3); text-align: center; }
+  .table { overflow-x: auto; margin: 16px 0 8px; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 15px; line-height: 1.5; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 16px 12px 0; border-bottom: 1px solid #e5e5ea; }
+  th { font-size: 13px; font-weight: 600; color: var(--ink-2); border-bottom-color: var(--line); white-space: nowrap; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  tr.us td { background: var(--note); }
+  .cta { margin-top: 56px; padding-top: 28px; border-top: 1px solid #e5e5ea; }
+  .cta p { margin: 0 0 4px; }
+  .pill { display: inline-flex; align-items: center; justify-content: center; margin-top: 16px; padding: 11px 24px; border-radius: 980px;
+    background: linear-gradient(180deg, #cce1f5, #a3c4e6); color: #3c608a; font-weight: 500; white-space: nowrap;
+    box-shadow: 0 .5px 1.2px rgba(18, 28, 45, .12), 0 4px 12px rgba(18, 28, 45, .08); transition: box-shadow .25s; }
+  .pill:hover { text-decoration: none; box-shadow: 0 .5px 1.2px rgba(18, 28, 45, .14), 0 6px 16px rgba(18, 28, 45, .11); }
+  .src { font-size: 13px; color: var(--ink-3); margin-top: 40px; }
+  .nb { white-space: nowrap; }
+  footer { background: var(--paper); color: var(--ink-3); font-size: 12px; padding: 20px 0 32px; }
+  footer .wrap { display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 16px; }
+  footer a { color: var(--ink-2); }
+  footer nav { display: flex; gap: 12px; flex-wrap: wrap; }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li, td, figcaption { text-wrap: pretty; }
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="주요 메뉴">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/icon-128.png" alt="">Dropfit</a>
+  </div>
+</nav>
+<main class="wrap">
+  <p class="crumb"><a href="/guide/">드롭핏 가이드</a></p>
+  <h1>포트폴리오·지원 서류 PDF 용량 제한: 맥에서 한 파일로 합쳐 50MB 아래로</h1>
+  <p class="meta">2026년 11월 · macOS 14 이상 기준</p>
+
+  <div class="answer"><p>대학 지원 서류와 포트폴리오는 제출처마다 'PDF 1개, 50MB 이하'처럼 파일 수와 용량이 정해져 있습니다. 맥에서는 서류를 스캔한 다음 정해진 순서대로 PDF 한 파일로 합치고, 그 파일을 기준 용량 아래로 줄이면 됩니다. 드롭핏(Dropfit)은 이 두 단계를 한 번에 합니다. 기준 용량을 정해 둔 PDF 프리셋에 서류를 끌어다 놓고 순서를 정하면, 그 용량 아래의 PDF 한 개로 저장합니다. 합치기는 무료이고, 용량 맞추기는 Pro입니다.</p></div>
+
+  <p>수시·편입·재외국민 전형은 서류를 우편 대신 온라인으로 받는 곳이 많아졌습니다. 서류 열 장을 스캔하면 금세 수십 MB가 되고, 업로드 창은 파일 하나만 받습니다. 마감 직전에 '용량 초과'가 뜨면 합치는 일과 줄이는 일을 다시 해야 합니다.</p>
+
+  <h2>먼저 볼 것: 모집요강의 실제 문구</h2>
+  <p>기준은 학교와 전형마다 다르고 해마다 바뀝니다. 2027학년도 요강 두 곳의 문구입니다.</p>
+  <ul>
+    <li><b>상명대학교 2027학년도 수시모집요강</b>: "모든 제출서류 '원본(출력물, 발급본)'을 반드시 스캐너(scanner)로 스캔 후 1개의 PDF파일(50MB 이하)로 저장하여 온라인 제출". 파일 하나에 모든 서류가 들어가야 합니다.</li>
+    <li><b>숭실대학교 2027학년도 재외국민 특별전형 모집요강</b>: 서류를 구분별로 순서대로 모아 PDF 4개로 올립니다. 지원자격 서류는 "파일 용량 제한: 40MB 이하", 학업 증빙 서류는 50MB 이하, 활동 증빙 서류는 40MB 이하, 출입국 사실증명서는 10MB 이하입니다. 활동 증빙은 A4 20쪽·10건 이내이고, 개인이 만든 포트폴리오는 낼 수 없습니다.</li>
+    <li><b>사람인 이력서 포트폴리오 첨부</b>: 파일 하나 50MB, 모두 합해 200MB까지입니다(2026년 11월 20일 확인).</li>
+  </ul>
+  <p>실기 포트폴리오를 온라인이 아니라 우편(등기)으로만 받는 학교도 있습니다(한국예술종합학교 2027학년도 예술사 모집요강). 파일 수, 파일마다의 용량, 쪽수 제한, 스캔 방식(스캐너인지 촬영본도 되는지)을 지원하는 해의 요강에서 먼저 확인합니다.</p>
+  <h2>1. 서류 스캔하기</h2>
+  <ol>
+    <li>요강이 스캐너를 요구하면 휴대폰 촬영본 대신 스캐너로 스캔합니다.</li>
+    <li>해상도는 200dpi 정도면 글자가 충분히 읽힙니다. 300dpi 이상은 용량이 크게 늘어납니다.</li>
+    <li>스캐너가 서류마다 PDF를 하나씩 만들어도 괜찮습니다. 다음 단계에서 순서대로 합칩니다.</li>
+  </ol>
+  <h2>2. 정해진 순서대로 PDF 한 파일로 합치기 (무료)</h2>
+  <p>Finder나 미리보기로도 합칠 수 있습니다(<a href="/guide/mac-pdf-merge/">PDF 합치기</a> 참고). 드롭핏으로는 이렇게 합니다.</p>
+  <ol>
+    <li>스캔한 PDF와 사진을 모두 골라 화면의 동그라미 'PDF'의 '합치기' 쪽에 끌어다 놓습니다.</li>
+    <li>'PDF 합치기' 창에서 파일을 끌어 요강에 적힌 순서대로 놓습니다. 위에 파일 수와 전체 쪽수가 보여 쪽수 제한을 바로 확인할 수 있습니다.</li>
+    <li>'이름' 칸에 요강이 정한 파일 이름을 적고 '합치기'를 누릅니다. 합친 PDF는 첫 파일 옆에 저장되고, 원본 파일은 그대로 남습니다.</li>
+  </ol>
+  <h2>3. 기준 용량 아래로 맞추기: 드롭핏(Dropfit) 프리셋 (Pro)</h2>
+  <p>드롭핏(Dropfit)은 제가 직접 만든 맥 앱입니다. 제출 기준을 프리셋(자주 쓰는 포맷·용량을 정해 둔 칸)으로 저장해 두면, 합치기와 용량 맞추기가 한 번에 끝납니다.</p>
+  <ol>
+    <li>동그라미를 마우스 오른쪽 버튼으로 눌러 설정을 열고, 칸 하나에 이름(예: 상명대 수시), 포맷 PDF, 용량 50MB를 정합니다. 숭실대처럼 묶음마다 기준이 다르면 '숭실대 지원자격 · 40MB', '숭실대 학업 · 50MB'처럼 칸을 나눠 둡니다.</li>
+    <li>서류를 모두 골라 그 칸의 '합치기' 쪽에 끌어다 놓고, 'PDF 합치기' 창에서 순서를 정한 다음 '합치기'를 누릅니다.</li>
+    <li>이름 끝에 '(50MB)'가 붙은 PDF 한 개가 저장됩니다.</li>
+  </ol>
+  <ul>
+    <li>사진은 한 권 전체가 기준 안에 들도록 나눠 압축하고, 함께 넣은 PDF는 글자와 선을 그대로 옮깁니다. 합친 다음에도 크면 PDF 안의 이미지를 한 번 더 압축합니다.</li>
+    <li>끝내 기준 아래로 줄이지 못하면 가장 작게 만든 파일을 남기고 '50MB 이하로 줄일 수 없음'이라고 알려 줍니다. 이때는 1단계로 돌아가 해상도를 낮춰 다시 스캔합니다.</li>
+    <li>드롭핏의 1MB는 1,000,000바이트입니다. 50MB로 맞춘 파일은 사이트가 MB를 더 크게(1,048,576바이트) 세더라도 기준 아래입니다.</li>
+  </ul>
+  <p>파일 하나의 용량만 줄일 때는 <a href="/guide/mac-pdf-size/">PDF 용량 줄이기</a>에 직접 시험한 결과를 정리해 두었습니다.</p>
+  <h2>올리기 전 확인할 것</h2>
+  <ul>
+    <li>파일 수: 요강이 PDF 1개인지, 묶음별로 여러 개인지</li>
+    <li>용량: Finder에서 파일을 선택하고 Command+I로 크기 확인</li>
+    <li>순서와 쪽수: 미리보기로 열어 쪽 순서와 쪽수 제한 확인</li>
+    <li>글자: 확대해서 성적·번호처럼 작은 글자가 읽히는지 확인</li>
+    <li>사진: 증명사진은 따로 올리는 곳이 많습니다(상명대 2027 수시: jpg, 300KB 이하). <a href="/guide/mac-id-photo-size/">증명사진 용량 줄이기</a> 참고</li>
+  </ul>
+
+  <h2>방법별 비교</h2>
+  <div class="table"><table>
+    <thead><tr><th>방법</th><th>가격</th><th>순서대로 합치기</th><th>정한 용량 아래로</th><th>파일 업로드</th></tr></thead>
+    <tbody>
+      <tr><td>미리보기</td><td>무료(기본 앱)</td><td>썸네일을 끌어 순서 조정</td><td>용량을 정할 수 없음(Quartz 필터)</td><td>없음</td></tr>
+      <tr class="us"><td>드롭핏</td><td>합치기 무료, 용량 맞추기 Pro</td><td>'PDF 합치기' 창에서 순서·이름</td><td>프리셋에 정한 용량</td><td>없음</td></tr>
+      <tr><td>온라인 PDF 사이트</td><td>대부분 무료</td><td>됨</td><td>압축 단계를 고르는 곳이 많음</td><td>서버에 올림</td></tr>
+    </tbody>
+  </table></div>
+  <p>PDF 합치기는 무료이고, 정한 용량에 맞추는 프리셋은 Pro입니다. 처음 14일은 카드 등록 없이 Pro까지 사용해 보실 수 있고, 체험이 끝나도 합치기는 계속 사용할 수 있습니다. Pro는 한 번 구입하면 이후 업데이트까지 사용할 수 있고, 2026년 12월 31일까지 출시 기념가 9,900원입니다. Apple Silicon과 Intel 맥 모두에서 작동합니다.</p>
+  <h2>자주 묻는 질문</h2>
+  <h3>모집요강에 'PDF 1개, 50MB 이하'라고 되어 있으면 어떻게 하나요?</h3>
+  <p>서류를 모두 스캔한 다음 요강의 순서대로 PDF 한 파일로 합치고, 50MB 아래인지 확인합니다. 드롭핏은 PDF·50MB로 정한 프리셋에 서류를 끌어다 놓으면 합치기와 용량 맞추기를 한 번에 합니다.</p>
+  <h3>스캔본이 너무 커서 기준 아래로 줄어들지 않으면요?</h3>
+  <p>해상도를 200dpi 정도로 낮춰 다시 스캔하는 쪽이 확실합니다. 이미 300dpi 이상으로 스캔한 파일은 어떤 방법으로 줄여도 글자가 뭉개지기 쉽습니다.</p>
+  <h3>포트폴리오도 같은 방법으로 되나요?</h3>
+  <p>사람인처럼 파일당 50MB로 받는 곳은 같은 방법으로 맞출 수 있습니다. 다만 학교는 포트폴리오를 우편으로만 받거나(한국예술종합학교 2027 예술사), 개인이 만든 포트폴리오를 받지 않는 전형(숭실대 2027 재외국민 활동 증빙)도 있어 요강을 먼저 확인해야 합니다.</p>
+  <h3>원본 서류 파일이 바뀌나요?</h3>
+  <p>아니요. 드롭핏은 합친 PDF를 새 파일로 저장하고 원본은 그대로 둡니다. 파일은 인터넷에 올라가지 않습니다.</p>
+
+  <h2>함께 보면 좋은 글</h2>
+  <ul>
+    <li><a href="/guide/mac-pdf-merge/">PDF 합치기: 맥에서 여러 PDF와 사진을 한 파일로</a></li>
+    <li><a href="/guide/mac-pdf-size/">PDF 용량 줄이기: 맥에서 10MB·5MB 제출 기준에 맞추는 법</a></li>
+    <li><a href="/guide/mac-jpg-to-pdf/">사진 PDF 변환: 맥에서 사진 여러 장을 PDF 한 파일로</a></li>
+    <li><a href="/guide/mac-id-photo-size/">증명사진 용량 줄이기: 맥에서 500KB·1MB 제출 기준에 맞추는 법</a></li>
+  </ul>
+
+  <div class="cta">
+    <p><b>드롭핏(Dropfit) 맥 앱</b> · 14일 동안 카드 없이 Pro 체험</p>
+    <p class="meta">macOS 14 이상 · Apple Silicon과 Intel 모두 지원</p>
+    <a class="pill" href="https://dropfit.kr/?from=g-applypdf">dropfit.kr에서 보기</a>
+  </div>
+
+  <p class="src">출처: 상명대학교 2027학년도 수시모집요강(8·10쪽), 숭실대학교 2027학년도 재외국민 특별전형 모집요강(14·16쪽), 한국예술종합학교 2027학년도 예술사 모집요강, 사람인 이력서 첨부 안내. 2026-11-21 원문 확인. 드롭핏 동작은 앱 1.0 기준.</p>
+</main>
+<footer>
+  <div class="wrap">
+    <a href="../../">Dropfit</a>
+    <nav><a href="../../terms.html">이용 약관</a> <a href="../../refund.html">환불 규정</a> <a href="../../privacy.html">개인정보 처리방침</a> <a href="/en/guide/application-pdf-limit/" hreflang="en">English</a></nav>
+  </div>
+</footer>
+</body>
+</html>
