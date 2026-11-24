@@ -1458,7 +1458,7 @@
       SRC = FROM || saved || siteTag(document.referrer);
       if (SRC && SRC !== saved) sessionStorage.setItem(KEY, SRC);
     } catch (e) { SRC = FROM || siteTag(document.referrer); }
-    var VERSION = 'en ' + (SRC || 'dropfit-kr');   // 집계 서버가 20자로 자르므로 짧게
+    var VERSION = 'ja ' + (SRC || 'dropfit-kr');   // 집계 서버가 20자로 자르므로 짧게
     // 방문 수: 이 탭에서 처음 열 때 한 번만 채널을 보낸다. 시각·채널 말고는 보내지 않는다(개인정보 없음, F-013, 처리방침 4번 표)
     try {
       if (!sessionStorage.getItem('dropfit-visit')) {
