@@ -626,7 +626,7 @@
     sub.halves.forEach(function (h) { h.hover.to(t, mode === h.m ? 1 : 0, Motion.hover); });
     if (this.hint && armed >= 0) {
       var n = this.files.length;
-      this.hint.hov.to(t, n + ' files → ' + ((mode || 'c') === 'c' ? '1 PDF' : n + ' PDFs'));
+      this.hint.hov.to(t, n + '枚 → ' + ((mode || 'c') === 'c' ? 'PDF 1つ' : 'PDF ' + n + '個'));
     }
     if (same) return;
     this.hovered = idx;

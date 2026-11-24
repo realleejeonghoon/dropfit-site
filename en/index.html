@@ -910,6 +910,7 @@
   footer .f-biz { line-height: 1.7; }
   @media (max-width: 600px) { footer .f-mail { display: block; } footer .f-sep { display: none; } }
   footer .f-links { display: flex; gap: 16px; flex-wrap: wrap; }
+  footer .f-lang { display: flex; gap: 16px; } /* 언어 둘은 한 줄로 같이 넘어간다(11/24) */
   .dl-sale { margin: 14px 0 0; font-size: 15px; color: var(--ink-2); line-height: 1.55; }
   .dl-sale a { color: var(--link); }
   @media (max-width: 734px) {
@@ -1346,7 +1347,7 @@
 <footer>
   <div class="wrap">
     <span class="f-biz"><span class="nb">Dropfit · Usul · Jeonghoon Lee</span> · <span class="nb">Business registration no. 372-57-00909</span> · <span class="nb">Hosted by GitHub, Inc.</span><br><span class="nb">Unit 1509, Building 103,</span> <span class="nb">8 Hangang-daero 43-gil, Yongsan-gu,</span> <span class="nb">Seoul, Republic of Korea</span> <span class="nb f-mail"><span class="f-sep">· </span><a href="tel:+821096179325">+82 10-9617-9325</a> · <a href="mailto:leejeonghoon.official@gmail.com">leejeonghoon.official@gmail.com</a></span></span>
-    <span class="f-links"><a href="/en/guide/">Guides</a><a href="/en/terms.html">Terms</a><a href="/en/refund.html">Refund Policy</a><a href="/en/privacy.html">Privacy Policy</a><a href="/" hreflang="ko" lang="ko" data-ko>Korean</a></span>
+    <span class="f-links"><a href="/en/guide/">Guides</a><a href="/en/terms.html">Terms</a><a href="/en/refund.html">Refund Policy</a><a href="/en/privacy.html">Privacy Policy</a><span class="f-lang"><a href="/" hreflang="ko" lang="ko" data-ko>Korean</a><a href="/ja/" hreflang="ja" lang="ja" data-ja>日本語</a></span></span>
   </div>
 </footer>
 
