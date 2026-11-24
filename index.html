@@ -8,7 +8,10 @@
   // 11/22: 인스타·페이스북·스레드·라인 앱 안 브라우저는 휴대폰 언어와 달리 en-US를 내보내는 경우가 많아(메타 광고 방문 33%, 인스타 DM 71%가 영어 페이지) 자동 이동하지 않는다
   (function () { try { if (localStorage.getItem('dropfit-lang') === 'ko') return; } catch (e) {}
     var n = navigator, L = ((n.languages && n.languages.length ? n.languages : [n.language || '']).join(',')).toLowerCase();
-    if (!L || /(^|,)ko/.test(L) || /bot|crawl|spider|slurp|preview|lighthouse|yeti|naver|daum|kakao|facebookexternalhit|headless|google|bing|instagram|fban|fbav|fb_iab|barcelona|\bline\b/i.test(n.userAgent) || n.webdriver) return;
+    // 11/23: 한국어 채널 태그(?from=ig-bio 등)로 온 방문은 옮기지 않는다(인스타 링크 방문이 en-으로 찍힘). 해외 채널 태그(나라 2자-, en-, 태국 th-영문)와 태그 없는 방문만 옮긴다. 메타 새 수집기(meta-external…)도 제외
+    var F = ((location.search.match(/[?&]from=([^&#]*)/) || [])[1] || '').toLowerCase();
+    if (F && !/^(jp|tw|hk|sg|my|ph|vn|id|cn|en)-|^th-[a-z]/.test(F)) return;
+    if (!L || /(^|,)ko/.test(L) || /bot|crawl|spider|slurp|preview|lighthouse|yeti|naver|daum|kakao|facebookexternalhit|meta-external|facebookcatalog|headless|google|bing|instagram|fban|fbav|fb_iab|barcelona|\bline\b/i.test(n.userAgent) || n.webdriver) return;
     location.replace((/^ja/.test(L) ? '/ja/' : '/en/') + location.search + location.hash); })();
 </script>
 <meta name="naver-site-verification" content="525eed3164218a99d3ffb142c8768b86348e020f" />
