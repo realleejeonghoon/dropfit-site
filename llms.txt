@@ -76,3 +76,6 @@
 
 - [日本語ページ](https://dropfit.kr/ja/): 使い方、価格、よくある質問
 - [特定商取引法に基づく表記](https://dropfit.kr/ja/tokusho.html)
+- [MacでHEICをJPGに変換する方法](https://dropfit.kr/ja/guide/mac-heic-to-jpg/): iPhoneの写真、まとめて・フォルダごと
+- [MacでPDFを結合する方法](https://dropfit.kr/ja/guide/mac-pdf-merge/): 写真とPDFを1つに
+- [Macで写真の容量を小さくする方法](https://dropfit.kr/ja/guide/mac-photo-size/): まとめて・指定サイズ以下に
