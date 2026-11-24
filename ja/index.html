@@ -1459,11 +1459,12 @@
       if (SRC && SRC !== saved) sessionStorage.setItem(KEY, SRC);
     } catch (e) { SRC = FROM || siteTag(document.referrer); }
     var VERSION = 'ja ' + (SRC || 'dropfit-kr');   // 집계 서버가 20자로 자르므로 짧게
+    var RG = (function () { try { var z = Intl.DateTimeFormat().resolvedOptions().timeZone || '', m = { 'Asia/Seoul': 'KR', 'Asia/Tokyo': 'JP', 'Asia/Taipei': 'TW', 'Asia/Hong_Kong': 'HK', 'Asia/Macau': 'HK', 'Asia/Singapore': 'SG', 'Asia/Kuala_Lumpur': 'MY', 'Asia/Bangkok': 'TH', 'Asia/Ho_Chi_Minh': 'VN', 'Asia/Saigon': 'VN', 'Asia/Jakarta': 'ID', 'Asia/Manila': 'PH', 'Asia/Shanghai': 'CN' }; return m[z] || (/^America\//.test(z) ? 'AM' : /^Europe\//.test(z) ? 'EU' : /^Australia\//.test(z) ? 'AU' : 'OT'); } catch (e) { return ''; } })();   // 방문 지역: 브라우저 시간대만으로 나라 묶음(11/24 정훈 결정), 시간대 원문은 보내지 않음
     // 방문 수: 이 탭에서 처음 열 때 한 번만 채널을 보낸다. 시각·채널 말고는 보내지 않는다(개인정보 없음, F-013, 처리방침 4번 표)
     try {
       if (!sessionStorage.getItem('dropfit-visit')) {
         sessionStorage.setItem('dropfit-visit', '1');
-        var vb = new URLSearchParams({ event: 'visit', src: 'ja-' + (SRC || 'kr'), dv: DV }), VU = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';
+        var vb = new URLSearchParams({ event: 'visit', src: 'ja-' + (SRC || 'kr'), dv: DV, pg: 'ja', rg: RG }), VU = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';
         if (!(navigator.sendBeacon && navigator.sendBeacon(VU, vb))) fetch(VU, { method: 'POST', mode: 'no-cors', body: vb, keepalive: true });
       }
     } catch (e) {}
@@ -1517,7 +1518,7 @@
     }
     document.querySelectorAll('[data-copy-link]').forEach(function (b) {
       b.addEventListener('click', function () { var tag = FROM || (SRC.indexOf('r-') === 0 ? '' : SRC); copy(location.origin + location.pathname + (tag ? '?from=' + tag : ''), 'リンクをコピーしました');
-        try { var cb = new URLSearchParams({ event: 'copy', src: 'ja-' + (SRC || 'kr'), dv: DV }), CU = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';   // 링크 복사 수: 휴대폰→Mac 이어받기 측정
+        try { var cb = new URLSearchParams({ event: 'copy', src: 'ja-' + (SRC || 'kr'), dv: DV, pg: 'ja', rg: RG }), CU = 'https://script.google.com/macros/s/AKfycbyh4PCaMhGnR2MqHC5dj_C-kFilK0iX2a5KKrZfWOj4YpLEo8kA7RvDTG0PzrZMUg72tQ/exec';   // 링크 복사 수: 휴대폰→Mac 이어받기 측정
           if (!(navigator.sendBeacon && navigator.sendBeacon(CU, cb))) fetch(CU, { method: 'POST', mode: 'no-cors', body: cb, keepalive: true }); } catch (e) {}
       });
     });
