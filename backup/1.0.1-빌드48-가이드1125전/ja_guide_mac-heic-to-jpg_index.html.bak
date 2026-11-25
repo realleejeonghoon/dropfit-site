@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MacでHEICをJPGに変換する方法（iPhoneの写真・まとめて・フォルダごと）</title>
+<meta name="description" content="iPhoneの写真がアップロードできない・開けないときに。アップロード不要でMacだけでHEICをJPGに変換する3つの方法（Finderのクイックアクション、プレビュー、Dropfit for Mac）。複数枚・フォルダごとの一括変換にも対応。">
+<meta name="theme-color" content="#fbfbfd">
+<link rel="canonical" href="https://dropfit.kr/ja/guide/mac-heic-to-jpg/">
+<link rel="alternate" hreflang="ko" href="https://dropfit.kr/guide/mac-heic-to-jpg/">
+<link rel="alternate" hreflang="en" href="https://dropfit.kr/en/guide/mac-heic-to-jpg/">
+<link rel="alternate" hreflang="ja" href="https://dropfit.kr/ja/guide/mac-heic-to-jpg/">
+<link rel="alternate" hreflang="x-default" href="https://dropfit.kr/guide/mac-heic-to-jpg/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dropfit">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:url" content="https://dropfit.kr/ja/guide/mac-heic-to-jpg/">
+<meta property="og:title" content="MacでHEICをJPGに変換する方法（iPhoneの写真・まとめて・フォルダごと）">
+<meta property="og:description" content="iPhoneのHEIC写真をMacでJPGに。まとめて・フォルダごと、アップロードなし。">
+<meta property="og:image" content="https://dropfit.kr/assets/og-ja.png">
+<link rel="stylesheet" href="../../../fonts/pretendardvariable-dynamic-subset.css">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://dropfit.kr/ja/guide/mac-heic-to-jpg/#article",
+      "headline": "MacでHEICをJPGに変換する方法（iPhoneの写真・まとめて・フォルダごと）",
+      "description": "iPhoneの写真がアップロードできない・開けないときに。アップロード不要でMacだけでHEICをJPGに変換する3つの方法（Finderのクイックアクション、プレビュー、Dropfit for Mac）。複数枚・フォルダごとの一括変換にも対応。",
+      "inLanguage": "ja-JP",
+      "datePublished": "2026-11-24",
+      "dateModified": "2026-11-24",
+      "mainEntityOfPage": "https://dropfit.kr/ja/guide/mac-heic-to-jpg/",
+      "author": {
+        "@id": "https://dropfit.kr/#founder"
+      },
+      "publisher": {
+        "@id": "https://dropfit.kr/#org"
+      },
+      "about": {
+        "@id": "https://dropfit.kr/#app"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dropfit.kr/ja/guide/mac-heic-to-jpg/#faq",
+      "inLanguage": "ja-JP",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "iPhoneの写真がアップロードできないのはなぜですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "カメラのフォーマットが「高効率」のとき、iPhoneは写真をHEICで保存します。JPGやPNGしか受け付けないアップロード先では弾かれるため、JPGに変換するとアップロードできます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "MacでHEICを無料でJPGに変換できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "できます。Finderのクイックアクション「イメージを変換」とプレビューの書き出しはmacOSの標準機能で無料です。Dropfit for Macの形式変換も無料です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "iPhoneで最初からJPGで保存できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "できます。設定 → カメラ → フォーマットで「互換性優先」を選ぶと、その後に撮る写真はJPGで保存されます。"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Dropfit",
+          "item": "https://dropfit.kr/ja/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Dropfit ガイド",
+          "item": "https://dropfit.kr/ja/guide/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "MacでHEICをJPGに変換する方法（iPhoneの写真・まとめて・フォルダごと）",
+          "item": "https://dropfit.kr/ja/guide/mac-heic-to-jpg/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  /* 랜딩(index.html)·약관과 같은 글꼴·색·여백. 읽기 전용 한 단 문서 */
+  :root {
+    --ink: #1d1d1f;
+    --ink-2: #6e6e73;
+    --ink-3: #86868b;
+    --link: #3c608a;
+    --line: #d2d2d7;
+    --paper: #fbfbfd;
+    --soft: #f5f5f7;
+    --note: #f2f6fb;
+    --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: #fff; color: var(--ink); font-family: var(--font); font-size: 17px; line-height: 1.65; letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased; word-break: normal; overflow-wrap: break-word; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { width: min(720px, 100% - 48px); margin: 0 auto; }
+  .nav { position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, .78); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, .08); }
+  .nav .wrap { height: 48px; display: flex; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 8px; color: var(--ink); font-weight: 600; font-size: 15px; }
+  .brand:hover { text-decoration: none; }
+  .brand img { width: 22px; height: 22px; filter: drop-shadow(0 0 .5px rgba(18,28,45,.22)) drop-shadow(0 1px 1.5px rgba(18,28,45,.12)); }
+  main { padding: 56px 0 96px; }
+  .crumb { font-size: 14px; color: var(--ink-2); margin: 0 0 10px; }
+  h1 { font-size: clamp(30px, 4.2vw, 40px); line-height: 1.2; font-weight: 600; letter-spacing: -0.03em; margin: 0; }
+  .meta { color: var(--ink-2); font-size: 14px; margin: 10px 0 0; }
+  .answer { background: var(--soft); border-radius: 16px; padding: 20px 22px; margin: 28px 0 8px; }
+  .answer p { margin: 0; }
+  h2 { font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: -0.02em; margin: 52px 0 14px; }
+  p { margin: 0 0 12px; }
+  ol, ul { padding-left: 1.3em; margin: 10px 0 14px; }
+  li { margin: 6px 0; }
+  b { font-weight: 600; }
+  figure { margin: 20px 0; }
+  figure img { display: block; width: 100%; height: auto; border-radius: 12px; background: var(--soft); }
+  figure.portrait img { width: min(100%, 400px); margin: 0 auto; }
+  figcaption { margin-top: 8px; font-size: 13px; color: var(--ink-3); text-align: center; }
+  .table { overflow-x: auto; margin: 16px 0 8px; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 15px; line-height: 1.5; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 16px 12px 0; border-bottom: 1px solid #e5e5ea; }
+  th { font-size: 13px; font-weight: 600; color: var(--ink-2); border-bottom-color: var(--line); white-space: nowrap; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  tr.us td { background: var(--note); }
+  .cta { margin-top: 56px; padding-top: 28px; border-top: 1px solid #e5e5ea; }
+  .cta p { margin: 0 0 4px; }
+  .pill { display: inline-flex; align-items: center; justify-content: center; margin-top: 16px; padding: 11px 24px; border-radius: 980px;
+    background: linear-gradient(180deg, #cce1f5, #a3c4e6); color: #3c608a; font-weight: 500; white-space: nowrap;
+    box-shadow: 0 .5px 1.2px rgba(18, 28, 45, .12), 0 4px 12px rgba(18, 28, 45, .08); transition: box-shadow .25s; }
+  .pill:hover { text-decoration: none; box-shadow: 0 .5px 1.2px rgba(18, 28, 45, .14), 0 6px 16px rgba(18, 28, 45, .11); }
+  .src { font-size: 13px; color: var(--ink-3); margin-top: 40px; }
+  .nb { white-space: nowrap; }
+  footer { background: var(--paper); color: var(--ink-3); font-size: 12px; padding: 20px 0 32px; }
+  footer .wrap { display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 16px; }
+  footer a { color: var(--ink-2); }
+  footer nav { display: flex; gap: 12px; flex-wrap: wrap; }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li, td, figcaption { text-wrap: pretty; }
+  body, body * { word-break: normal !important; line-break: strict; }
+  .nb { white-space: nowrap; }
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="メインメニュー">
+  <div class="wrap">
+    <a class="brand" href="/ja/"><img src="/assets/icon-128.png" alt="">Dropfit</a>
+  </div>
+</nav>
+<main class="wrap">
+  <p class="crumb"><a href="/ja/guide/">Dropfit ガイド</a></p>
+  <h1>MacでHEICをJPGに<span class="nb">変換する方法</span><span class="nb">（iPhoneの写真）</span></h1>
+  <p class="meta">2026年11月 · macOS 14以降</p>
+  <div class="answer"><p>iPhoneのカメラのフォーマットが「高効率」のとき、写真はHEICで保存されるため、JPGしか受け付けないアップロード先では弾かれます。Macでは、Finderで写真を選んでControlキーを押しながらクリックし、<b>クイックアクション → イメージを変換</b>でフォーマットをJPEGにすると、まとめて変換できます。これから撮る写真をJPGにしたいときは、iPhoneの設定 → カメラ → フォーマット → 「互換性優先」を選びます。</p></div>
+  <p>iPhoneの写真をAirDropでMacに送ったら、アップロード画面に「JPGまたはPNGのみ」と出る。送った相手が開けないと言う。ファイル名が.heicで終わっていたら、変換が必要です。</p>
+  <h2>まず：これから撮る写真をJPGにする</h2>
+  <p>iPhoneの設定 → カメラ → フォーマットで「互換性優先」を選ぶと、その後に撮る写真はJPGで保存されます。すでにあるHEICの写真は、下の方法で変換します。</p>
+  <h2>1. Finderのクイックアクション「イメージを変換」（まとめて）</h2>
+  <ol>
+    <li>FinderでHEICファイルを選びます。</li>
+    <li>Controlキーを押しながらクリックし、クイックアクション → イメージを変換を選びます。</li>
+    <li>フォーマットをJPEGにして変換をクリックします。新しいファイルが同じフォルダにできます。</li>
+  </ol>
+  <p>フォルダを選んでも中のファイルは変換されません。フォルダを開いて、ファイルそのものを選んでください。</p>
+  <h2>2. プレビューで書き出す（1枚ずつ）</h2>
+  <ol>
+    <li>HEICファイルをプレビューで開き、ファイル → 書き出すを選びます。</li>
+    <li>フォーマットをJPEGにして、品質を選びます。</li>
+    <li>新しい名前で保存します。</li>
+  </ol>
+  <p>写真ごとに画質を確かめられますが、枚数が多いと同じ手順を繰り返すことになります。</p>
+  <h2>3. ドラッグ1回で：Dropfit for Mac</h2>
+  <p>締め切りまであと少しのとき、iPhoneで撮った画像をMacに移してアップロードしようとしたら、HEIC形式だからと受け付けられませんでした。変換サイトに1つずつアップロードして、変換して、またダウンロード。「一度で済ませてくれるツールはないのか？」と思い、自分で作ったのがDropfit for Macです。デスクトップに小さな円が置かれ、ファイルをドラッグすると形式が広がります。</p>
+  <ol>
+    <li>HEICファイル、またはHEICが入ったフォルダを円にドラッグします。</li>
+    <li>JPGの上で離します。</li>
+    <li>新しいファイルが元のファイルの隣に保存されます。元のファイルはそのままです。</li>
+  </ol>
+  <p>フォルダごとドラッグすると、中のファイルをすべて変換します。形式の変換は無料で、アカウント登録も枚数制限もありません。</p>
+<p class="meta">アプリの表示言語は、今のところ英語と韓国語です。</p>
+  <h2>比較</h2>
+  <div class="table"><table>
+    <thead><tr><th>方法</th><th>料金</th><th>複数枚</th><th>フォルダごと</th><th>アップロード</th></tr></thead>
+    <tbody>
+      <tr><td>Finder イメージを変換</td><td>無料（標準機能）</td><td>できる</td><td>できない</td><td>なし</td></tr>
+      <tr><td>プレビュー</td><td>無料（標準機能）</td><td>1枚ずつ</td><td>できない</td><td>なし</td></tr>
+      <tr class="us"><td>Dropfit</td><td>無料</td><td>できる</td><td>できる</td><td>なし</td></tr>
+      <tr><td>変換サイト</td><td>多くは無料（制限あり）</td><td>サイトによる</td><td>多くはできない</td><td>サーバーにアップロード</td></tr>
+    </tbody>
+  </table></div>
+  <h2>よくある質問</h2>
+  <h3>iPhoneの写真がアップロードできないのはなぜですか？</h3>
+  <p>カメラのフォーマットが「高効率」のとき、iPhoneは写真をHEICで保存します。JPGやPNGしか受け付けないアップロード先では弾かれるため、JPGに変換するとアップロードできます。</p>
+  <h3>MacでHEICを無料でJPGに変換できますか？</h3>
+  <p>できます。Finderのクイックアクション「イメージを変換」とプレビューの書き出しはmacOSの標準機能で無料です。Dropfit for Macの形式変換も無料です。</p>
+  <h3>iPhoneで最初からJPGで保存できますか？</h3>
+  <p>できます。設定 → カメラ → フォーマットで「互換性優先」を選ぶと、その後に撮る写真はJPGで保存されます。</p>
+  <h2>関連ガイド</h2>
+  <ul>
+    <li><a href="/ja/guide/mac-photo-size/">Macで写真の容量を小さくする方法</a></li>
+    <li><a href="/ja/guide/mac-pdf-merge/">MacでPDFを結合する方法</a></li>
+  </ul>
+  <div class="cta">
+    <p><b>Dropfit for Mac</b> · 形式の変換は無料</p>
+    <p class="meta">macOS 14以降 · Apple シリコン・Intel</p>
+    <a class="pill" href="https://dropfit.kr/ja/?from=j-heic">Dropfit for Macを見る</a>
+  </div>
+  <p class="src">出典：Apple Mac ユーザガイド（Finderのクイックアクション）、Apple プレビューユーザガイド（書き出し）。Dropfitの動作はバージョン1.0時点。2026年11月24日確認。</p>
+</main>
+<footer>
+  <div class="wrap">
+    <a href="/ja/">Dropfit</a>
+    <nav><a href="/en/terms.html">利用規約</a> <a href="/en/refund.html">返金ポリシー</a> <a href="/en/privacy.html">プライバシーポリシー</a> <a href="/ja/tokusho.html">特定商取引法に基づく表記</a> <a href="/guide/mac-heic-to-jpg/" hreflang="ko" lang="ko" data-ko>한국어</a></nav>
+  </div>
+</footer>
+<script>document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-ko]'))try{localStorage.setItem('dropfit-lang','ko')}catch(x){}});</script>
+</body>
+</html>
