@@ -43,7 +43,7 @@
 - Output formats: JPG, PNG, HEIC, WebP, TIFF, GIF, BMP, PDF.
 - Converts many files or whole folders at once, and merges photos and PDFs into one PDF in the order you choose.
 - Free: format conversion, folder conversion, and merging or splitting PDFs, with no account and no limits.
-- Dropfit Pro: ₩14,900 one-time purchase, no subscription (launch price ₩9,900 until December 31, 2026, KST). Checkout shows the price in your local currency. Pro adds presets that save files in the format, size limit and folder you choose, and cropping many photos to the same ratio or an exact pixel size. 14-day free trial, no card needed.
+- Dropfit Pro: one-time purchase, no subscription. $9.99 in the US (launch price $6.99), ¥1,480 in Japan (launch price ¥980), ₩14,900 in Korea (launch price ₩9,900); launch prices until December 31, 2026, KST. Other countries see the price in their local currency at checkout. Pro adds presets that save files in the format, size limit and folder you choose, and cropping many photos to the same ratio or an exact pixel size. 14-day free trial, no card needed.
 - The app is in English and Korean and follows your Mac's language.
 
 ### Links
@@ -74,7 +74,7 @@
 
 - 動作環境：macOS 14以降（Appleシリコン・Intel）
 - 変換できる形式：JPG・PNG・HEIC・WebP・TIFF・GIF・BMP・PDF。複数ファイルやフォルダごとの変換、PDFの結合・分割
-- 価格：変換・フォルダごとの変換・PDFの結合と分割は無料（アカウント不要、回数制限なし）。Dropfit Proは買い切り₩14,900、サブスクなし（2026年12月31日まで発売記念価格₩9,900）。Proは形式と容量のプリセット保存、同じ比率での一括切り抜き、プリセットごとの保存先
+- 価格：変換・フォルダごとの変換・PDFの結合と分割は無料（アカウント不要、回数制限なし）。Dropfit Proは買い切り¥1,480（税込）、サブスクなし（2026年12月31日まで発売記念価格¥980）。Proは形式と容量のプリセット保存、同じ比率での一括切り抜き、プリセットごとの保存先
 - 最初の14日間はカード登録なしでProを試せます。購入から14日以内なら全額返金
 - リリース：2026年11月19日（1.0）。Mac App Storeではなく dropfit.kr から直接ダウンロード
 
