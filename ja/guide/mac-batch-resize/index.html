@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Macで画像のサイズをまとめて変更する方法（幅1080pxなど）</title>
+<meta name="description" content="Macで画像のサイズ（ピクセル）をまとめて変える3つの方法。Finderのイメージを変換、プレビューのサイズを調整、幅を一度入れて保存できるDropfit for Mac。アップロードなし。">
+<meta name="theme-color" content="#fbfbfd">
+<link rel="canonical" href="https://dropfit.kr/ja/guide/mac-batch-resize/">
+<link rel="alternate" hreflang="ko" href="https://dropfit.kr/guide/mac-batch-resize/">
+<link rel="alternate" hreflang="en" href="https://dropfit.kr/en/guide/mac-batch-resize/">
+<link rel="alternate" hreflang="ja" href="https://dropfit.kr/ja/guide/mac-batch-resize/">
+<link rel="alternate" hreflang="x-default" href="https://dropfit.kr/guide/mac-batch-resize/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dropfit">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:url" content="https://dropfit.kr/ja/guide/mac-batch-resize/">
+<meta property="og:title" content="Macで画像のサイズをまとめて変更する方法（幅1080pxなど）">
+<meta property="og:description" content="Macで画像のサイズをまとめて変更。Finder・プレビュー・アプリを比較、アップロードなし。">
+<meta property="og:image" content="https://dropfit.kr/assets/og-ja.png">
+<link rel="stylesheet" href="../../../fonts/pretendardvariable-dynamic-subset.css">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://dropfit.kr/ja/guide/mac-batch-resize/#article",
+      "headline": "Macで画像のサイズをまとめて変更する方法（幅1080pxなど）",
+      "description": "Macで画像のサイズ（ピクセル）をまとめて変える3つの方法。Finderのイメージを変換、プレビューのサイズを調整、幅を一度入れて保存できるDropfit for Mac。アップロードなし。",
+      "inLanguage": "ja-JP",
+      "datePublished": "2026-11-26",
+      "dateModified": "2026-11-26",
+      "mainEntityOfPage": "https://dropfit.kr/ja/guide/mac-batch-resize/",
+      "author": {
+        "@id": "https://dropfit.kr/#founder"
+      },
+      "publisher": {
+        "@id": "https://dropfit.kr/#org"
+      },
+      "about": {
+        "@id": "https://dropfit.kr/#app"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dropfit.kr/ja/guide/mac-batch-resize/#faq",
+      "inLanguage": "ja-JP",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Macで画像のサイズを無料でまとめて変えられますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "できます。Finderで画像を選んでクイックアクション → イメージを変換を使うか、プレビューですべて選んでツール → サイズを調整で幅をピクセルで入れます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "サイズを小さくするとファイルの容量も小さくなりますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "多くの場合、大きく小さくなります。サイトに容量の上限もあるなら、Dropfitで最大容量を選ぶとその容量以下で保存されます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "縦の写真と横の写真がまざっているときは？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "幅だけを入れると、どの写真も自分の比率のままその幅になります。長い辺をそろえたいときは、縦の写真を別にまとめて高さを入れます。"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Dropfit",
+          "item": "https://dropfit.kr/ja/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Dropfit ガイド",
+          "item": "https://dropfit.kr/ja/guide/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Macで画像のサイズをまとめて変更する方法（幅1080pxなど）",
+          "item": "https://dropfit.kr/ja/guide/mac-batch-resize/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  /* 랜딩(index.html)·약관과 같은 글꼴·색·여백. 읽기 전용 한 단 문서 */
+  :root {
+    --ink: #1d1d1f;
+    --ink-2: #6e6e73;
+    --ink-3: #86868b;
+    --link: #3c608a;
+    --line: #d2d2d7;
+    --paper: #fbfbfd;
+    --soft: #f5f5f7;
+    --note: #f2f6fb;
+    --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: #fff; color: var(--ink); font-family: var(--font); font-size: 17px; line-height: 1.65; letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased; word-break: normal; overflow-wrap: break-word; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { width: min(720px, 100% - 48px); margin: 0 auto; }
+  .nav { position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, .78); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, .08); }
+  .nav .wrap { height: 48px; display: flex; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 8px; color: var(--ink); font-weight: 600; font-size: 15px; }
+  .brand:hover { text-decoration: none; }
+  .brand img { width: 22px; height: 22px; filter: drop-shadow(0 0 .5px rgba(18,28,45,.22)) drop-shadow(0 1px 1.5px rgba(18,28,45,.12)); }
+  main { padding: 56px 0 96px; }
+  .crumb { font-size: 14px; color: var(--ink-2); margin: 0 0 10px; }
+  h1 { font-size: clamp(30px, 4.2vw, 40px); line-height: 1.2; font-weight: 600; letter-spacing: -0.03em; margin: 0; }
+  .meta { color: var(--ink-2); font-size: 14px; margin: 10px 0 0; }
+  .answer { background: var(--soft); border-radius: 16px; padding: 20px 22px; margin: 28px 0 8px; }
+  .answer p { margin: 0; }
+  h2 { font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: -0.02em; margin: 52px 0 14px; }
+  p { margin: 0 0 12px; }
+  ol, ul { padding-left: 1.3em; margin: 10px 0 14px; }
+  li { margin: 6px 0; }
+  b { font-weight: 600; }
+  figure { margin: 20px 0; }
+  figure video { display: block; width: min(100%, 400px); height: auto; margin: 0 auto; border-radius: 12px; background: var(--soft); }
+  figure img { display: block; width: 100%; height: auto; border-radius: 12px; background: var(--soft); }
+  figure.portrait img { width: min(100%, 400px); margin: 0 auto; }
+  figcaption { margin-top: 8px; font-size: 13px; color: var(--ink-3); text-align: center; }
+  .table { overflow-x: auto; margin: 16px 0 8px; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 15px; line-height: 1.5; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 16px 12px 0; border-bottom: 1px solid #e5e5ea; }
+  th { font-size: 13px; font-weight: 600; color: var(--ink-2); border-bottom-color: var(--line); white-space: nowrap; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  tr.us td { background: var(--note); }
+  .cta { margin-top: 56px; padding-top: 28px; border-top: 1px solid #e5e5ea; }
+  .cta p { margin: 0 0 4px; }
+  .pill { display: inline-flex; align-items: center; justify-content: center; margin-top: 16px; padding: 11px 24px; border-radius: 980px;
+    background: linear-gradient(180deg, #cce1f5, #a3c4e6); color: #3c608a; font-weight: 500; white-space: nowrap;
+    box-shadow: 0 .5px 1.2px rgba(18, 28, 45, .12), 0 4px 12px rgba(18, 28, 45, .08); transition: box-shadow .25s; }
+  .pill:hover { text-decoration: none; box-shadow: 0 .5px 1.2px rgba(18, 28, 45, .14), 0 6px 16px rgba(18, 28, 45, .11); }
+  .src { font-size: 13px; color: var(--ink-3); margin-top: 40px; }
+  .nb { white-space: nowrap; }
+  footer { background: var(--paper); color: var(--ink-3); font-size: 12px; padding: 20px 0 32px; }
+  footer .wrap { display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 16px; }
+  footer a { color: var(--ink-2); }
+  footer nav { display: flex; gap: 12px; flex-wrap: wrap; }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li, td, figcaption { text-wrap: pretty; }
+  body, body * { word-break: normal !important; line-break: strict; }
+  .nb { white-space: nowrap; }
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="メインメニュー">
+  <div class="wrap">
+    <a class="brand" href="/ja/"><img src="/assets/icon-128.png" alt="">Dropfit</a>
+  </div>
+</nav>
+<main class="wrap">
+  <p class="crumb"><a href="/ja/guide/">Dropfit ガイド</a></p>
+  <h1>Macで画像のサイズを<span class="nb">まとめて変更する方法</span><span class="nb">（幅1080pxなど）</span></h1>
+  <p class="meta">2026年11月 · macOS 14以降</p>
+  <div class="answer"><p>Macで画像のサイズを無料でまとめて変える方法は2つあります。Finderで画像を選び、Controlキーを押しながらクリックして<b>クイックアクション → イメージを変換</b>でサイズ（小・中・大）を選ぶ方法と、プレビューですべての画像を開き<b>ツール → サイズを調整</b>で幅をピクセルで入れる方法です。1080pxのように決まった幅を何度も使うなら、幅を一度入れて全部保存できるアプリが速いです。</p></div>
+  <p>撮影した写真30枚を、SNS用に幅1080pxにそろえてクライアントに渡す。カメラやiPhoneの写真は幅4000pxを超えることが多く、そのままではアップロードが遅く、サイトの上限にもかかります。変換サイトを使わなくても、Macの中でまとめて変えられます。</p>
+  <h2>1. Finderのイメージを変換（無料・いちばん簡単）</h2>
+  <ol>
+    <li>Finderで画像を選びます。</li>
+    <li>Controlキーを押しながらクリックし、クイックアクション → イメージを変換を選びます。</li>
+    <li>フォーマットとイメージサイズ（小・中・大・実際のサイズ）を選んで変換します。</li>
+  </ol>
+  <p>新しいファイルが同じフォルダにでき、元のファイルは残ります。ただし1080pxのような数字は入れられません。</p>
+  <h2>2. プレビューのサイズを調整（無料・ピクセルで指定）</h2>
+  <ol>
+    <li>画像をすべて選んでプレビューで開きます。</li>
+    <li>サイドバーをクリックし、⌘Aですべて選びます。</li>
+    <li>ツール → サイズを調整を選び、単位をピクセルにして幅を入れます。縦横の比率を保つ設定はオンのままにします。</li>
+    <li>ウインドウを閉じると変更が保存されます。</li>
+  </ol>
+  <p>プレビューは元のファイルに上書きします。元のサイズも必要なら、先に複製しておきます。</p>
+  <h2>3. 決めた幅でまとめて保存：Dropfit for Mac</h2>
+  <p>Dropfit for Macは私が作ったアプリです。</p>
+  <ol>
+    <li>画像をデスクトップの円にドラッグし、「N枚を切り抜く」の上で離します。</li>
+    <li>切り抜きウインドウでサイズ指定を選び、幅の欄にだけ1080と入れます。高さは比率に合わせて決まります。</li>
+    <li>必要なら形式（JPGなど）と最大容量を選び、保存をクリックします。</li>
+    <li>どの画像も幅1080pxで元のファイルの隣に保存されます。元のファイルはそのままで、ファイルはMacから出ません。</li>
+  </ol>
+  <p>端を切らずにサイズだけ変えたいときは、枠をそのままにして保存します。</p>
+<p class="meta">Macの言語が日本語なら、アプリも日本語で表示されます（バージョン1.0.1以降）。</p>
+  <h2>比較</h2>
+  <div class="table"><table>
+    <thead><tr><th>方法</th><th>料金</th><th>サイズの指定</th><th>元のファイル</th><th>アップロード</th></tr></thead>
+    <tbody>
+      <tr><td>Finder イメージを変換</td><td>無料（標準機能）</td><td>小・中・大のみ</td><td>残る</td><td>なし</td></tr>
+      <tr><td>プレビュー サイズを調整</td><td>無料（標準機能）</td><td>ピクセルで指定</td><td>上書き</td><td>なし</td></tr>
+      <tr class="us"><td>Dropfit</td><td>Dropfit Pro 買い切り</td><td>ピクセルで指定、容量の上限も</td><td>残る</td><td>なし</td></tr>
+      <tr><td>変換サイト</td><td>多くは無料</td><td>サイトによる</td><td>-</td><td>サーバーにアップロード</td></tr>
+    </tbody>
+  </table></div>
+  <p>形式の変換とPDFの結合は無料です。切り抜きとプリセットはDropfit Proに含まれます。最初の14日間はProのすべての機能をカード登録なしで試せて、試用が終わっても無料の機能はそのまま使えます。購入から14日以内なら理由を問わず全額返金します。</p>
+  <h2>よくある質問</h2>
+  <h3>Macで画像のサイズを無料でまとめて変えられますか？</h3>
+  <p>できます。Finderで画像を選んでクイックアクション → イメージを変換を使うか、プレビューですべて選んでツール → サイズを調整で幅をピクセルで入れます。</p>
+  <h3>サイズを小さくするとファイルの容量も小さくなりますか？</h3>
+  <p>多くの場合、大きく小さくなります。サイトに容量の上限もあるなら、Dropfitで最大容量を選ぶとその容量以下で保存されます。</p>
+  <h3>縦の写真と横の写真がまざっているときは？</h3>
+  <p>幅だけを入れると、どの写真も自分の比率のままその幅になります。長い辺をそろえたいときは、縦の写真を別にまとめて高さを入れます。</p>
+  <h2>関連ガイド</h2>
+  <ul>
+    <li><a href="/ja/guide/mac-photo-size/">Macで写真の容量を小さくする方法</a></li>
+    <li><a href="/ja/guide/mac-heic-to-jpg/">MacでHEICをJPGに変換する方法</a></li>
+    <li><a href="/ja/guide/mac-webp-to-jpg/">MacでWebPをJPGに変換する方法</a></li>
+  </ul>
+  <div class="cta">
+    <p><b>Dropfit for Mac</b> · Dropfit Proの14日間無料試用（カード登録なし）</p>
+    <p class="meta">macOS 14以降 · Apple シリコン・Intel</p>
+    <a class="pill" href="https://dropfit.kr/ja/?from=j-rsz">Dropfit for Macを見る</a>
+  </div>
+  <p class="src">出典：Apple Mac ユーザガイド（Finderのクイックアクション）、Apple プレビューユーザガイド（サイズを調整）。Dropfit 1.0.3の動作。2026年11月26日確認。</p>
+</main>
+<footer>
+  <div class="wrap">
+    <a href="/ja/">Dropfit</a>
+    <nav><a href="/en/terms.html">利用規約</a> <a href="/en/refund.html">返金ポリシー</a> <a href="/en/privacy.html">プライバシーポリシー</a> <a href="/ja/tokusho.html">特定商取引法に基づく表記</a> <a href="/guide/mac-batch-resize/" hreflang="ko" lang="ko" data-ko>한국어</a></nav>
+  </div>
+</footer>
+<script>document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-ko]'))try{localStorage.setItem('dropfit-lang','ko')}catch(x){}});</script>
+</body>
+</html>
