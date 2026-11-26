@@ -87,4 +87,4 @@
 - [Macで写真の容量を小さくする方法](https://dropfit.kr/ja/guide/mac-photo-size/): まとめて・指定サイズ以下に
 - [PDF結合：サイトにアップロードせずまとめる方法](https://dropfit.kr/ja/guide/pdf-merge/): Mac・Windows、アップロードなし
 - [MacでWebPをJPGに変換する方法（フォルダごと）](https://dropfit.kr/ja/guide/mac-webp-to-jpg/): プレビュー・Finder・Dropfit、フォルダごと一括
-- [Macで画像のサイズをまとめて変更する方法](https://dropfit.kr/ja/guide/mac-batch-resize/): Finder・プレビュー・Dropfit、幅1080pxなど
+- [Macで画像のサイズを一括変更する方法](https://dropfit.kr/ja/guide/mac-batch-resize/): Finder・プレビュー・Dropfit、幅1080pxなど
