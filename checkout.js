@@ -23,6 +23,11 @@
     return !!C.discountId && !isNaN(end) && Date.now() < end;
   }
 
+  // 나라별 기념가(11/25 정훈): 정액 할인은 통화마다 따로 있다(Paddle은 할인 통화와 결제 통화가 같아야 붙음).
+  // 방문자 통화는 첫 가격 미리보기가 알려 준다. 표(discountByCurrency)에 없는 통화는 기존 정률 할인(discountId)을 쓴다.
+  var currency = '';
+  function discountFor() { return ((C.discountByCurrency || {})[currency]) || C.discountId; }
+
   function load() {
     if (loading) return loading;
     loading = new Promise(function (resolve, reject) {
@@ -52,14 +57,24 @@
   }
 
   // 정가 줄(pro-regular)은 할인 없이 한 번 더 물어본 total(부가세 포함)입니다. subtotal은 세금을 뺀 값(₩13,545)이라 쓰지 않습니다.
+  // 할인 없는 미리보기로 정가와 방문자 통화를 먼저 받고, 그 통화의 할인으로 한 번 더 묻는다.
+  function regular() {
+    return window.Paddle.PricePreview({ items: items() }).then(function (r) {
+      if (r && r.data && r.data.currencyCode) currency = r.data.currencyCode;
+      return r;
+    });
+  }
   function showPrice() {
     var on = discountOn();
-    var req = { items: items() };
-    if (on) req.discountId = C.discountId;
+    // 한국 등 표에 없는 통화는 지금처럼 두 번을 함께 묻는다. 표에 있는 통화(USD·JPY)만 그 통화 할인으로 한 번 더 묻는다.
     return Promise.all([
-      window.Paddle.PricePreview(req),
-      on ? window.Paddle.PricePreview({ items: items() }) : null
+      on ? window.Paddle.PricePreview({ items: items(), discountId: C.discountId }) : null,
+      regular()
     ]).then(function (rs) {
+      if (!on) return [rs[1], null];
+      if (discountFor() === C.discountId) return rs;
+      return window.Paddle.PricePreview({ items: items(), discountId: discountFor() }).then(function (r) { return [r, rs[1]]; });
+    }).then(function (rs) {
       var now = totalOf(rs[0]);
       if (!now) return;
       fill('pro', now);
@@ -107,12 +122,14 @@
         var plan = opts.plan || 'pro';
         if (!priceOf(plan)) return Promise.reject(new Error('[Dropfit] ' + plan + ' 가격 ID가 paddle-config.js에 없습니다.'));
         return load().then(function (P) {
+          return plan === 'pro' && discountOn() && !currency ? regular().then(function () { return P; }, function () { return P; }) : P;
+        }).then(function (P) {
           var o = {
             items: items(plan),
             customData: { from: String(opts.from || '').slice(0, 20) },
             settings: { displayMode: 'overlay', variant: 'one-page', locale: opts.locale || 'ko' }
           };
-          if (plan === 'pro' && discountOn()) o.discountId = C.discountId;
+          if (plan === 'pro' && discountOn()) o.discountId = discountFor();
           P.Checkout.open(o);
         });
       },
