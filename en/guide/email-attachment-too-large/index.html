@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Email attachment over 25 MB? How to send a design PDF to a client as an attachment</title>
+<meta name="description" content="Gmail attachments can add up to 25 MB; anything bigger becomes a Google Drive link. How to shrink design PDFs and mockups on your Mac so a client gets them as real attachments.">
+<meta name="theme-color" content="#fbfbfd">
+<link rel="canonical" href="https://dropfit.kr/en/guide/email-attachment-too-large/">
+<link rel="alternate" hreflang="ko" href="https://dropfit.kr/guide/email-attachment-too-large/">
+<link rel="alternate" hreflang="en" href="https://dropfit.kr/en/guide/email-attachment-too-large/">
+<link rel="alternate" hreflang="x-default" href="https://dropfit.kr/guide/email-attachment-too-large/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dropfit">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://dropfit.kr/en/guide/email-attachment-too-large/">
+<meta property="og:title" content="Email attachment over 25 MB? How to send a design PDF to a client as an attachment">
+<meta property="og:description" content="Over Gmail’s 25 MB limit? Shrink design PDFs and images on your Mac and send them as attachments.">
+<link rel="stylesheet" href="../../../fonts/pretendardvariable-dynamic-subset.css">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://dropfit.kr/en/guide/email-attachment-too-large/#article",
+      "headline": "Email attachment over 25 MB? How to send a design PDF to a client as an attachment",
+      "description": "Gmail attachments can add up to 25 MB; anything bigger becomes a Google Drive link. How to shrink design PDFs and mockups on your Mac so a client gets them as real attachments.",
+      "inLanguage": "en-US",
+      "datePublished": "2026-11-27",
+      "dateModified": "2026-11-27",
+      "mainEntityOfPage": "https://dropfit.kr/en/guide/email-attachment-too-large/",
+      "author": {
+        "@id": "https://dropfit.kr/#founder"
+      },
+      "publisher": {
+        "@id": "https://dropfit.kr/#org"
+      },
+      "about": {
+        "@id": "https://dropfit.kr/#app"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dropfit.kr/en/guide/email-attachment-too-large/#faq",
+      "inLanguage": "en-US",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Gmail’s 25 MB limit per file?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It’s the total of all attachments in one email. With several files, they have to add up to less than 25 MB to go as attachments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I stop Gmail from turning attachments into a Drive link?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Get the total under 25 MB. Shrink PDFs with Preview’s Quartz filter or a Dropfit PDF preset, and convert images to JPEG at a smaller size."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I send a big file from the Mail app on Mac?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Turn on Mail Drop, and large attachments go as an iCloud link. It handles up to 5 GB, and the link stays available for 30 days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Dropfit send my files to a server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Shrinking happens entirely on your Mac, and files and file names are never sent anywhere."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Dropfit",
+          "item": "https://dropfit.kr/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Dropfit Guides",
+          "item": "https://dropfit.kr/en/guide/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Email attachment over 25 MB? How to send a design PDF to a client as an attachment",
+          "item": "https://dropfit.kr/en/guide/email-attachment-too-large/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  /* 랜딩(index.html)·약관과 같은 글꼴·색·여백. 읽기 전용 한 단 문서 */
+  :root {
+    --ink: #1d1d1f;
+    --ink-2: #6e6e73;
+    --ink-3: #86868b;
+    --link: #3c608a;
+    --line: #d2d2d7;
+    --paper: #fbfbfd;
+    --soft: #f5f5f7;
+    --note: #f2f6fb;
+    --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: #fff; color: var(--ink); font-family: var(--font); font-size: 17px; line-height: 1.65; letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-wrap: break-word; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { width: min(720px, 100% - 48px); margin: 0 auto; }
+  .nav { position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, .78); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, .08); }
+  .nav .wrap { height: 48px; display: flex; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 8px; color: var(--ink); font-weight: 600; font-size: 15px; }
+  .brand:hover { text-decoration: none; }
+  .brand img { width: 22px; height: 22px; filter: drop-shadow(0 0 .5px rgba(18,28,45,.22)) drop-shadow(0 1px 1.5px rgba(18,28,45,.12)); }
+  main { padding: 56px 0 96px; }
+  .crumb { font-size: 14px; color: var(--ink-2); margin: 0 0 10px; }
+  h1 { font-size: clamp(30px, 4.2vw, 40px); line-height: 1.2; font-weight: 600; letter-spacing: -0.03em; margin: 0; }
+  .meta { color: var(--ink-2); font-size: 14px; margin: 10px 0 0; }
+  .answer { background: var(--soft); border-radius: 16px; padding: 20px 22px; margin: 28px 0 8px; }
+  .answer p { margin: 0; }
+  h2 { font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: -0.02em; margin: 52px 0 14px; }
+  p { margin: 0 0 12px; }
+  ol, ul { padding-left: 1.3em; margin: 10px 0 14px; }
+  li { margin: 6px 0; }
+  b { font-weight: 600; }
+  figure { margin: 20px 0; }
+  figure img { display: block; width: 100%; height: auto; border-radius: 12px; background: var(--soft); }
+  figure.portrait img { width: min(100%, 400px); margin: 0 auto; }
+  figure video { display: block; width: min(100%, 400px); height: auto; margin: 0 auto; border-radius: 12px; background: var(--soft); }
+  figcaption { margin-top: 8px; font-size: 13px; color: var(--ink-3); text-align: center; }
+  .table { overflow-x: auto; margin: 16px 0 8px; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 15px; line-height: 1.5; }
+  th, td { text-align: left; vertical-align: top; padding: 12px 16px 12px 0; border-bottom: 1px solid #e5e5ea; }
+  th { font-size: 13px; font-weight: 600; color: var(--ink-2); border-bottom-color: var(--line); white-space: nowrap; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  tr.us td { background: var(--note); }
+  .cta { margin-top: 56px; padding-top: 28px; border-top: 1px solid #e5e5ea; }
+  .cta p { margin: 0 0 4px; }
+  .pill { display: inline-flex; align-items: center; justify-content: center; margin-top: 16px; padding: 11px 24px; border-radius: 980px;
+    background: linear-gradient(180deg, #cce1f5, #a3c4e6); color: #3c608a; font-weight: 500; white-space: nowrap;
+    box-shadow: 0 .5px 1.2px rgba(18, 28, 45, .12), 0 4px 12px rgba(18, 28, 45, .08); transition: box-shadow .25s; }
+  .pill:hover { text-decoration: none; box-shadow: 0 .5px 1.2px rgba(18, 28, 45, .14), 0 6px 16px rgba(18, 28, 45, .11); }
+  .src { font-size: 13px; color: var(--ink-3); margin-top: 40px; }
+  .nb { white-space: nowrap; }
+  footer { background: var(--paper); color: var(--ink-3); font-size: 12px; padding: 20px 0 32px; }
+  footer .wrap { display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 16px; }
+  footer a { color: var(--ink-2); }
+  footer nav { display: flex; gap: 12px; flex-wrap: wrap; }
+  h1, h2, h3 { text-wrap: balance; }
+  p, li, td, figcaption { text-wrap: pretty; }
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Main menu">
+  <div class="wrap">
+    <a class="brand" href="/en/"><img src="/assets/icon-128.png" alt="">Dropfit</a>
+  </div>
+</nav>
+<main class="wrap">
+  <p class="crumb"><a href="/en/guide/">Dropfit Guides</a></p>
+  <h1>Email attachment over 25&nbsp;MB? <span class="nb">How to send a design PDF</span> <span class="nb">to a client as an attachment</span></h1>
+  <p class="meta">November&nbsp;2026 · macOS 14 or later</p>
+
+  <div class="answer"><p>Gmail lets you send <b>up to 25&nbsp;MB of attachments in total</b>. Go over, and it puts a Google Drive link in the email instead. If the files have to arrive as attachments, shrink the PDFs and images on your Mac until the total is under 25&nbsp;MB. Preview’s <b>Quartz filter</b> does it for free; if you need a set size for each file, an app that saves to a maximum size is faster.</p></div>
+
+  <p>It’s Friday evening. You drag the rebrand PDF and six mockup images into Gmail, and Gmail puts in a Google Drive link instead of attaching them. The client writes back: their company blocks outside Drive links, so could you attach the files instead? Re-exporting means opening the design app and redoing the settings file by file.</p>
+  <p>Designers who deliver concepts and proposals by email, and marketers who send press kits with images, run into this all the time. A compression site is the obvious search result, but an unreleased concept on a server you don’t know is its own worry. On a Mac you can shrink the files without uploading them.</p>
+
+  <h2>First: 25 MB is the total of all attachments</h2>
+  <ul>
+    <li>Gmail’s 25&nbsp;MB covers every attachment in one email, not each file. A 15&nbsp;MB PDF plus six 2&nbsp;MB images is 27&nbsp;MB, which is over.</li>
+    <li>Select the files in Finder and press Control-Command-I. The Summary Info window shows the total size.</li>
+    <li>Leave some room under 25&nbsp;MB rather than aiming right at it, so the email doesn’t bounce back to a link.</li>
+  </ul>
+  <figure>
+    <img src="/assets/guide/mail-25mb-en.jpg" width="1200" height="520" loading="lazy" alt="A 42.1 MB scanned PDF goes over Gmail’s 25 MB limit and becomes a Drive link; set to 10 MB, it becomes 7.1 MB and goes as an attachment">
+    <figcaption>My test: a noisy 8-page scanned PDF, <span class="nb">set to 10&nbsp;MB.</span></figcaption>
+  </figure>
+
+  <h2>1. Shrink the PDF (Preview Quartz filter, free)</h2>
+  <ol>
+    <li>Open the PDF in Preview.</li>
+    <li>Choose File → Export and set Quartz Filter to Reduce File Size.</li>
+    <li>Save it under a new name, then open it and check the size and the images.</li>
+  </ol>
+  <p>You can’t pick a target size, and photos in the PDF can come out too blurry to show a client. An already compressed PDF can even get bigger, so always check the result.</p>
+
+  <h2>2. Shrink the mockups (Finder Quick Actions, free)</h2>
+  <ol>
+    <li>Select the images in Finder.</li>
+    <li>Control-click and choose Quick Actions → Convert Image.</li>
+    <li>Set Format to JPEG and Image Size to Medium or Large, then convert.</li>
+  </ol>
+  <p>New files appear next to the originals. You choose a size, not a file size, so you only see how many MB you got after converting.</p>
+
+  <h2>3. Set a size for each file once: Dropfit for Mac</h2>
+  <p>I built Dropfit for Mac. Instead of choosing settings every time you send, you set an email size once and just drag files onto it.</p>
+  <ol>
+    <li>Control-click the circle on your desktop, open Settings, and set a maximum size on a PDF preset (for example, 15&nbsp;MB) and on a JPG preset (for example, 1&nbsp;MB). You only do this once.</li>
+    <li>Drop the design PDF on the PDF preset and the mockups on the JPG preset.</li>
+    <li>Files under the size you set are saved next to the originals. The originals stay as they are.</li>
+  </ol>
+  <p>In a PDF with selectable text, the text stays as it is and only the images inside are recompressed. If a file can’t reach the size you set, Dropfit keeps the smallest version and tells you its size. Nothing is uploaded.</p>
+  <p>To send several images as one PDF, drop them together on PDF on the circle. Merging is free.</p>
+  <figure>
+    <video src="/assets/guide/pdf-merge-en.mp4" poster="/assets/guide/pdf-merge-en.jpg" width="720" height="900" autoplay muted loop playsinline preload="metadata" aria-label="Two photos dropped onto PDF on the Dropfit circle become one PDF"></video>
+    <figcaption>Drop two photos onto PDF, <span class="nb">and one file appears.</span></figcaption>
+  </figure>
+  <p>Converting and merging PDFs are free; presets with a maximum size are a Dropfit Pro feature. Try every Pro feature free for 14 days with no card, and the free features keep working after the trial.</p>
+
+  <h2>If the file shouldn’t be shrunk</h2>
+  <p>Print-ready originals shouldn’t lose quality, so send them as a link instead. In the Mail app on your Mac, Mail Drop sends up to 5&nbsp;GB as an iCloud link that stays available for 30 days. Attach a small review PDF and add the original as a link, and the client gets both.</p>
+
+  <h2>FAQ</h2>
+  <h3>Is Gmail’s 25 MB limit per file?</h3>
+  <p>No. It’s the total of all attachments in one email. With several files, they have to add up to less than 25 MB to go as attachments.</p>
+  <h3>How do I stop Gmail from turning attachments into a Drive link?</h3>
+  <p>Get the total under 25 MB. Shrink PDFs with Preview’s Quartz filter or a Dropfit PDF preset, and convert images to JPEG at a smaller size.</p>
+  <h3>How do I send a big file from the Mail app on Mac?</h3>
+  <p>Turn on Mail Drop, and large attachments go as an iCloud link. It handles up to 5 GB, and the link stays available for 30 days.</p>
+  <h3>Does Dropfit send my files to a server?</h3>
+  <p>No. Shrinking happens entirely on your Mac, and files and file names are never sent anywhere.</p>
+
+  <h2>Related guides</h2>
+  <ul>
+    <li><a href="/en/guide/mac-pdf-size/">How to reduce PDF file size on Mac (to 10&nbsp;MB or 5&nbsp;MB)</a></li>
+    <li><a href="/en/guide/pdf-merge/">How to merge PDFs without uploading them</a></li>
+    <li><a href="/en/guide/mac-convert-without-upload/">Uploading client files to an online converter?</a></li>
+  </ul>
+
+  <div class="cta">
+    <p><b>Dropfit for Mac</b> · 14-day Dropfit Pro trial, no card</p>
+    <p class="meta">macOS 14 or later · Apple Silicon and Intel</p>
+    <a class="pill" href="https://dropfit.kr/en/?from=e-mail25">See Dropfit for Mac</a>
+  </div>
+
+  <p class="src">Sources: Gmail Help (attach files), Mail User Guide for Mac (Mail Drop), Preview User Guide (Quartz filters), Mac User Guide (Finder Quick Actions). Dropfit test results measured with the app 1.0 engine (2026-11-19); behavior as of version 1.0.3. Checked 2026-11-27.</p>
+</main>
+<footer>
+  <div class="wrap">
+    <a href="/en/">Dropfit</a>
+    <nav><a href="/en/terms.html">Terms</a> <a href="/en/refund.html">Refund Policy</a> <a href="/en/privacy.html">Privacy Policy</a> <a href="/guide/email-attachment-too-large/" hreflang="ko" data-ko>Korean</a> <a href="/ja/guide/" hreflang="ja" lang="ja" data-ja>日本語</a></nav>
+  </div>
+</footer>
+<script>document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('[data-ko]'))try{localStorage.setItem('dropfit-lang','ko')}catch(x){}});</script>
+</body>
+</html>
